@@ -551,6 +551,28 @@ body.pc .header:hover .header__inner, .sub .header .header__inner {
   color: transparent;
 }
 
+.mobile-gnb-close { position: absolute;top: -64px;right: 15px;width: 50px; height: 48px; background-color: red;
+  padding: 25px 0 0 0;
+  width: 50px;
+  height: 48px;
+  background-image: url("../images/common/ico_close2.png");
+  background-position: top 5px center;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  text-indent: 1px;
+  transition: 0.25s ease;
+  font-size: 13px;
+  font-weight: 400;
+}  
+
+
+.mobile-btn.close span {
+  color: transparent;
+}
+
+
+
 .mobile-btn-box {
   display: none;
   position: absolute;
