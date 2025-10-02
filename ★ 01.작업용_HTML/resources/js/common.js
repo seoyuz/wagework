@@ -13,20 +13,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const mobileGnbBtn = document.querySelector('.mobile-btn');
+     const mobileGnbBtn = document.querySelector('.mobile-btn');
     const mobileGnb = document.querySelector('.mobile-gnb-wrap');
+    let mobileGnbCloseBtn = null;
+
     mobileGnbBtn.addEventListener('click', function() {
-		mobileGnbReset();
+        mobileGnbReset();
         if(mobileGnb.classList.contains('active')){
-            mobileGnb.classList.remove('active')
-            mobileGnbBtn.classList.remove('close');
-            mobileGnbBtn.querySelector('span').innerText = '전체메뉴'
+            mobileGnb.classList.remove('active');
+            mobileGnbBtn.querySelector('span').innerText = '전체메뉴';
+            mobileGnbBtn.classList.remove('on'); // 닫힐 때 on 클래스 제거
+            removeMobileGnbFocusTrap();
+            if (mobileGnbCloseBtn) {
+                mobileGnbCloseBtn.remove();
+                mobileGnbCloseBtn = null;
+            }
         } else{
-            mobileGnb.classList.add('active')
-            mobileGnbBtn.classList.add('close');
-            mobileGnbBtn.querySelector('span').innerText = '메뉴닫기'
+            mobileGnb.classList.add('active');
+            mobileGnbBtn.querySelector('span').innerText = '메뉴닫기';
+            mobileGnbBtn.classList.add('on'); // 열릴 때 on 클래스 추가
+            mobileGnbCloseBtn = document.createElement('button');
+            mobileGnbCloseBtn.type = 'button';
+            mobileGnbCloseBtn.className = 'mobile-gnb-close';
+            mobileGnbCloseBtn.innerText = '메뉴 닫기';
+            mobileGnbCloseBtn.setAttribute('aria-label', '메뉴 닫기');
+            mobileGnbCloseBtn.addEventListener('click', function() {
+                mobileGnb.classList.remove('active');
+                mobileGnbBtn.querySelector('span').innerText = '전체메뉴';
+                mobileGnbBtn.classList.remove('on'); // 닫힐 때 on 클래스 제거
+                removeMobileGnbFocusTrap();
+                mobileGnbCloseBtn.remove();
+                mobileGnbCloseBtn = null;
+                mobileGnbBtn.focus();
+            });
+            mobileGnb.appendChild(mobileGnbCloseBtn);
+            setMobileGnbFocusTrap();
         }
     });
+
+    // 모바일 전체메뉴 웹접근성 개선: 포커스 트랩 및 첫 포커스 이동
+    function setMobileGnbFocusTrap() {
+        const focusableSelectors = 'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        setTimeout(() => {
+            const focusableElements = Array.from(mobileGnb.querySelectorAll(focusableSelectors))
+                .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+
+            if (focusableElements.length === 0) return;
+
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            function trapFocus(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            }
+
+            // 기존 이벤트 제거 후 재등록(중복 방지)
+            if (mobileGnb._trapFocusHandler) {
+                mobileGnb.removeEventListener('keydown', mobileGnb._trapFocusHandler);
+            }
+            mobileGnb.addEventListener('keydown', trapFocus);
+            mobileGnb._trapFocusHandler = trapFocus;
+
+            // 첫번째 포커스 요소로 이동 (닫기버튼이 아닌 메뉴 첫 요소)
+            firstFocusable.focus();
+        }, 200); // 닫기버튼 DOM 추가 후 확실히 실행
+    }
+
+    // 포커스 트랩 해제
+    function removeMobileGnbFocusTrap() {
+        if (mobileGnb._trapFocusHandler) {
+            mobileGnb.removeEventListener('keydown', mobileGnb._trapFocusHandler);
+            mobileGnb._trapFocusHandler = null;
+        }
+    }
 
 
     const footerSlide = new Swiper(document.querySelector('.footer .swiper-container'), {

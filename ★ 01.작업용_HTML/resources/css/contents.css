@@ -4994,7 +4994,7 @@ ul.basic.job-list li a:hover {
 .job-dictionary-wrap .modal-cont-wrap .img img {
   width: auto;
   max-width:100%;/* 250318 (ej) */
-  object-fit: unsset;/* 250328 (ej) */
+  object-fit: unset;/* 250328 (ej) */
   height:auto;/* 250328 (ej) */
 
 }
