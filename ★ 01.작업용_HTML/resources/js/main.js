@@ -114,10 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
             	setTimeout(() => {
 					cardnewsSwiperReset();
 				}, 1000);
+                btnFocusReset(this); // 251001 품질개선 (yz)
             },
             activeIndexChange: function () {
                 cardnewsSwiperReset();
-            }
+                btnFocusReset(this); // 251001 품질개선 (yz)
+            },
         },
         breakpoints: {
             390: {
@@ -168,16 +170,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 251001 품질개선 (yz)
-    // 메인화면 진입시 스와이퍼 버튼에 swiper-button-disabled 클래스 제거
-    // disabled 속성 제거
-    // aria-disabled 속성 false로 변경
-    // tabindex 속성 0으로 변경
-
+    // 스와이퍼 버튼에 대한 포커스 관리
     // 진입 시 버튼 상태 리셋 -> if문으로 체크하는 방식으로 변경
-    const cardnewsPrevBtn = document.querySelector('.cardnews-swiper-wrap .swiper-prev');
-    const cardnewsNextBtn = document.querySelector('.cardnews-swiper-wrap .swiper-next');
-    
-    
+    function btnFocusReset(swiper){
+        const prevBtn = swiper.navigation.prevEl;
+        const nextBtn = swiper.navigation.nextEl;
+
+        [prevBtn, nextBtn].forEach(btn => {
+            btn.removeAttribute('disabled');
+            btn.removeAttribute('tabindex');
+        });
+
+        const currentIndex = swiper.activeIndex;
+        const lastIndex = swiper.slides.length - swiper.params.slidesPerView;
+
+        if (currentIndex === 0) {
+            prevBtn.setAttribute('disabled', 'true');
+            nextBtn.setAttribute('aria-disabled', 'false');
+        } else if (currentIndex === lastIndex) {
+            prevBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.setAttribute('disabled', 'true');
+        } else {
+            prevBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.setAttribute('aria-disabled', 'false');
+        }
+    }
 
 
     // 관련사이트
