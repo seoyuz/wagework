@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
             	setTimeout(() => {
 					cardnewsSwiperReset();
 				}, 1000);
-                btnFocusReset(this); // 251001 품질개선 (yz)
+                btnFocusReset(this); /* 251013 웹 접근성 품질개선 - 슬라이드 포커스 수정 (yz) */
             },
             activeIndexChange: function () {
                 cardnewsSwiperReset();
-                btnFocusReset(this); // 251001 품질개선 (yz)
+                btnFocusReset(this); /* 251013 웹 접근성 품질개선 - 슬라이드 포커스 수정 (yz) */
             },
         },
         breakpoints: {
@@ -169,9 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 251001 품질개선 (yz)
-    // 스와이퍼 버튼에 대한 포커스 관리
-    // 진입 시 버튼 상태 리셋 -> if문으로 체크하는 방식으로 변경
+    /* 251013 웹 접근성 품질개선 - 슬라이드 포커스 수정 (yz) */
     function btnFocusReset(swiper){
         const prevBtn = swiper.navigation.prevEl;
         const nextBtn = swiper.navigation.nextEl;
@@ -187,14 +185,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex === 0) {
             prevBtn.setAttribute('disabled', 'true');
             nextBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.classList.remove('swiper-button-disabled');
         } else if (currentIndex === lastIndex) {
             prevBtn.setAttribute('aria-disabled', 'false');
+            prevBtn.classList.remove('swiper-button-disabled');
             nextBtn.setAttribute('disabled', 'true');
         } else {
             prevBtn.setAttribute('aria-disabled', 'false');
+            prevBtn.classList.remove('swiper-button-disabled');
             nextBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.classList.remove('swiper-button-disabled');
         }
     }
+    /* // 251013 웹 접근성 품질개선 - 슬라이드 포커스 수정 (yz) */
 
 
     // 관련사이트
