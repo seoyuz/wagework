@@ -114,10 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
             	setTimeout(() => {
 					cardnewsSwiperReset();
 				}, 1000);
+                btnFocusReset(this); // 251001 품질개선 (yz)
             },
             activeIndexChange: function () {
                 cardnewsSwiperReset();
-            }
+                btnFocusReset(this); // 251001 품질개선 (yz)
+            },
         },
         breakpoints: {
             390: {
@@ -167,53 +169,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 이벤트
-    const eventSlide = new Swiper(document.querySelector('.event .swiper-container'), {
-        loop: false,
-        slidesPerView: 2.2,
-        spaceBetween: 20,
-        navigation : {
-            prevEl: '.event .swiper--prev',
-            nextEl: '.event .swiper--next',
-        },
-        pagination: {
-            el: ".event .swiper--pagination",
-            type: "fraction",
-        },
-        watchSlidesProgress: true, //현재 보이는 슬라이드
-        on: {
-            init: function() {
-                eventTabindex();
-            },
-            activeIndexChange: function () {
-                eventTabindex();
-            }
-        },
-        breakpoints: {
-            390: {
-              slidesPerView: 2.2,
-              spaceBetween: 18
-            },
-            768: {
-              slidesPerView: 2.2,
-              spaceBetween: 18
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 20
-            },
+    // 251001 품질개선 (yz)
+    // 스와이퍼 버튼에 대한 포커스 관리
+    // 진입 시 버튼 상태 리셋 -> if문으로 체크하는 방식으로 변경
+    function btnFocusReset(swiper){
+        const prevBtn = swiper.navigation.prevEl;
+        const nextBtn = swiper.navigation.nextEl;
+
+        [prevBtn, nextBtn].forEach(btn => {
+            btn.removeAttribute('disabled');
+            btn.removeAttribute('tabindex');
+        });
+
+        const currentIndex = swiper.activeIndex;
+        const lastIndex = swiper.slides.length - swiper.params.slidesPerView;
+
+        if (currentIndex === 0) {
+            prevBtn.setAttribute('disabled', 'true');
+            nextBtn.setAttribute('aria-disabled', 'false');
+        } else if (currentIndex === lastIndex) {
+            prevBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.setAttribute('disabled', 'true');
+        } else {
+            prevBtn.setAttribute('aria-disabled', 'false');
+            nextBtn.setAttribute('aria-disabled', 'false');
         }
-    });
-    // 웹접근성
-    function eventTabindex() {
-        // 모든 슬라이드의 링크에서 tabindex를 -1로 초기화
-        document.querySelectorAll(".event-swiper .swiper-slide a").forEach(link => {
-            link.setAttribute('tabindex', '-1');
-        });
-        // document.querySelector(".event-swiper .swiper-slide-active a").setAttribute('tabindex', '0');
-        document.querySelectorAll(".event-swiper .swiper-slide-visible a").forEach(link => {
-            link.setAttribute('tabindex', '0');
-        });
     }
 
 
