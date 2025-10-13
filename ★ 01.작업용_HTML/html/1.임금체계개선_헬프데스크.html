@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>맞춤형 임금정보 | 임금직업포털-워크피디아</title>
+		<title>임금체계 개선 헬프데스크 | 임금직업포털-워크피디아</title>
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		
@@ -51,38 +51,15 @@
 <script type="text/javascript">
 
     /* Document Ready Function */
-    // 251010 아코디언 버튼 title 속성 동적 변경 (열림/닫힘) 및 초기화 (ej)
-	$(document).ready(function() {
-		// 페이지 로드 시 상태에 따라 title 초기화
-		$('.accordion-btn').each(function() {
-			var $btn = $(this);
-			var $accordion = $btn.closest('.accordion');
-			if ($accordion.hasClass('active')) {	
-				$btn.attr('title', '조건 열림');
-			} else {
-				$btn.attr('title', '조건 닫힘');
-			}
-		});
+    $(document).ready(function() {
 
-		// 클릭 시 상태에 따라 title 변경
-		$(document).on('click', '.accordion-btn', function() {
-			var $btn = $(this);
-			var $accordion = $btn.closest('.accordion');
-			setTimeout(function() {
-				if ($accordion.hasClass('active')) {
-					$btn.attr('title', '조건 열림');
-				} else {
-					$btn.attr('title', '조건 닫힘');
-				}
-			}, 10);
-		});
-	});
+    });
 
 
     const gfn_click_menu = (topPageId, pageId, url) => {
         if (!Check.empty(url)) {
             if (Check.empty(topPageId)) {
-                topPageId = "PT07000000";
+                topPageId = "PT11000000";
             }
 
             // Intz.
@@ -5721,44 +5698,44 @@
 							
 								
 									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
 										<a href="javascript:void(0);" class="bread-depth1">
-											임금정보
+											임금체계 개선
 										</a>
 										
-									
-								
-							
-								
-							
-								
-							
-								
-							
-								
-									
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
 									
 								
 							
@@ -6792,18 +6769,18 @@
 							
 								
 									
+								
+							
+								
+									
+								
+							
+								
+									
 										
 										<a href="javascript:void(0);" class="bread-depth1">
-											맞춤형 임금정보
+											임금체계 개선 헬프데스크
 										</a>
-									
-								
-							
-								
-									
-								
-							
-								
 									
 								
 							
@@ -6824,8 +6801,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
-													맞춤형 임금정보
+												<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
+													임금체계 개선 소개
 												</a>
 											</li>
 										
@@ -6846,8 +6823,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')">
-													직급별 임금정보
+												<a href="javascript:gfn_click_menu('PT11000000', 'PT11020000', '/pt/f/b/retrieveWgsyImprElrn.do')">
+													임금체계 개선 이러닝
 												</a>
 											</li>
 										
@@ -6868,8 +6845,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT07000000', 'PT07030000', '/pt/c/b/retrieveWageSytmStcs.do')">
-													임금체계 통계
+												<a href="javascript:gfn_click_menu('PT11000000', 'PT11030000', '/pt/f/c/retrieveWgsyImprInqrAgreForm.do')">
+													임금체계 개선 헬프데스크
 												</a>
 											</li>
 										
@@ -6898,19 +6875,19 @@
 						
 						
 						
+						
+						
+						
+						
+						
 							
-						
-						
-						
-						
-						
 						
 					
 
-					<div class="sub-visual wage-information">
+					<div class="sub-visual wage-improve">
 						<div class="inner">
 							<div class="txt-box">
-								<p class="sub-title">맞춤형 임금정보</p>
+								<p class="sub-title">임금체계 개선 헬프데스크</p>
 								<p class="sub-title-text" id="menu_dc_cn_data">
 								</p>
 								<script type="text/javascript">
@@ -6945,1061 +6922,379 @@
 
 
 
+<script type="text/javascript" src="/lib/cryptoJS-3.1.2/rollups/aes-11c5114e2a1face42de239b2b17943fb.js"></script>
+<script type="text/javascript" src="/lib/cryptoJS-3.1.2/rollups/pbkdf2-75fb20feda623642a970b883e9978ba2.js"></script>
+<script type="text/javascript" src="/resources/js/util/passwd-1d8e40b7e8d42738ccc12d15e4440e7e.js"></script>
+
 <script type="text/javascript">
 
-	/* 검색조건 */
-	let initEntrSclCd 	 	= ""
-	let initStdIndLrclCd 	= ""
-	let initStdIndMlsfCd 	= ""
-	let initOccpLrclCd	 	= ""
-	let initOccpMlsfCd 	 	= ""
-	let initOccpSclaCd 	 	= ""
-	let initAccrSecd	 	= ""
-	let initAgeSecd		 	= ""
-	let initSxdsSecd	 	= ""
-	let initCnwkPrdCd	 	= ""
-	let initCycCd	 	 	= ""
-	let initUseYn		 	= ""
-	let gubunUseYn		 	= ""
-	let initEntrSclCdAll 	= ""
-	let initStdIndLrclCdAll = ""
-	let initOccpLrclCdAll 	= ""
-	let initAccrSecdAll 	= ""
-	let initAgeSecdAll 		= ""
-	let initSxdsSecdAll 	= ""
-	let initCnwkPrdCdAll 	= ""
-	let initCycCdAll 		= ""
+	/* Gloval Variable */
 
 	/* Document Ready Function */
 	$(document).ready(function() {
 
-		$("#stdIndMlsfCd").hide();
-		$("#occpMlsfCd").hide();
-		$("#occpSclaCd").hide();
 
-		$('#stdIndLrclCd').on('change', function(){
-			const selectedValue = $(this).val();
-
-			if(!selectedValue){
-				$("#stdIndMlsfCd").hide();
-			}else{
-				fn_stdIndLrclCd("O",2,selectedValue);
-			}
-		});
-
-		$('#occpLrclCd').on('change', function(){
-			const selectedValue = $(this).val();
-
-			if(!selectedValue){
-				$("#occpMlsfCd").hide();
-				$("#occpSclaCd").hide();
-			}else{
-				fn_stdIndLrclCd("I",2,selectedValue);
-				$("#occpSclaCd").hide();
-			}
-		});
-
-		$('#occpMlsfCd').on('change', function(){
-			const selectedValue = $(this).val();
-
-			if(!selectedValue){
-				$("#occpSclaCd").hide();
-			}else if(!selectedValue.startsWith('1')){
-				fn_stdIndLrclCd("I",3,selectedValue);
-			}
-		});
-
-		let maxLength = 10;
-
-		$("#searchKeyword").on("input", function (){
-			let value = $(this).val();
-
-			value = value.replace(/[^0-9]/g, "");
-
-			if (value.length > maxLength) {
-				$(this).val(value.substring(0, maxLength));
-			}
-			$(this).val(value);
-		});
-
-		$("#searchKeyword").on("keydown", function (e) {
-			let key = e.key;
-			if(!/^[0-9]$/.test(key) && key !== "Backspace" && key !== "Delete"){
-				e.preventDefault();
-			}
-			if($(this).val().length >= maxLength && key !== "Backspace" && key !== "Delete"){
-				e.preventDefault();
-			}
-		});
-
-		if(gubunUseYn == "Y"){
-			if(initUseYn == "Y"){
-				$("#addInfoYn").prop("checked", true);
-			} else if(initUseYn == "N"){
-				$("#addInfoYn").prop("checked", false);
-			}
-		}else {
-				$("#addInfoYn").prop("checked", true);
-		}
-
-		if(initEntrSclCd){
-			setTimeout(() => {
-				$(".accordion-btn").eq(0).get(0)?.click();
-				$("input[name='entrSclCd'][value='" + initEntrSclCd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initStdIndLrclCd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(1).get(0)?.click();
-				setTimeout(() => {
-					if(!initStdIndMlsfCd){
-						fnSend(initStdIndLrclCd, "#", 1);
-					}else if(initStdIndMlsfCd){
-						fnSend(initStdIndMlsfCd, initStdIndLrclCd, 2);
-					}
-				}, 1);
-			}, 1);
-		}
-		if(initOccpLrclCd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(2).get(0)?.click();
-				setTimeout(() => {
-					if(!initOccpMlsfCd && !initOccpSclaCd){
-						fn_selectAllList(initOccpLrclCd, "#", 1);
-					}else if(initOccpMlsfCd && !initOccpSclaCd){
-						fn_selectAllList(initOccpMlsfCd, initOccpLrclCd, 2);
-					}else if(initOccpSclaCd){
-						fn_selectAllList(initOccpSclaCd, initOccpMlsfCd, 3);
-					}
-				}, 1);
-			}, 1);
-		}
-		if(initAccrSecd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(3).get(0)?.click();
-				$("input[name='accrSecd'][value='" + initAccrSecd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initAgeSecd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(4).get(0)?.click();
-				$("input[name='ageSecd'][value='" + initAgeSecd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initSxdsSecd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(5).get(0)?.click();
-				$("input[name='sxdsSecd'][value='" + initSxdsSecd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initCnwkPrdCd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(6).get(0)?.click();
-				$("input[name='cnwkPrdCd'][value='" + initCnwkPrdCd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initCycCd){
-	 		setTimeout(() => {
-				$(".accordion-btn").eq(7).get(0)?.click();
-				$("input[name='cycCd'][value='" + initCycCd + "']").prop("checked", true).trigger("change");
-			}, 1);
-		}
-		if(initEntrSclCdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(0).get(0)?.click();
-			}, 1);
-		}
-		if(initStdIndLrclCdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(1).get(0)?.click();
-			}, 1);
-		}
-		if(initOccpLrclCdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(2).get(0)?.click();
-			}, 1);
-		}
-		if(initAccrSecdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(3).get(0)?.click();
-			}, 1);
-		}
-		if(initAgeSecdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(4).get(0)?.click();
-			}, 1);
-		}
-		if(initSxdsSecdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(5).get(0)?.click();
-			}, 1);
-		}
-		if(initCnwkPrdCdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(6).get(0)?.click();
-			}, 1);
-		}
-		if(initCycCdAll == "Y"){
-			setTimeout(() => {
-				$(".accordion-btn").eq(7).get(0)?.click();
-			}, 1);
-		}
-
+		// 임금체계 개선 등록 폼 설정
+		setWgsyImprInqrRgstForm();
 
 	});
 
-	const fn_serchCondition = (cType) => {
 
-		if(cType == 1){
-			CmmnCd.makeCmmnCdRadio($("#entrSclCdListSelect"), "entrSclCd", "WAG_BSCA", "WAG_BSCA","","input--rdo", "", "Y"); //사업체 규모별
-		}else if(cType == 2){
-			CmmnCd.makeCmmnCdRadio($("#accrSecdListSelect"), "accrSecd", "WAG_ACCR", "WAG_ACCR","","input--rdo", "", "Y"); //학력별
-		}else if(cType == 3){
-			CmmnCd.makeCmmnCdRadio($("#ageSecdListSelect"), "ageSecd", "WAG_BYAG", "WAG_BYAG","","input--rdo", "", "Y"); //연령별
-		}else if(cType == 4){
-			CmmnCd.makeCmmnCdRadio($("#sxdsSecdListSelect"), "sxdsSecd", "WAG_SXDS", "WAG_SXDS","","input--rdo", "", "Y"); //성별
-		}else if(cType == 5){
-			CmmnCd.makeCmmnCdRadio($("#cnwkPrdCdListSelect"), "cnwkPrdCd", "WAG_CWYR", "WAG_CWYR","","input--rdo", "", "Y"); //근속년수별
-		}else if(cType == 6){
-			CmmnCd.makeCmmnCdRadio($("#cycCdListSelect"), "cycCd", "WAG_BCYC", "WAG_BCYC","","input--rdo", "", "Y"); //경력년수별
-		}
+	/*  임금체계 개선 등록 폼 설정 */
+	const setWgsyImprInqrRgstForm = () => {
+		$.blockUI();
 
+		// 등록 폼
+		let htmlOutput = $.templates("#wgsyImprInqrDtalFormData_tmpl").render();
+		$("#wgsyImprInqrDtalData").html(htmlOutput);
+
+		// 답변 받을 메일주소
+		CmmnCd.makeCmmnCdOption($("#selWrtrEmad"), "EMAD_CD", "EMAD_CD", "", true, "선택");
+
+		// 업종구분코드 조회
+		getTyinSecdList();
 	};
 
-	const fnSend = (occpClCd,upprCdId,strfLvlSn) => {
 
-		if(strfLvlSn == 1){
-			$("#srchStdIndLrclCd").val('');
-			$("#stdIndLrclCd").val(occpClCd).trigger("change");
-		}else if(strfLvlSn == 2){
-			$("#srchStdIndLrclCd").val(occpClCd);
-			$("#stdIndLrclCd").val(upprCdId).trigger("change");
-		}
+	/* 이메일 도메인 변경시 */
+	const chngSelEmad = (el) => {
+		const objEmad2 = document.getElementById("wrtrEmad2");
 
-		var popup = $('#cstmWageIndPop').closest('.modal-wrap');
-        popup.removeClass('open').fadeOut().attr("tabindex", "-1");
-	};
+		let selIdx = el.selectedIndex;
+		if (el.options[selIdx].value === "1099") {
+			objEmad2.readOnly = false;
+			objEmad2.value = "";
+		} else {
+			objEmad2.readOnly = true;
 
-	const fn_stdIndLrclCd = async (pViewFlag,pStrfLvlSn,pOccpClCd) => {
-
-		$("#pViewFlag").val(pViewFlag);
-		$("#pStrfLvlSn").val(pStrfLvlSn);
-		$("#pOccpClCd").val(pOccpClCd);
-
-		await srchCatgSrchList();
-	};
-
-	const srchCatgSrchList = async () => {
-		let url = "";
-		let viewFlag = $("#pViewFlag").val();
-
-		if(viewFlag == "O"){
-			//표준직업분류
-			url ="/pt/a/d/retrieveCatgSrchStdIndListData.do"
-		} else if(viewFlag == "I"){
-			//표준산업분류(I)
-			url ="/pt/a/d/retrieveCatgSrchStdOccpListData.do"
-		}
-
-		let param = {
-				strfLvlSn: $("#pStrfLvlSn").val()
-			  , upprCdId: $("#pOccpClCd").val()
-			  , viewFlag: $("#pViewFlag").val()
-		}
-
-		const objFrm = $("#cstmWageForm");
-		objFrm.attr("method", "post");
-		Submit.ajax(objFrm, param, catgSrchCallBack, "json", url, '', false);
-	}
-
-	const catgSrchCallBack = (_result) =>{
-
-		if (_result.success) {
-			let resultList = _result.data.resultList;
-			resultList.unshift({occpClCd:"", occpCfnm:"전체"})
-
-			let depth = $("#pStrfLvlSn").val();
-			let viewFlag = $("#pViewFlag").val();
-
-			if(depth == 1) {
-				//직업분류 1차
-				let template = $.templates("#depth_tmpl");
-				if(viewFlag == "O"){
-					const stdFilterResultList = resultList.filter(item => !/^T|U/.test(item.occpClCd) && item.occpClCd !== "A" && item.occpClCd !== "O");
-					let htmlOutput = template.render(stdFilterResultList);
-					$("#stdIndLrclCd").html(htmlOutput);
-					$("#stdIndMlsfCd").hide();
-				}else if(viewFlag == "I"){
-					const occpFilterResultList = resultList.filter(item => !/^A/.test(item.occpClCd) && item.occpClCd !== "6");
-					let htmlOutput2 = template.render(occpFilterResultList);
-					$("#occpLrclCd").html(htmlOutput2);
-					$("#occpMlsfCd").hide();
-					$("#occpSclaCd").hide();
-				}
-			}
-			if(depth == 2){
-				//직업분류 2차
-				let template = $.templates("#depth_tmpl");
-				if(viewFlag == "O"){
-					let htmlOutput3 = template.render(resultList);
-					$("#stdIndMlsfCd").html(htmlOutput3);
-					$("#stdIndMlsfCd").show();
-					const srchStdIndLrclCd = $("#srchStdIndLrclCd").val();
-					if(srchStdIndLrclCd){
-						$("#stdIndMlsfCd").val(srchStdIndLrclCd);
-					}else if(initStdIndLrclCd){
-						$("#stdIndMlsfCd").val(initStdIndMlsfCd);
-					}
-				}else if(viewFlag == "I"){
-					$("#occpSclaCd").val('');
-					let htmlOutput4 = template.render(resultList);
-					$("#occpMlsfCd").html(htmlOutput4);
-					$("#occpMlsfCd").show();
-				}
-			}
-			if(depth == 3){
-				//직업분류 3차
-				let template = $.templates("#depth_tmpl");
-				let htmlOutput5 = template.render(resultList);
-				$("#occpSclaCd").html(htmlOutput5);
-				$("#occpSclaCd").show();
+			if (el.options[selIdx].value != "") {
+				objEmad2.value = el.options[selIdx].text;
+			} else {
+				objEmad2.value = "";
 			}
 		}
-	}
-
-	const popOpen = (pType) => {
-
-		if(pType == "I"){
-			// 표준산업분류 팝업
-			initCstmWageIndPop();
-		} else if (pType == "S"){
-			// 표준직업분류 팝업
-			initCstmWageOccpPop();
-		}
 	};
+
+	/* 업종구분코드 조회 */
+	const getTyinSecdList = () => {
+		const objFrm = $("#wgsyImprInqrForm");
+		objFrm.method = "post";
+		Submit.ajax(objFrm, null, (_result) => {
+			if (_result.success) {
+				let tyinSecdList = _result.data;
+
+				let lCmmnData = {
+					  iptName: "tyinSecd"
+					, title: "업종구분 선택"
+					, addClass: "inp w100"
+					, optionNm: "선택"
+					, list: tyinSecdList
+				};
+
+				let template = $.templates("#util_cmmn_cd_select_tmpl");
+				let htmlOutput = template.render(lCmmnData);
+				$("#tdTyinSecdSelect").html(htmlOutput);
+			}
+		}, "json", "/pt/f/c/retrieveTyinSecdListData.do");
+	};
+
 
 	/* Validation */
 	const validation = () => {
+		let sjnm = document.getElementById("sjnm");
+		let wrtrPnm = document.getElementById("wrtrPnm");
+		let wrtrEmad1 = document.getElementById("wrtrEmad1");
+		let wrtrEmad2 = document.getElementById("wrtrEmad2");
+		let selWrtrEmad = document.getElementById("selWrtrEmad");
+		let tyinSecd = document.getElementById("tyinSecd");
+		let inqrCn = document.getElementById("inqrCn");
 
-		const radioChk = $('.accordion.active').filter((_, el) => {
-							let chkVal = $(el).find("input[type='radio']:checked, select");
-							return chkVal.length > 0 && chkVal.val();
-						}).length;
 
-		const selectChk = !$('div.accordion.active select').val();
-
-		if($('#srchCu').val() == 0){
-			alert("검색조건을 선택해주세요.");
+		// 문의 제목
+		if (Check.trimJsEmpty(sjnm, "문의 제목은 필수 입력 사항입니다.")) {
 			return false;
 		}
 
-		if(radioChk == 0 && selectChk){
-			alert("검색조건에 맞는 임금정보가 없습니다.\n검색조건을 보다 상세히 선택하거나, 다른 조건으로 검색하시기 바랍니다.");
+		// 작성자
+		if (Check.trimJsEmpty(wrtrPnm, "작성자는 필수 입력 사항입니다.")) {
 			return false;
 		}
 
-		if($('#srchCu').val() >= 4){
-			alert("검색조건은 3개까지 선택이 가능합니다.");
+		// 업종 구분
+		if (Check.trimJsEmpty(tyinSecd, "업종 구분은 필수 선택 사항입니다.")) {
 			return false;
 		}
 
-		$("#srchCu").val(radioChk);
+		// 답변 받을 메일주소
+		if (Check.empty(wrtrEmad1.value) || Check.empty(wrtrEmad2.value)) {
+			alert("답변 받을 메일주소는 필수입력 사항입니다.");
+			if (Check.empty(wrtrEmad1.value)) { wrtrEmad1.focus(); }
+			else if (Check.empty(wrtrEmad2.value)) { wrtrEmad2.focus(); }
+			return false;
+		} else {
+			if (Check.trimJsEmpty(wrtrEmad1, "유효하지 않은 이메일 입니다.")) {
+				wrtrEmad1.focus();
+				return false;
+			}
+
+			if (Check.trimJsEmpty(wrtrEmad2, "유효하지 않은 이메일 입니다.")) {
+				selWrtrEmad.focus();
+				return false;
+			}
+
+			if (!Check.empty(selWrtrEmad.value)) {
+				if (selWrtrEmad.value == "1099") {
+					if (wrtrEmad2.value == "") {
+						alert("이메일 도메인은 입력사항 입니다.");
+						wrtrEmad2.focus();
+						return false;
+					} else {
+						// 이메일 도메인 확인
+						let domainRegex = /^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+						if (!domainRegex.test(wrtrEmad2.value)) {
+							alert("이메일 도메인은 형식에 맞지 않습니다.");
+							wrtrEmad2.focus();
+							return false;
+						}
+					}
+				}
+			}
+
+			if (!Check.empty(wrtrEmad1.value) && !Check.empty(wrtrEmad2.value)) {
+				let wrtrEmad = wrtrEmad1.value + "@" + wrtrEmad2.value;
+				let enc_wrtrEmad = woEncrypt(wrtrEmad);
+				document.getElementById("encWrtrEmad").value = enc_wrtrEmad;
+			}
+		}
+
+		// 내용
+		if (Check.trimJsEmpty(inqrCn, "내용은 필수 입력 사항입니다.")) {
+			return false;
+		} else {
+			if (inqrCn.value.trim() < 1) {
+				alert("내용은 필수 입력 사항입니다.");
+				inqrCn.focus();
+				return false;
+			} else {
+				if (inqrCn.value.length < 11) {
+					alert("내용은 10자 이상 입력해야 합니다.");
+					inqrCn.focus();
+					return false;
+				}
+			}
+		}
 
 		return true;
 	};
 
-	const srchCstmWageRslt = () => {
 
-		let addInfoYn = $('#addInfoYn');
-		let searchUseYn = $('#searchUseYn');
-		$('#searchUseYn').val($('#addInfoYn').prop('checked') ? 'Y' : 'N');
-
-		let chkCnt = $('.accordion.active').length;
-
-		$("#srchCu").val(chkCnt);
-
-		if(chkCnt == 3){
-			$('#searchUseYn').val('N');
-		}
+	/* 임금체계 개선 문의 저장 */
+	const saveWgsyImprInqr = () => {
 
 		// Validation
 		if (!validation()) {
 			return false;
 		}
 
-		if($(".accordion-btn").eq(0).parent().parent().hasClass("accordion active") && $("input[name='entrSclCd']").first().prop("checked")){
-			$("#initEntrSclCdAll").val("Y");
-		}else{
-			$("#initEntrSclCdAll").val("");
+		$.blockUI();
+
+		const objFrm = $("#wgsyImprInqrForm");
+		objFrm.method = "post";
+
+
+		try {
+			if (!sendWebFilter("wgsyImprInqrForm")) {
+				return false;
+			}
+		} catch(e) {
+			console.log("sendWebFilter function error message =" + e.name + " " + e.message)
 		}
-		if($(".accordion-btn").eq(1).parent().parent().hasClass("accordion active") && $("#stdIndLrclCd").val() === ""){
-			$("#initStdIndLrclCdAll").val("Y");
-		}else{
-			$("#initStdIndLrclCdAll").val("");
-		}
-		if($(".accordion-btn").eq(2).parent().parent().hasClass("accordion active") && $("#occpLrclCd").val() === ""){
-			$("#initOccpLrclCdAll").val("Y");
-		}else{
-			$("#initOccpLrclCdAll").val("");
-		}
-		if($(".accordion-btn").eq(3).parent().parent().hasClass("accordion active") && $("input[name='accrSecd']").first().prop("checked")){
-			$("#initAccrSecdAll").val("Y");
-		}else{
-			$("#initAccrSecdAll").val("");
-		}
-		if($(".accordion-btn").eq(4).parent().parent().hasClass("accordion active") && $("input[name='ageSecd']").first().prop("checked")){
-			$("#initAgeSecdAll").val("Y");
-		}else{
-			$("#initAgeSecdAll").val("");
-		}
-		if($(".accordion-btn").eq(5).parent().parent().hasClass("accordion active") && $("input[name='sxdsSecd']").first().prop("checked")){
-			$("#initSxdsSecdAll").val("Y");
-		}else{
-			$("#initSxdsSecdAll").val("");
-		}
-		if($(".accordion-btn").eq(6).parent().parent().hasClass("accordion active") && $("input[name='cnwkPrdCd']").first().prop("checked")){
-			$("#initCnwkPrdCdAll").val("Y");
-		}else{
-			$("#initCnwkPrdCdAll").val("");
-		}
-		if($(".accordion-btn").eq(7).parent().parent().hasClass("accordion active") && $("input[name='cycCd']").first().prop("checked")){
-			$("#initCycCdAll").val("Y");
-		}else{
-			$("#initCycCdAll").val("");
-		}
-		/*
-		if($("#pStrfLvlSn").val() == 2){
-			$("#occpSclaCd").val('');
-		}
-		*/
-		const objFrm = $("#cstmWageForm");
-		objFrm.attr("method", "post");
+
 		let data = objFrm.serializeArray();
-		Submit.ajax(objFrm, data, srchCstmWageRsltCallBack, "json", "/pt/c/a/retrieveCstmWageRsltData.do", '', false);
+		Submit.ajax(objFrm, data, saveSyopMngnCallBack, "json", "/pt/f/c/rgstWgsyImprInqr.do");
 	};
 
-	const srchCstmWageRsltCallBack = (result) => {
+	/* 운영자 저장 Call Back Function */
+	const saveSyopMngnCallBack = (_result) => {
+		$.unblockUI();
 
-		let data = result.data;
+		if (_result.success) {
+			alert("문의가 등록되었습니다.\n\n등록해주신 문의내용은 해당 컨설팅사 담당자에게 메일로 송부되었으며 등록하신 메일 주소로 14일 이내에 답변드릴 예정입니다.");
 
-		if(data.resultList != null){
-			if($(".accordion-btn").eq(0).parent().parent().hasClass("accordion active") && $("input[name='entrSclCd']").first().prop("checked")){
-				$("#initEntrSclCdAll").val("Y");
-			}else{
-				$("#initEntrSclCdAll").val("");
-			}
-			if($(".accordion-btn").eq(1).parent().parent().hasClass("accordion active") && $("#stdIndLrclCd").val() === ""){
-				$("#initStdIndLrclCdAll").val("Y");
-			}else{
-				$("#initStdIndLrclCdAll").val("");
-			}
-			if($(".accordion-btn").eq(2).parent().parent().hasClass("accordion active") && $("#occpLrclCd").val() === ""){
-				$("#initOccpLrclCdAll").val("Y");
-			}else{
-				$("#initOccpLrclCdAll").val("");
-			}
-			if($(".accordion-btn").eq(3).parent().parent().hasClass("accordion active") && $("input[name='accrSecd']").first().prop("checked")){
-				$("#initAccrSecdAll").val("Y");
-			}else{
-				$("#initAccrSecdAll").val("");
-			}
-			if($(".accordion-btn").eq(4).parent().parent().hasClass("accordion active") && $("input[name='ageSecd']").first().prop("checked")){
-				$("#initAgeSecdAll").val("Y");
-			}else{
-				$("#initAgeSecdAll").val("");
-			}
-			if($(".accordion-btn").eq(5).parent().parent().hasClass("accordion active") && $("input[name='sxdsSecd']").first().prop("checked")){
-				$("#initSxdsSecdAll").val("Y");
-			}else{
-				$("#initSxdsSecdAll").val("");
-			}
-			if($(".accordion-btn").eq(6).parent().parent().hasClass("accordion active") && $("input[name='cnwkPrdCd']").first().prop("checked")){
-				$("#initCnwkPrdCdAll").val("Y");
-			}else{
-				$("#initCnwkPrdCdAll").val("");
-			}
-			if($(".accordion-btn").eq(7).parent().parent().hasClass("accordion active") && $("input[name='cycCd']").first().prop("checked")){
-				$("#initCycCdAll").val("Y");
-			}else{
-				$("#initCycCdAll").val("");
-			}
-
-			const submitForm = document.cstmWageForm;
-			submitForm.method = "get";
-			submitForm.action = "/pt/c/a/retrieveCstmWageRslt.do";
-			submitForm.submit();
-		}else{
-			alert("검색조건에 맞는 임금정보가 없습니다.\n검색조건을 보다 상세히 선택하거나, 다른 조건으로 검색하시기 바랍니다.");
-			return false;
+			cnclWgsyImprInqr();
+		} else {
+			alert(_result.message);
 		}
-	}
+	};
 
-	//분류코드 전체 조회
-	const fn_selectAllList = (occpClCd,upprCdId,strfLvlSn) => {
 
-		let occpClCdDepth1;
-		let occpClCdDepth2;
-
-		if(strfLvlSn == 3){
-			occpClCdDepth2 = upprCdId;
-			occpClCdDepth1 = Math.floor(upprCdId / 10);
-		} else if(strfLvlSn == 2){
-			occpClCdDepth2 = occpClCd;
-			occpClCdDepth1 = upprCdId;
-		} else if(strfLvlSn == 1){
-			occpClCdDepth2 = "";
-			occpClCdDepth1 = occpClCd;
-		}
-
-		$("#selectOccpClCd").val(occpClCd);
-
-		let param = {
-				occpClCd: occpClCd
-			  , viewFlag: "O"
-			  , occpClCdDepth1 : occpClCdDepth1
-			  , occpClCdDepth2 : occpClCdDepth2
-		}
-
-		Submit.ajax('', param, catgSrchAllListCallBack, "json", "/pt/a/d/retrieveCatgSrchAllListData.do", '', false);
-
-	}
-
-	//분류코드 전체 조회 CallBack
-	const catgSrchAllListCallBack = (_result) => {
-
-		if(_result.success){
-			let depth1List = _result.data.depth1;
-			let depth2List = _result.data.depth2;
-			let depth3List = _result.data.depth3;
-			let depth1OccpClCd = $("#selectOccpClCd").val();
-			depth1List.unshift({occpClCd:"", occpCfnm:"전체"})
-			//depth1List.filter(item => item.occpClCd !== "6");
-			let occpClCdCnt = depth1OccpClCd.length;
-
-			if(occpClCdCnt == 3){
-				depth2List.unshift({occpClCd:"", occpCfnm:"전체"})
-				depth3List.unshift({occpClCd:"", occpCfnm:"전체"})
-				let depth2OccpClCd = Math.floor(depth1OccpClCd / 10);
-				let depth3OccpClCd = Math.floor(depth2OccpClCd / 10);
-
-				$("#occpLrclCd").val(depth3OccpClCd);
-
-				let selectTemplate = $.templates("#depth_tmpl");
-				let selectHtmlOutput = selectTemplate.render(depth2List);
-				$("#occpMlsfCd").html(selectHtmlOutput);
-				$("#occpMlsfCd").show();
-				$("#occpMlsfCd").val(depth2OccpClCd);
-
-				let selectTemplate2 = $.templates("#depth_tmpl");
-				let selectHtmlOutput2 = selectTemplate2.render(depth3List);
-				$("#occpSclaCd").html(selectHtmlOutput2);
-				$("#occpSclaCd").show();
-				$("#occpSclaCd").val(depth1OccpClCd);
-			}else if(occpClCdCnt == 2){
-				depth2List.unshift({occpClCd:"", occpCfnm:"전체"})
-				depth3List.unshift({occpClCd:"", occpCfnm:"전체"})
-				let depth2OccpClCd = Math.floor(depth1OccpClCd / 10);
-
-				$("#occpLrclCd").val(depth2OccpClCd);
-
-				let selectTemplate = $.templates("#depth_tmpl");
-				let selectHtmlOutput = selectTemplate.render(depth2List);
-				$("#occpMlsfCd").html(selectHtmlOutput);
-				$("#occpMlsfCd").show();
-				$("#occpMlsfCd").val(depth1OccpClCd);
-
-				let selectTemplate2 = $.templates("#depth_tmpl");
-				let selectHtmlOutput2 = selectTemplate2.render(depth3List);
-				$("#occpSclaCd").html(selectHtmlOutput2);
-				if(depth2OccpClCd != 1){
-					$("#occpSclaCd").show();
-				}else{
-					$("#occpSclaCd").hide();
-				}
-			}else if(occpClCdCnt == 1){
-				depth2List.unshift({occpClCd:"", occpCfnm:"전체"})
-
-				$("#occpLrclCd").val(depth1OccpClCd);
-
-				let selectTemplate = $.templates("#depth_tmpl");
-				let selectHtmlOutput = selectTemplate.render(depth2List);
-				$("#occpMlsfCd").html(selectHtmlOutput);
-				$("#occpMlsfCd").show();
-				$("#occpSclaCd").hide();
-				$("#occpSclaCd").val('');
-			}
-
-			var popup = $('#cstmWageOccpPop').closest('.modal-wrap');
-	        popup.removeClass('open').fadeOut().attr("tabindex", "-1");
-		}
+	/* 임금체계 개선 헬프데스크 취소 */
+	const cnclWgsyImprInqr = () => {
+		const submitForm = document.wgsyImprInqrAgreForm;
+		submitForm.action = "/pt/f/c/retrieveWgsyImprInqrAgreForm.do";
+		submitForm.submit();
 	};
 
 </script>
 
-<form name="cstmWageForm" id="cstmWageForm" method="post">
-	<input type="hidden" name="topPageId" id="topPageId" value="PT07000000">
-	<input type="hidden" name="pageId" id="pageId" value="PT07010000">
-	<input type="hidden" name="srchCu" id="srchCu">
-	<input type="hidden" name="searchUseYn" id="searchUseYn">
-	<input type="hidden" name="pStrfLvlSn" id="pStrfLvlSn">
-	<input type="hidden" name="pViewFlag" id="pViewFlag">
-	<input type="hidden" name="pOccpClCd" id="pOccpClCd">
-	<input type="hidden" name="selectOccpClCd" id="selectOccpClCd">
-	<input type="hidden" id="srchStdIndLrclCd">
-	<input type="hidden" name="initEntrSclCdAll" id="initEntrSclCdAll">
-	<input type="hidden" name="initStdIndLrclCdAll" id="initStdIndLrclCdAll">
-	<input type="hidden" name="initOccpLrclCdAll" id="initOccpLrclCdAll">
-	<input type="hidden" name="initAccrSecdAll" id="initAccrSecdAll">
-	<input type="hidden" name="initAgeSecdAll" id="initAgeSecdAll">
-	<input type="hidden" name="initSxdsSecdAll" id="initSxdsSecdAll">
-	<input type="hidden" name="initCnwkPrdCdAll" id="initCnwkPrdCdAll">
-	<input type="hidden" name="initCycCdAll" id="initCycCdAll">
-	<div class="sub-content">
-	    <div class="inner">
-	        <div class="search-criteria">
-	            <div class="criteria-info">
-	                <p class="title-ico">검색조건</p>
-	                <div class="clear">
-		                <ul class="basic type4 inline-block mar10">
-		                    <li>검색조건은 최대 3개까지 선택이 가능합니다.</li>
-		                    <li>검색조건을 1개, 또는 2개를 선택하고 “임금 추가정보 함께 확인”을 체크하시면 체크하신 조건과 조합된 추가적인 임금 정보를 확인할 수 있습니다.</li>
-		                </ul>
-	                    <button type="button" class="modal-btn btn square line2 fr mat15" data-popup="cstmWageUseGdPop"><i class="icon guide"></i><span>사용가이드</span></button>
-	                </div>
-	                <span class="input--chk line-top">
-	                    <input type="checkbox" id="addInfoYn">
-	                    <label for="addInfoYn">임금 추가정보 함께 확인</label>
-	                </span>
-	            </div>
-	            <div class="accordion-wrap">
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">사업체 규모별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(1)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <ul class="radio__wrap--horiz check" id="entrSclCdListSelect"></ul>
-	                        <p class="wrn-txt gray">사업체규모를 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">산업별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_stdIndLrclCd('O',1)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <div class="input-group">
-	                            <select class="inp" id="stdIndLrclCd" name="stdIndLrclCd" title="산업별 - 1단계"></select>
-	                            <select class="inp" id="stdIndMlsfCd" name="stdIndMlsfCd" title="산업별 - 2단계"></select>
-	                        </div>
-	                        <div>
-	                        	<button type="button" class="modal-btn btn line2 square" data-popup="cstmWageIndPop" onclick="popOpen('I');">산업분류보기</button>
-	                        	<p class="wrn-txt gray">산업 분류를 선택해주세요.</p>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">직업별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_stdIndLrclCd('I',1)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <div class="input-group">
-	                            <select class="inp" id="occpLrclCd" name="occpLrclCd" title="직업별 - 1단계"></select>
-	                            <select class="inp" id="occpMlsfCd" name="occpMlsfCd" title="직업별 - 2단계"></select>
-	                            <select class="inp" id="occpSclaCd" name="occpSclaCd" title="직업별 - 3단계"></select>
-	                        </div>
-	                        <div>
-	                        	<button type="button" class="modal-btn btn line2 square" data-popup="cstmWageOccpPop" onclick="popOpen('S');">직업분류보기</button>
-	                        	<p class="wrn-txt gray">직업 분류를 선택해주세요.</p>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">학력별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(2)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <ul class="radio__wrap--horiz check" id="accrSecdListSelect"></ul>
-	                        <p class="wrn-txt gray">학력을 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">연령별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(3)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <div class="radio-dual">
-	                            <ul class="radio__wrap--horiz check" id="ageSecdListSelect"></ul>
-	                        </div>
-	                        <p class="wrn-txt gray">연령을 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">성별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(4)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <ul class="radio__wrap--horiz check" id="sxdsSecdListSelect"></ul>
-	                        <p class="wrn-txt gray">성별을 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">근속년수별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(5)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <div class="radio-dual">
-	                            <ul class="radio__wrap--horiz check" id="cnwkPrdCdListSelect"></ul>
-	                        </div>
-	                        <p class="wrn-txt gray">근속년수를 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="accordion">
-	                    <div class="accordion-header">
-	                        <p class="title">경력년수별</p>
-	                        <input type="hidden" class="acoordion-limit">
-	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(6)">검색조건 선택</button>
-	                    </div>
-	                    <div class="accordion-content">
-	                        <div class="radio-dual">
-	                            <ul class="radio__wrap--horiz check" id="cycCdListSelect"></ul>
-	                        </div>
-	                        <p class="wrn-txt gray">경력년수를 선택해주세요.</p>
-	                    </div>
-	                </div>
-	                <div class="button-box long">
-                    	<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')" class="btn line"><span>검색조건 초기화</span><i class="icon reset"></i></a>
-                    	<a href="#" class="btn solid2" onclick="srchCstmWageRslt()">진단하기</a>
-                    </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+<form name="wgsyImprInqrAgreForm" id="wgsyImprInqrAgreForm">
+	<input type="hidden" name="pageId" id="pageId" value="PT11030000" />
 </form>
 
+<div class="sub-content">
+	<div class="inner">
+		<!-- 문의하기 -->
+		<p class="title-ico">문의하기</p>
+		<p class="wage-desc">문의등록한 내용은 각 업종별 컨설팅사에서 답변 받을 메일주소로 회신 드립니다. 정보를 정확히 입력 바랍니다.</p>
 
+		<form name="wgsyImprInqrForm" id="wgsyImprInqrForm" method="post">
+			<input type="hidden" name="pageId" id="pageId" value="PT11030000" />
 
+			<input type="hidden" name="seq" id="seq" value="229" />
+			<input type="hidden" name="encWrtrEmad" id="encWrtrEmad" value=""/>
+			<input type="hidden" name="encWrtrPwd" id="encWrtrPwd" value=""/>
 
+			<table class="table-box type2 mobile">
+				<caption>문의하기 정보입력 - 문의제목, 작성자, 답변 받을 메일주소, 업종 구분, 비밀번호, 내용 정보 제공</caption>
+				<colgroup>
+					<col style="width: 180px;">
+					<col style="width: 25%;">
+					<col style="width: 180px;">
+					<col>
+				</colgroup>
+				<tbody id="wgsyImprInqrDtalData">
+					<tr>
+						<th scope="row">문의 제목 <span class="required"><i class="blind">필수입력</i></span></th>
+						<td colspan="3">
+							<div class="input-group">
+								<input type="text" name="sjnm" id="sjnm" value="" class="inp" maxlength="60">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">작성자 <span class="required"><i class="blind">필수입력</i></span></th>
+						<td>
+							<div class="input-group">
+								<input type="text" name="wrtrPnm" id="wrtrPnm" value="" class="inp w100" maxlength="10">
+							</div>
+						</td>
+						<th scope="row">업종 구분 <span class="required"><i class="blind">필수입력</i></span></th>
+						<td id="tdTyinSecdSelect">
+					<select name="tyinSecd" id="tyinSecd" title="업종구분 선택" class="inp inp w100">
+						<option value="">선택</option>
+						
+							<option value="TYIN01">조선업</option>
+						
+							<option value="TYIN02">자동차부품업</option>
+						
+							<option value="TYIN03">석유화학업</option>
+						
+							<option value="TYIN04">IT산업</option>
+						
+							<option value="TYIN05">바이오산업</option>
+						
+					</select>
+				</td>
+					</tr>
+					<tr>
+						<th scope="row">답변 받을 메일주소 <span class="required"><i class="blind">필수입력</i></span></th>
+						<td colspan="3">
+							<div class="input-group">
+								<div class="input">
+									<input type="text" name="wrtrEmad1" id="wrtrEmad1" class="inp engNumDashDot" value="" title="이메일 첫 번째 입력" maxlength="33">
+									<span class="mg">@</span>
+									<input type="text" name="wrtrEmad2" id="wrtrEmad2" class="inp" value="" title="이메일 두 번째 입력" maxlength="33" readonly="readonly">
+									<select class="inp" id="selWrtrEmad" onchange="chngSelEmad(this);">
+					<option value="">선택</option>
 
+					<option value="1099">직접입력</option>
 
+					<option value="1002">naver.com</option>
 
+					<option value="1003">gmail.com</option>
 
-<script type="text/javascript">
+					<option value="1004">daum.net</option>
 
-	/* Document Ready Function */
-	$(document).ready(function() {
+					<option value="1005">hanmail.net</option>
 
-		$('#cstmWageIndPopPrint').click(function(){
-			const html = $("html");
-			const cstmWageIndPrintContents= $("#cstmWageIndPopPrintData").html();
-			const printDiv = $("<div class='print-div'></div>")
+					<option value="1006">hotmail.com</option>
 
-			html.append(printDiv);
-			printDiv.html(cstmWageIndPrintContents);
+					<option value="1007">nate.com</option>
 
-			$("body").hide();
-			window.print();
-			$("body").show();
-			printDiv.hide();
-		});
-	});
-
-	const initCstmWageIndPop = () => {
-		$.blockUI();
-
-		Submit.ajax('', '', cstmWageIndCallBack, "json", "/pt/c/a/retrieveWageIndListData.do");
-
-	};
-
-	const cstmWageIndCallBack = (result) => {
-		$.unblockUI();
-
-		if (result.success) {
-			let resultList = result.data;
-
-			let filterResultList = resultList.filter(item => item.occpClCd !== "A" && !item.upprCdId.startsWith("A") && item.occpClCd !== "O" && !item.upprCdId.startsWith("O"));
-
-			let listTemplate = $.templates("#cstmWageIndPop_tmpl");
-			let listHtmlOutput = listTemplate.render(filterResultList);
-			$("#cstmWageIndPopData").html(listHtmlOutput);
-
-		} else {
-			if (result.message === undefined && !result.success) {
-				alert("세션이 만료되었습니다.");
-				location.href = "/login";
-			} else {
-				// ajax 통신 오류
-				alert(result.message);
-			}
-		}
-	};
-
-</script>
-
-<div id="cstmWageIndPop" class="modal-wrap">
-    <div class="f_wrapper">
-        <div class="modal-head">
-            <h2>한국표준산업분류 제10차</h2>
-        </div>
-        <div class="modal-cont-wrap">
-            <div class="modal-cont">
-                <div class="button-box right">
-                    <button type="button" class="btn line2 square print" id="cstmWageIndPopPrint">화면인쇄</button>
-                </div>
-                <div class="industry-classification" id="cstmWageIndPopPrintData">
-                    <div class="div-table" id="cstmWageIndPopData">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="modal-close">닫기
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+					<option value="1008">yahoo.com</option>
+				</select>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">내용 <span class="required"><i class="blind">필수입력</i></span></th>
+						<td colspan="3">
+							<textarea name="inqrCn" id="inqrCn" title="내용 입력" class="inp"></textarea>
+						</td>
+					</tr>
+				</tbody>
+							</table>
+		</form>
+	</div>
+	<div class="button-box long">
+		<button type="button" class="btn solid2" onclick="saveWgsyImprInqr();">문의하기</button>
+		<button type="button" class="btn" onclick="cnclWgsyImprInqr();">취소</button>
+	</div>
 </div>
 
-<script id="cstmWageIndPop_tmpl" type="text/x-jsrender">
-		{{if strfLvlSn == "1"}}
-			<div class="div-table-tr thead">
-                <div class="div-table-td num">
-                	<p>{{:occpClCd}}</p>
-                </div>
-                <div class="div-table-td">
-					<a href="javascript:void(0);" onclick="javascript:fnSend('{{:occpClCd}}', '{{:upprCdId}}', {{:strfLvlSn}});">{{:occpCfnm}}</a>
-            	</div>
-            </div>
-		{{else}}
-			<div class="div-table-tr">
-				<div class="div-table-td num">
-					<p>{{:occpClCd}}</p>
-				</div>
-				<div class="div-table-td">
-					<a href="javascript:void(0);" onclick="javascript:fnSend('{{:occpClCd}}', '{{:upprCdId}}', {{:strfLvlSn}});">{{:occpCfnm}}</a>
+
+<script id="wgsyImprInqrDtalFormData_tmpl" type="text/x-jsrender">
+	<tr>
+		<th scope="row">문의 제목 <span class="required"><i class="blind">필수입력</i></span></th>
+		<td colspan="3">
+			<div class="input-group">
+				<input type="text" name="sjnm" id="sjnm" value="" class="inp" maxlength="60" />
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">작성자 <span class="required"><i class="blind">필수입력</i></span></th>
+		<td>
+			<div class="input-group">
+				<input type="text" name="wrtrPnm" id="wrtrPnm" value="" class="inp w100" maxlength="10" />
+			</div>
+		</td>
+		<th scope="row">업종 구분 <span class="required"><i class="blind">필수입력</i></span></th>
+		<td id="tdTyinSecdSelect">
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">답변 받을 메일주소 <span class="required"><i class="blind">필수입력</i></span></th>
+		<td colspan="3">
+			<div class="input-group">
+				<div class="input">
+					<input type="text" name="wrtrEmad1" id="wrtrEmad1" class="inp engNumDashDot" value="" title="이메일 첫 번째 입력" maxlength="33">
+					<span class="mg">@</span>
+					<input type="text" name="wrtrEmad2" id="wrtrEmad2" class="inp" value="" title="이메일 두 번째 입력" maxlength="33" readonly="readonly">
+					<select class="inp" id="selWrtrEmad" onchange="chngSelEmad(this);">
+					</select>
 				</div>
 			</div>
-		{{/if}}
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">내용 <span class="required"><i class="blind">필수입력</i></span></th>
+		<td colspan="3">
+			<textarea name="inqrCn" id="inqrCn" title="내용 입력" class="inp"></textarea>
+		</td>
+	</tr>
 </script>
 
+<!-- 웹필터 -->
+<script> var wfBypassCheck = false;</script>
+<input type='hidden' id='keisWebfilterDomain' value='webfilter.ilmoa.go.kr'/>
+<script type='text/javascript' src='/statics/webfilter/js/jquery.ui.touch-punch.min.js'></script>
+<link rel='stylesheet' href='/statics/webfilter/css/wf_popup_layer.css' type='text/css'>
+<script type='text/javascript' src='/statics/webfilter/js/jquery.ui.touch-punch.min.js'></script>
+<script type='text/javascript' src='/statics/webfilter/js/webfilter.js' defer='defer' charset='UTF-8'></script>
 
-
-
-
-
-
-
-<script type="text/javascript">
-
-	/* Document Ready Function */
-	$(document).ready(function() {
-
-		$('#cstmWageOccpPopPrint').click(function(){
-			const html = $("html");
-			const cstmWageOccpPrintContents= $("#cstmWageOccpPopPrintData").html();
-			const printDiv = $("<div class='print-div'></div>")
-
-			html.append(printDiv);
-			printDiv.html(cstmWageOccpPrintContents);
-
-			$("body").hide();
-			window.print();
-			$("body").show();
-			printDiv.hide();
-		});
-	});
-
-	const initCstmWageOccpPop = () => {
-		$.blockUI();
-
-		Submit.ajax('', '', cstmWageOccpCallBack, "json", "/pt/c/a/retrieveWageOccpListData.do");
-
-	};
-
-	const cstmWageOccpCallBack = (result) => {
-		$.unblockUI();
-
-		if (result.success) {
-			let resultList = result.data;
-
-			let filterResultList = resultList.filter(item => item.occpClCd !== "6" && !item.upprCdId.startsWith("6") && !(item.occpClCd.startsWith('1') && item.occpClCd.length ===3));
-
-			let listTemplate = $.templates("#cstmWageOccpPop_tmpl");
-			let listHtmlOutput = listTemplate.render(filterResultList);
-			$("#cstmWageOccpPopData").html(listHtmlOutput);
-
-		} else {
-			if (result.message === undefined && !result.success) {
-				alert("세션이 만료되었습니다.");
-				location.href = "/login";
-			} else {
-				// ajax 통신 오류
-				alert(result.message);
-			}
-		}
-	};
-
-</script>
-
-<div id="cstmWageOccpPop" class="modal-wrap">
-    <div class="f_wrapper">
-        <div class="modal-head">
-            <h2>한국표준직업분류 제7차</h2>
-        </div>
-        <div class="modal-cont-wrap">
-            <!-- cont -->
-            <div class="modal-cont">
-                <div class="button-box right">
-                    <button type="button" class="btn line2 square print" id="cstmWageOccpPopPrint">화면인쇄</button>
-                </div>
-                <div class="industry-classification" id="cstmWageOccpPopPrintData">
-                    <div class="div-table" id="cstmWageOccpPopData">
-                    </div>
-                </div>
-            </div>
-            <!-- //cont -->
-        </div>
-        <button type="button" class="modal-close">닫기
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</div>
-
-<script id="cstmWageOccpPop_tmpl" type="text/x-jsrender">
-		{{if strfLvlSn == "1"}}
-			<div class="div-table-tr thead">
-                <div class="div-table-td num">
-                	<p>{{:occpClCd}}</p>
-                </div>
-                <div class="div-table-td">
-                	<a href="javascript:void(0);" onclick="javascript:fn_selectAllList({{:occpClCd}}, '{{:upprCdId}}', {{:strfLvlSn}});">{{:occpCfnm}}</a>
-            	</div>
-            </div>
-		{{/if}}
-		{{if strfLvlSn == "2"}}
-			<div class="div-table-tr">
-				<div class="div-table-td num">
-					<p>{{:occpClCd}}</p>
-				</div>
-				<div class="div-table-td">
-					<a href="javascript:void(0);" onclick="javascript:fn_selectAllList({{:occpClCd}}, {{:upprCdId}}, {{:strfLvlSn}});">{{:occpCfnm}}</a>
-				</div>
-			</div>
-		{{/if}}
-		{{if strfLvlSn == "3"}}
-			<div class="div-table-tr">
-				<div class="div-table-td num">
-					<p class="secondary">{{:occpClCd}}</p>
-				</div>
-				<div class="div-table-td">
-					<a href="javascript:void(0);" onclick="javascript:fn_selectAllList({{:occpClCd}}, {{:upprCdId}}, {{:strfLvlSn}});">{{:occpCfnm}}</a>
-				</div>
-			</div>
-		{{/if}}
-		{{if strfLvlSn == "4"}}
-			<div class="div-table-tr">
-				<div class="div-table-td num">
-					<p style="padding-left: 70px;">{{:occpClCd}}</p>
-				</div>
-				<div class="div-table-td">
-					<a href="javascript:void(0);" onclick="javascript:fn_selectAllList({{:occpClCd}}, {{:upprCdId}}, {{:strfLvlSn}});">{{:occpCfnm}}</a>
-				</div>
-			</div>
-		{{/if}}
-</script>
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-
-	/* Document Ready Function */
-	$(document).ready(function() {
-
-		$('#cstmWageUseGdPopPrint').click(function(){
-			const html = $("html");
-			const cstmWageUseGdPrintContents= $("#cstmWageUseGdPopPrintData").html();
-			const printDiv = $("<div class='print-div'></div>")
-
-			html.append(printDiv);
-			printDiv.html(cstmWageUseGdPrintContents);
-
-			$("body").hide();
-			window.print();
-			$("body").show();
-			printDiv.hide();
-		});
-	});
-
-</script>
-
-<div id="cstmWageUseGdPop" class="modal-wrap use-guide-wrap">
-    <div class="f_wrapper">
-        <div class="modal-head">
-            <h2>사용가이드</h2>
-        </div>
-        <div class="modal-cont-wrap">
-            <div class="modal-cont">
-                <div class="button-box right">
-                    <button type="button" class="btn line2 square print" id="cstmWageUseGdPopPrint">화면인쇄</button>
-                </div>
-                <div class="box-solid" id="cstmWageUseGdPopPrintData">
-                    <div class="use-guide">
-                        <div class="use-guide-header">
-                            <p class="wrn-txt black mat0">본 임금정보는 고용형태별 근로실태조사와 사업체노동력조사를 연계 및 분석한 결과로, 임금수준은 2024년을 기준으로 한 추정치이므로 이용에 주의 바람</p>
-                            <h3 class="title-ico mat20">검색시스템 ① 맞춤형 임금정보(직급별 임금정보 제외)</h3>
-                        </div>
-                        <ul class="use-guide-list">
-                            <li>1. 고용노동부의 ‘고용형태별 근로실태조사’의 최근 3개년도 자료를 기반으로 ‘사업체노동력조사’를 연계·분석하여, 이용자들이 임금수준을 사업체 규모별, 산업별, 직업별 등 8개 검색조건 통해 평균, 분위별(하위 p25, 중위, 상위 p25)로 추정 제공함
-                                <ul class="basic">
-                                    <li>‘고용형태별 근로실태조사’는 직업, 고용계약 기간, 임금항목별 등 상세한 통계를 포함하고 있으나,
-                                    조사년도 다음 해에(4~5월) 공표되는 관계로 시의성이 낮음에 따라, 매 월 발표하는
-                                    「사업체노동력조사」의 산업 중분류별 임금 증감률과 연계하여 매 년 당해 연도의 임금수준
-                                    추정값을 도출함.</li>
-                                    <li>임금수준은 연간 임금이며, 정액급여(기본급+통상적수당+기타수당)와 특별급여(고정상여금+변동
-                                    상여금+성과급 등)를 합산한 금액임<br>
-                                    ※ 초과급여(연장근로수당, 휴일근로수당 등)는 변동성이 크기 때문에 제외하였음.</li>
-                                    <li>상용근로자 5인 이상인 사업체의 전일제(Full-Time) 상용근로자의 임금수준이며, 산업분류 중 ‘농업·임업 및
-                                    어업, 공공행정·국방 및 사회보장 행정, 가구내 고용활동 및 달리 분류되지 않은 자기소비생산활동, 국제 및
-                                    외국기관’은 임금정보 분석에 적합하지 않아 제외하였음.</li>
-                                </ul>
-                            </li>
-                            <li>2. 검색을 위한 조건 선택은 최대 3개까지만 가능함. <br>
-                                (예)’산업별, 사업체규모별, 성별’, ‘산업별, 성별, 학력별’ 등
-                            </li>
-                            <li>3. ‘고용형태별근로실태조사’ 조사결과에서 표본근로자 수가 60명 이상인 경우에만 임금정보를 제공하며, 검색을 위한 조건 선택 시 선택창이 안 나오는 경우는 이 기준에 부합하지 않거나 해당 정보가 없는 경우임</li>
-                            <li>4. 제공되는 임금수준은 추정치이므로 이용 시 주의해야 함.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="modal-close">닫기
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</div>
-
-<script id="depth_tmpl" type="text/x-jsrender">
-	<option value="{{:occpClCd}}">{{:occpCfnm}}</option>
-</script>
+<!-- //웹필터 -->
 				</div>
 			</div>
 
@@ -8168,7 +7463,7 @@
 
 
 <form name="menu_dtal_form" id="menu_dtal_form" method="post" action="/pt/cmmn/menu/retrieveMenuDtalData.do">
-	<input type="hidden" id="menuId_dtal" value="PT07010000">
+	<input type="hidden" id="menuId_dtal" value="PT11030000">
 </form>
 
 <script id="menu_dc_cn_data_tmpl" type="text/x-jsrender">
@@ -8208,7 +7503,7 @@
 <script id="next_pagination_tmpl" type="text/x-jsrender">
 	<li class="last {{if currentPageNo === totalPageCount}}none{{/if}}">
 		<a href="javascript:{{:jsFunction}}({{:totalPageCount}});"  title="마지막 페이지로 이동">{{:totalPageCount}}</a>
-	</li>ㅋ
+	</li>
 	<li class="next {{if currentPageNo === totalPageCount}}none{{/if}}">
 		<a href="javascript:{{:jsFunction}}({{:currentPageNo + 1}});" title="다음 페이지로 이동">다음<i class="icon"></i></a>
 	</li>
