@@ -594,6 +594,7 @@ $(document).ready(function(){
     });
 
 
+    /* 251013 웹 접근성 품질개선 - 팝업 포커스 수정 (ej) */
     //layer popup
     // 초기 팝업 상태에서 포커스 트랩 설정
     function setFocusTrap(popupElement) {
@@ -634,22 +635,25 @@ $(document).ready(function(){
         var popupId = $(this).attr('data-popup');
         var popupElement = $("#" + popupId);
 
+        // 팝업 열기 전 현재 포커스된 요소 저장
+        lastFocusedElement = document.activeElement;
+
         var popupMain = $(this).attr('data-main');
-        if (Check.empty(popupMain) || popupMain !== "Y") {
+        if (!popupMain || popupMain !== "Y") {
             $('.modal-wrap').removeClass('open').fadeOut().attr("tabindex", "-1");
         }
 
         // 팝업 열기
         popupElement.addClass('open').fadeIn().attr("tabindex", "0");
 
-		// 스크롤방지 설정
-		$('body').addClass('overflow');
+        // 스크롤방지 설정
+        $('body').addClass('overflow');
 
         // 포커스 트랩 설정
         setFocusTrap(popupElement);
     });
 
-    // 닫기 버튼 클릭 시 포커스 해제
+    // 닫기 버튼 클릭 시 포커스 해제 및 이전 위치로 포커스 복원
     $(document).on('click', '.modal-close, .b-close', function (event) {
         event.preventDefault();
         var popup = $(this).closest('.modal-wrap');
@@ -657,15 +661,22 @@ $(document).ready(function(){
         // 팝업 닫기
         popup.removeClass('open').fadeOut().attr("tabindex", "-1");
 
-		// 스크롤방지 해제
-		$('body').removeClass('overflow');
+        // 스크롤방지 해제
+        $('body').removeClass('overflow');
 
 
         // aria-hidden 속성 해제
         $('.skip-links, .masthead, .initial-content, .search-content, .page__footer').removeAttr('aria-hidden');
-    });
 
-    //
+        // 이전 포커스 위치로 이동
+        if (lastFocusedElement) {
+            setTimeout(function() {
+                lastFocusedElement.focus();
+                lastFocusedElement = null;
+            }, 10);
+        }
+    });
+    /* // 251013 웹 접근성 품질개선 - 팝업 포커스 수정 (ej) */
 
     $(window).resize(function () {
 

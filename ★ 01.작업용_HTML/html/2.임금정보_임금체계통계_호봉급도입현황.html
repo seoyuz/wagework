@@ -14,10 +14,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>임금체계 개선 헬프데스크 | 임금직업포털-워크피디아</title>
+		<title>임금체계 통계 | 임금직업포털-워크피디아</title>
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		
+
 
 
 <link href="/resources/css/jquery-ui.theme.min.css" rel="stylesheet">
@@ -44,7 +45,7 @@
 <script type="text/javascript" src="/resources/js/util/common_util-03836e38db8cf5c94e68dade43b610be.js"></script>
 
 <!-- WOS Common -->
-<script type="text/javascript" src="/resources/js/common.js"></script>
+<script type="text/javascript" src="/resources/js/common-1c08e8f1176bac859147dcb774b40726.js"></script>
 
 <!-- 추가적인 스크립트 -->
 
@@ -59,7 +60,7 @@
     const gfn_click_menu = (topPageId, pageId, url) => {
         if (!Check.empty(url)) {
             if (Check.empty(topPageId)) {
-                topPageId = "PT11000000";
+                topPageId = "PT07000000";
             }
 
             // Intz.
@@ -5698,44 +5699,44 @@
 							
 								
 									
-								
-							
-								
-							
-								
-							
-								
-							
-								
-									
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-									
 										<a href="javascript:void(0);" class="bread-depth1">
-											임금체계 개선
+											임금정보
 										</a>
 										
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
 									
 								
 							
@@ -6779,7 +6780,7 @@
 									
 										
 										<a href="javascript:void(0);" class="bread-depth1">
-											임금체계 개선 헬프데스크
+											임금체계 통계
 										</a>
 									
 								
@@ -6801,8 +6802,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
-													임금체계 개선 소개
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+													맞춤형 임금정보
 												</a>
 											</li>
 										
@@ -6823,8 +6824,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT11000000', 'PT11020000', '/pt/f/b/retrieveWgsyImprElrn.do')">
-													임금체계 개선 이러닝
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')">
+													직급별 임금정보
 												</a>
 											</li>
 										
@@ -6845,8 +6846,8 @@
 											
 
 											<li>
-												<a href="javascript:gfn_click_menu('PT11000000', 'PT11030000', '/pt/f/c/retrieveWgsyImprInqrAgreForm.do')">
-													임금체계 개선 헬프데스크
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07030000', '/pt/c/b/retrieveWageSytmStcs.do')">
+													임금체계 통계
 												</a>
 											</li>
 										
@@ -6875,19 +6876,19 @@
 						
 						
 						
-						
-						
-						
-						
-						
 							
+						
+						
+						
+						
+						
 						
 					
 
-					<div class="sub-visual wage-improve">
+					<div class="sub-visual wage-information">
 						<div class="inner">
 							<div class="txt-box">
-								<p class="sub-title">임금체계 개선 헬프데스크</p>
+								<p class="sub-title">임금체계 통계</p>
 								<p class="sub-title-text" id="menu_dc_cn_data">
 								</p>
 								<script type="text/javascript">
@@ -6922,381 +6923,2981 @@
 
 
 
-<script type="text/javascript" src="/lib/cryptoJS-3.1.2/rollups/aes-11c5114e2a1face42de239b2b17943fb.js"></script>
-<script type="text/javascript" src="/lib/cryptoJS-3.1.2/rollups/pbkdf2-75fb20feda623642a970b883e9978ba2.js"></script>
-<script type="text/javascript" src="/resources/js/util/passwd-1d8e40b7e8d42738ccc12d15e4440e7e.js"></script>
+<!-- SB Chart -->
+<script src="/lib/sbchart/sbchart-c797e84c0892e2b20dc02b0377451f60.js"></script>
+<link href="/lib/sbchart/sbchart-6b6c860016d43c1854f8332d7a594ce7.css" rel="stylesheet">
+<!-- //SB Chart -->
+
+<script type="text/javascript" src="/resources/js/util/chart-8cc9cef8e6df4745c14c2df2ef96edd0.js"></script>
 
 <script type="text/javascript">
 
-	/* Gloval Variable */
+    /* Document Ready Function */
+    $(document).ready(function() {
+
+        const wageSytmStcsMapping = {
+                "wageSytmStcsTotlBtn" : "wageSytmStcsTotl",
+                "wageSytmStcsStepIndcBtn" : "wageSytmStcsStepIndc",
+                "wageSytmStcsAnslIndcBtn" : "wageSytmStcsAnslIndc",
+                "wageSytmStcsRstIndcBtn" : "wageSytmStcsRstIndc",
+                "wageSytmStcsSytmBtn" : "wageSytmStcsSytm",
+        };
+
+        $("#wageSytmStcsStepIndc, #wageSytmStcsAnslIndc, #wageSytmStcsRstIndc, #wageSytmStcsSytm").hide();
+
+        $(".tab-menu .item").on("click", function() {
+            $(".tab-menu .item").removeClass("active").attr("title", "");
+            $(this).addClass("active").attr("title", "선택됨");
+            const target = wageSytmStcsMapping[$(this).attr("id")];
+            $("#wageSytmStcsTotl, #wageSytmStcsStepIndc, #wageSytmStcsAnslIndc, #wageSytmStcsRstIndc, #wageSytmStcsSytm").hide();
+            $("#"+target).show();
+        });
+
+        $.views.helpers({
+            cutData: function(val) {
+                return val.toString().slice(2);
+            }
+        });
+
+        initWageSytmStcs();
+    });
+
+    /* Init. */
+    const initWageSytmStcs = () => {
+
+        srchWageSytmStcs();
+    };
+
+    /* 임금체계 유형, 연봉제, 성과배분제 통계 조회 */
+    const srchWageSytmStcs = () => {
+        $.blockUI();
+
+        Submit.ajax('', '', srchWageSytmStcsCallBack, "json", "/pt/c/b/retrieveWageSytmStcsTotl.do");
+    };
+
+    /* 임금체계 유형, 연봉제, 성과배분제 통계 조회 CallBack Function */
+    const srchWageSytmStcsCallBack = (_result) => {
+        $.unblockUI();
+
+        if (_result.success) {
+            let data = _result.data;
+
+            //임금체계 유형, 연봉제, 성과배분제 통계
+            const newObj = cutList(data);
+
+            let wageSytmStcsList = [{title: "wageSytmStcs", data: newObj}];
+
+            let htmlOutput = $.templates("#stdrYearData_tmpl").render(wageSytmStcsList);
+            $("#stdrYearData").html(htmlOutput);
+
+            let htmlOutput2 = $.templates("#wageSytmStcsStepIndcData_tmpl").render(wageSytmStcsList);
+            $("#wageSytmStcsStepIndcData").html(htmlOutput2);
+
+            let htmlOutput3 = $.templates("#wageSytmStcsAnslIndcData_tmpl").render(wageSytmStcsList);
+            $("#wageSytmStcsAnslIndcData").html(htmlOutput3);
+
+            let htmlOutput4 = $.templates("#wageSytmStcsRstIndcData_tmpl").render(wageSytmStcsList);
+            $("#wageSytmStcsRstIndcData").html(htmlOutput4);
+
+            //호봉급 도입현황 chart
+            const wageSytmStcsStepIndcChartdata = wageSytmStcsChartData(data, 'wageGrdRateE01');
+            let wageSytmStcsStepIndcChartAttr = {x:"stdrYear", value:['wageGrdRate']};
+            $("#wageSytmStcsStepIndc").show();
+            chart.typeBarLine('wageSytmStcsStepIndcGraph', wageSytmStcsStepIndcChartdata, wageSytmStcsStepIndcChartAttr, "20");
+            $("#wageSytmStcsStepIndc").hide();
+
+            //연봉제 도입현황 chart
+            const wageSytmStcsAnslIndcChartdata = wageSytmStcsChartData(data, 'wageGrdRateE02');
+            let wageSytmStcsAnslIndcChartAttr = {x:"stdrYear", value:['wageGrdRate']};
+            $("#wageSytmStcsAnslIndc").show();
+            chart.typeBarLine('wageSytmStcsAnslIndcGraph', wageSytmStcsAnslIndcChartdata, wageSytmStcsAnslIndcChartAttr, "20");
+            $("#wageSytmStcsAnslIndc").hide();
+
+            //성과배분제 도입현황 chart
+            const wageSytmStcsRstIndcChartdata = wageSytmStcsChartData(data, 'wageGrdRateE03');
+            let wageSytmStcsRstIndcChartAttr = {x:"stdrYear", value:['wageGrdRate']};
+            $("#wageSytmStcsRstIndc").show();
+            chart.typeBarLine('wageSytmStcsRstIndcGraph', wageSytmStcsRstIndcChartdata, wageSytmStcsRstIndcChartAttr, "20");
+            $("#wageSytmStcsRstIndc").hide();
+
+            $(".sbchart-axis-y-label").eq(0).attr("transform", function(_, current) {
+                return current.replace(/rotate\(-?90\)/, "rotate(0)");
+            }).attr("dy", function(_, current) {
+                return current.replace(/-?\d+/, "5");
+            })
+            $(".sbchart-axis-y-label").eq(1).attr("transform", function(_, current) {
+                return current.replace(/rotate\(-?90\)/, "rotate(0)");
+            }).attr("dy", function(_, current) {
+                return current.replace(/-?\d+/, "5");
+            })
+            $(".sbchart-axis-y-label").eq(2).attr("transform", function(_, current) {
+                return current.replace(/rotate\(-?90\)/, "rotate(0)");
+            }).attr("dy", function(_, current) {
+                return current.replace(/-?\d+/, "5");
+            })
+        }
+    };
+
+    //임금체계 유형, 연봉제, 성과배분제 통계 DATA 추출
+    const wageSytmStcsChartData = (data, wageGrdRate) => {
+        return data.map(item => {
+            if(item[wageGrdRate] == null){
+                return null;
+            }
+            return {wageGrdRate : item[wageGrdRate], stdrYear : item.stdrYear};
+        }).filter(item => item !== null);
+    };
+
+    //임금체계 유형, 연봉제, 성과배분제 통계 DATA 추출
+    const cutList = (list) => list.slice(-14);
+
+    const boardListView = () => {
+
+        $("#bbsId").val('BBSMSTR_000000000002');
+        $("#topPageId").val('PT08000000');
+        $("#pageId").val('PT08010200');
+        $("#searchCategory").val('BM020202');
+
+        const submitForm = document.srchBoardListForm;
+        submitForm.method = "get";
+        submitForm.action = "/pt/z/a/retrieveBoardList.do";
+        submitForm.submit();
+    };
+
+</script>
+
+<form name="srchBoardListForm" id="srchBoardListForm">
+    <input type="hidden" name="bbsId" id="bbsId">
+    <input type="hidden" name="topPageId" id="topPageId">
+    <input type="hidden" name="pageId" id="pageId">
+    <input type="hidden" name="searchCategory" id="searchCategory">
+</form>
+
+<div class="sub-content">
+    <div class="inner">
+        <div class="section-wage-system general">
+            <div class="box-solid type2">
+                <p>임금체계와 관련된 임금체계 실태조사 통계자료는 자료실(임금체계 자료)에서 확인할 수 있습니다.</p>
+                <a href="javascript:boardListView();" class="btn square solid"><span>자료 확인하기</span><i class="icon"></i></a>
+            </div>
+            <div class="tab-menu">
+                <button class="item active" id="wageSytmStcsTotlBtn" type="button" title="선택됨">총괄</button>
+                <button class="item" id="wageSytmStcsStepIndcBtn" type="button">호봉급 도입현황</button>
+                <button class="item" id="wageSytmStcsAnslIndcBtn" type="button">연봉제 도입현황</button>
+                <button class="item" id="wageSytmStcsRstIndcBtn" type="button">성과배분제 도입현황</button>
+                <button class="item" id="wageSytmStcsSytmBtn" type="button">임금체계 유형</button>
+            </div>
+               <div id="wageSytmStcsArea">
+                   <div id="wageSytmStcsTotl">
+                       
+
+
+
+
+
+
+<script type="text/javascript">
 
 	/* Document Ready Function */
 	$(document).ready(function() {
 
+	});
 
-		// 임금체계 개선 등록 폼 설정
-		setWgsyImprInqrRgstForm();
+</script>
+
+<div class="summary-wage-system">
+	<div class="summary-header">
+    	<h3 class="title-ico">총괄(상용 100인 이상 사업체)</h3>
+    	<span class="right-txt">(단위 : %)</span>
+	</div>
+	<table class="table-list flicking">
+    	<caption class="blind">임금체계 총괄에 대한 표로 2010년부터 2023년까지 9월마다의 호봉급, 연봉제, 성과배분제에 대한 내용을 담고 있다.</caption>
+     <colgroup>
+         <col style="width: 5.5em;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+         <col style="width: auto;">
+     </colgroup>
+        <thead>
+            <tr id="stdrYearData">
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="wageSytmStcsStepIndcData">
+            </tr>
+            <tr id="wageSytmStcsAnslIndcData">
+            </tr>
+            <tr id="wageSytmStcsRstIndcData">
+            </tr>
+        </tbody>
+    </table>
+    <ul class="basic definition-list">
+        <li>호봉급 : 호봉·근속년수가 상승함에 따라 임금을 정하는 제도(연공급, 근속급 등)</li>
+        <li>연봉제 : 근로자 '개인'의 능력, 성과 등을 평가하여 그 개인의 임금 전부 또는 일부분을 연 단위로 결정하는 제도</li>
+        <li>성과배분제 : '기업, 사업장, 부서 단위'로 정해놓은 경영목표를 달성한 경우, 근로자들에게 현금, 주식 등의 형태로 사후에 배분하는 '집단적' 성과급 제도('개인별' 성과 평가를 통한 배분은 아님)</li>
+    </ul>
+    <p class="wrn-txt gray">출처 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+
+<script id="stdrYearData_tmpl" type="text/x-jsrender">
+	<th scope="col">구&nbsp;분</th>
+	{{for data}}
+		<th scope="col">’{{:~cutData(stdrYear)}}.6</th>
+	{{/for}}
+</script>
+<script id="wageSytmStcsStepIndcData_tmpl" type="text/x-jsrender">
+	<th scope="row">호봉급</th>
+	{{for data}}
+		<td>{{:wageGrdRateE01}}</td>
+	{{/for}}
+</script>
+<script id="wageSytmStcsAnslIndcData_tmpl" type="text/x-jsrender">
+	<th scope="row">연봉제</th>
+	{{for data}}
+		<td>{{:wageGrdRateE02}}</td>
+	{{/for}}
+</script>
+<script id="wageSytmStcsRstIndcData_tmpl" type="text/x-jsrender">
+	<th scope="row">성과배분제</th>
+	{{for data}}
+		<td>{{:wageGrdRateE03}}</td>
+	{{/for}}
+</script>
+                   </div>
+                   <div id="wageSytmStcsStepIndc">
+                       
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
 
 	});
 
-
-	/*  임금체계 개선 등록 폼 설정 */
-	const setWgsyImprInqrRgstForm = () => {
-		$.blockUI();
-
-		// 등록 폼
-		let htmlOutput = $.templates("#wgsyImprInqrDtalFormData_tmpl").render();
-		$("#wgsyImprInqrDtalData").html(htmlOutput);
-
-		// 답변 받을 메일주소
-		CmmnCd.makeCmmnCdOption($("#selWrtrEmad"), "EMAD_CD", "EMAD_CD", "", true, "선택");
-
-		// 업종구분코드 조회
-		getTyinSecdList();
-	};
-
-
-	/* 이메일 도메인 변경시 */
-	const chngSelEmad = (el) => {
-		const objEmad2 = document.getElementById("wrtrEmad2");
-
-		let selIdx = el.selectedIndex;
-		if (el.options[selIdx].value === "1099") {
-			objEmad2.readOnly = false;
-			objEmad2.value = "";
-		} else {
-			objEmad2.readOnly = true;
-
-			if (el.options[selIdx].value != "") {
-				objEmad2.value = el.options[selIdx].text;
-			} else {
-				objEmad2.value = "";
-			}
-		}
-	};
-
-	/* 업종구분코드 조회 */
-	const getTyinSecdList = () => {
-		const objFrm = $("#wgsyImprInqrForm");
-		objFrm.method = "post";
-		Submit.ajax(objFrm, null, (_result) => {
-			if (_result.success) {
-				let tyinSecdList = _result.data;
-
-				let lCmmnData = {
-					  iptName: "tyinSecd"
-					, title: "업종구분 선택"
-					, addClass: "inp w100"
-					, optionNm: "선택"
-					, list: tyinSecdList
-				};
-
-				let template = $.templates("#util_cmmn_cd_select_tmpl");
-				let htmlOutput = template.render(lCmmnData);
-				$("#tdTyinSecdSelect").html(htmlOutput);
-			}
-		}, "json", "/pt/f/c/retrieveTyinSecdListData.do");
-	};
-
-
-	/* Validation */
-	const validation = () => {
-		let sjnm = document.getElementById("sjnm");
-		let wrtrPnm = document.getElementById("wrtrPnm");
-		let wrtrEmad1 = document.getElementById("wrtrEmad1");
-		let wrtrEmad2 = document.getElementById("wrtrEmad2");
-		let selWrtrEmad = document.getElementById("selWrtrEmad");
-		let tyinSecd = document.getElementById("tyinSecd");
-		let inqrCn = document.getElementById("inqrCn");
-
-
-		// 문의 제목
-		if (Check.trimJsEmpty(sjnm, "문의 제목은 필수 입력 사항입니다.")) {
-			return false;
-		}
-
-		// 작성자
-		if (Check.trimJsEmpty(wrtrPnm, "작성자는 필수 입력 사항입니다.")) {
-			return false;
-		}
-
-		// 업종 구분
-		if (Check.trimJsEmpty(tyinSecd, "업종 구분은 필수 선택 사항입니다.")) {
-			return false;
-		}
-
-		// 답변 받을 메일주소
-		if (Check.empty(wrtrEmad1.value) || Check.empty(wrtrEmad2.value)) {
-			alert("답변 받을 메일주소는 필수입력 사항입니다.");
-			if (Check.empty(wrtrEmad1.value)) { wrtrEmad1.focus(); }
-			else if (Check.empty(wrtrEmad2.value)) { wrtrEmad2.focus(); }
-			return false;
-		} else {
-			if (Check.trimJsEmpty(wrtrEmad1, "유효하지 않은 이메일 입니다.")) {
-				wrtrEmad1.focus();
-				return false;
-			}
-
-			if (Check.trimJsEmpty(wrtrEmad2, "유효하지 않은 이메일 입니다.")) {
-				selWrtrEmad.focus();
-				return false;
-			}
-
-			if (!Check.empty(selWrtrEmad.value)) {
-				if (selWrtrEmad.value == "1099") {
-					if (wrtrEmad2.value == "") {
-						alert("이메일 도메인은 입력사항 입니다.");
-						wrtrEmad2.focus();
-						return false;
-					} else {
-						// 이메일 도메인 확인
-						let domainRegex = /^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
-						if (!domainRegex.test(wrtrEmad2.value)) {
-							alert("이메일 도메인은 형식에 맞지 않습니다.");
-							wrtrEmad2.focus();
-							return false;
-						}
-					}
-				}
-			}
-
-			if (!Check.empty(wrtrEmad1.value) && !Check.empty(wrtrEmad2.value)) {
-				let wrtrEmad = wrtrEmad1.value + "@" + wrtrEmad2.value;
-				let enc_wrtrEmad = woEncrypt(wrtrEmad);
-				document.getElementById("encWrtrEmad").value = enc_wrtrEmad;
-			}
-		}
-
-		// 내용
-		if (Check.trimJsEmpty(inqrCn, "내용은 필수 입력 사항입니다.")) {
-			return false;
-		} else {
-			if (inqrCn.value.trim() < 1) {
-				alert("내용은 필수 입력 사항입니다.");
-				inqrCn.focus();
-				return false;
-			} else {
-				if (inqrCn.value.length < 11) {
-					alert("내용은 10자 이상 입력해야 합니다.");
-					inqrCn.focus();
-					return false;
-				}
-			}
-		}
-
-		return true;
-	};
-
-
-	/* 임금체계 개선 문의 저장 */
-	const saveWgsyImprInqr = () => {
-
-		// Validation
-		if (!validation()) {
-			return false;
-		}
-
-		$.blockUI();
-
-		const objFrm = $("#wgsyImprInqrForm");
-		objFrm.method = "post";
-
-
-		try {
-			if (!sendWebFilter("wgsyImprInqrForm")) {
-				return false;
-			}
-		} catch(e) {
-			console.log("sendWebFilter function error message =" + e.name + " " + e.message)
-		}
-
-		let data = objFrm.serializeArray();
-		Submit.ajax(objFrm, data, saveSyopMngnCallBack, "json", "/pt/f/c/rgstWgsyImprInqr.do");
-	};
-
-	/* 운영자 저장 Call Back Function */
-	const saveSyopMngnCallBack = (_result) => {
-		$.unblockUI();
-
-		if (_result.success) {
-			alert("문의가 등록되었습니다.\n\n등록해주신 문의내용은 해당 컨설팅사 담당자에게 메일로 송부되었으며 등록하신 메일 주소로 14일 이내에 답변드릴 예정입니다.");
-
-			cnclWgsyImprInqr();
-		} else {
-			alert(_result.message);
-		}
-	};
-
-
-	/* 임금체계 개선 헬프데스크 취소 */
-	const cnclWgsyImprInqr = () => {
-		const submitForm = document.wgsyImprInqrAgreForm;
-		submitForm.action = "/pt/f/c/retrieveWgsyImprInqrAgreForm.do";
-		submitForm.submit();
-	};
-
 </script>
 
-<form name="wgsyImprInqrAgreForm" id="wgsyImprInqrAgreForm">
-	<input type="hidden" name="pageId" id="pageId" value="PT11030000" />
-</form>
-
-<div class="sub-content">
-	<div class="inner">
-		<!-- 문의하기 -->
-		<p class="title-ico">문의하기</p>
-		<p class="wage-desc">문의등록한 내용은 각 업종별 컨설팅사에서 답변 받을 메일주소로 회신 드립니다. 정보를 정확히 입력 바랍니다.</p>
-
-		<form name="wgsyImprInqrForm" id="wgsyImprInqrForm" method="post">
-			<input type="hidden" name="pageId" id="pageId" value="PT11030000" />
-
-			<input type="hidden" name="seq" id="seq" value="229" />
-			<input type="hidden" name="encWrtrEmad" id="encWrtrEmad" value=""/>
-			<input type="hidden" name="encWrtrPwd" id="encWrtrPwd" value=""/>
-
-			<table class="table-box type2 mobile">
-				<!-- 251013 웹 접근성 품질개선 - 캡션수정 (ej) -->
-				<caption>문의하기 정보입력 - 문의제목, 작성자, 업종 구분, 답변 받을 메일주소, 내용 정보 제공</caption>
-				<!-- // 251013 웹 접근성 품질개선 - 캡션수정 (ej) -->
-				<colgroup>
-					<col style="width: 180px;">
-					<col style="width: 25%;">
-					<col style="width: 180px;">
-					<col>
-				</colgroup>
-				<tbody id="wgsyImprInqrDtalData">
-					<tr>
-						<th scope="row">문의 제목 <span class="required"><i class="blind">필수입력</i></span></th>
-						<td colspan="3">
-							<div class="input-group">
-								<input type="text" name="sjnm" id="sjnm" value="" class="inp" maxlength="60">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">작성자 <span class="required"><i class="blind">필수입력</i></span></th>
-						<td>
-							<div class="input-group">
-								<input type="text" name="wrtrPnm" id="wrtrPnm" value="" class="inp w100" maxlength="10">
-							</div>
-						</td>
-						<th scope="row">업종 구분 <span class="required"><i class="blind">필수입력</i></span></th>
-						<td id="tdTyinSecdSelect">
-					<select name="tyinSecd" id="tyinSecd" title="업종구분 선택" class="inp inp w100">
-						<option value="">선택</option>
-						
-							<option value="TYIN01">조선업</option>
-						
-							<option value="TYIN02">자동차부품업</option>
-						
-							<option value="TYIN03">석유화학업</option>
-						
-							<option value="TYIN04">IT산업</option>
-						
-							<option value="TYIN05">바이오산업</option>
-						
-					</select>
-				</td>
-					</tr>
-					<tr>
-						<th scope="row">답변 받을 메일주소 <span class="required"><i class="blind">필수입력</i></span></th>
-						<td colspan="3">
-							<div class="input-group">
-								<div class="input">
-									<input type="text" name="wrtrEmad1" id="wrtrEmad1" class="inp engNumDashDot" value="" title="이메일 첫 번째 입력" maxlength="33">
-									<span class="mg">@</span>
-									<input type="text" name="wrtrEmad2" id="wrtrEmad2" class="inp" value="" title="이메일 두 번째 입력" maxlength="33" readonly="readonly">
-									<select class="inp" id="selWrtrEmad" onchange="chngSelEmad(this);">
-					<option value="">선택</option>
-
-					<option value="1099">직접입력</option>
-
-					<option value="1002">naver.com</option>
-
-					<option value="1003">gmail.com</option>
-
-					<option value="1004">daum.net</option>
-
-					<option value="1005">hanmail.net</option>
-
-					<option value="1006">hotmail.com</option>
-
-					<option value="1007">nate.com</option>
-
-					<option value="1008">yahoo.com</option>
-				</select>
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">내용 <span class="required"><i class="blind">필수입력</i></span></th>
-						<td colspan="3">
-							<textarea name="inqrCn" id="inqrCn" title="내용 입력" class="inp"></textarea>
-						</td>
-					</tr>
-				</tbody>
-							</table>
-		</form>
-	</div>
-	<div class="button-box long">
-		<button type="button" class="btn solid2" onclick="saveWgsyImprInqr();">문의하기</button>
-		<button type="button" class="btn" onclick="cnclWgsyImprInqr();">취소</button>
-	</div>
+<div class="summary-wage-system">
+    <div class="summary-header">
+        <h3 class="title-ico">호봉급 운영 현황(상용 100인 이상 사업체)</h3>
+        <div class="desc">
+            <p>호봉급(연공급 등)는 근속년수에 따라 임금을 결정하는 제도</p>
+            <span class="right-txt"></span>
+        </div>
+    </div>
 </div>
+<div class="graph-box flicking">
+    <!-- 그래프 영역-->
+    <div class="graph" id="wageSytmStcsStepIndcGraph" style="width: 98%; height: 300px; border: 0px dashed gray;"></div>
+</div>
+<ul class="basic definition-list">
+    <li>상용 100인 이상 사업체 대상</li>
+    <li>호봉급, 직능급, 직무급, 기타 중 복수 응답 가능</li>
+</ul>
+<p class="wrn-txt gray">출처 : 고용노동부 사업체노동력조사 부가조사</p>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">규모별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">규모별 호봉급 운영현황에 대한 표로 구분(호봉급 - 전체, 1000인 이상, 300인 이상, 300인 미만, 100인 이상, 100인 미만, 1~4인, 5~9인, 10~29인, 30~99인, 100~299인), ’10.9, ’11.6, ’12.6, ’13.6, ’14.6, ’15.6, ’16.6, ’17.6, ’18.6, ’19.6, ’20.6, ’21.6, ’22.6, ’23.6, ’24.6를 퍼센트 단위로 나타냈다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col style="width: 13%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="11">호봉급</th>
+                <th scope="row">전체</th>
+                <td>46.3</td>
+                <td>39.9</td>
+                <td>38.8</td>
+                <td>36.3</td>
+                <td>27.1</td>
+                <td>24.5</td>
+                <td>21.7</td>
+                <td>19.5</td>
+                <td>17.7</td>
+                <td>16.1</td>
+                <td>14.4</td>
+                <td>13.7</td>
+                <td>13.7</td>
+                <td>12.7</td>
+                <td>12.8</td>
+            </tr>
+            <tr>
+                <th scope="row">1000인 이상</th>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>68.5</td>
+                <td>69.0</td>
+                <td>70.3</td>
+                <td>67.9</td>
+                <td>65.1</td>
+                <td>63.0</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 이상</th>
+                <td>81.0</td>
+                <td>78.1</td>
+                <td>79.7</td>
+                <td>79.7</td>
+                <td>72.3</td>
+                <td>69.2</td>
+                <td>68.4</td>
+                <td>62.9</td>
+                <td>61.1</td>
+                <td>60.9</td>
+                <td>59.1</td>
+                <td>60.1</td>
+                <td>59.9</td>
+                <td>58.4</td>
+                <td>58.0</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 미만</th>
+                <td>46.3</td>
+                <td>39.8</td>
+                <td>38.7</td>
+                <td>36.2</td>
+                <td>27.0</td>
+                <td>24.4</td>
+                <td>21.7</td>
+                <td>19.4</td>
+                <td>17.6</td>
+                <td>16.1</td>
+                <td>14.3</td>
+                <td>13.6</td>
+                <td>13.6</td>
+                <td>12.6</td>
+                <td>12.7</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 이상</th>
+                <td>76.2</td>
+                <td>73.2</td>
+                <td>75.5</td>
+                <td>71.9</td>
+                <td>68.3</td>
+                <td>65.1</td>
+                <td>63.7</td>
+                <td>60.3</td>
+                <td>59.5</td>
+                <td>58.7</td>
+                <td>54.9</td>
+                <td>55.5</td>
+                <td>55.2</td>
+                <td>54.4</td>
+                <td>52.6</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 미만</th>
+                <td>46.1</td>
+                <td>39.6</td>
+                <td>38.5</td>
+                <td>36.0</td>
+                <td>26.7</td>
+                <td>24.2</td>
+                <td>21.4</td>
+                <td>19.1</td>
+                <td>17.3</td>
+                <td>15.8</td>
+                <td>14.1</td>
+                <td>13.4</td>
+                <td>13.3</td>
+                <td>12.4</td>
+                <td>12.5</td>
+            </tr>
+            <tr>
+                <th scope="row">1~4인</th>
+                <td>40.1</td>
+                <td>32.5</td>
+                <td>30.5</td>
+                <td>29.2</td>
+                <td>19.8</td>
+                <td>17.3</td>
+                <td>14.4</td>
+                <td>13.2</td>
+                <td>11.0</td>
+                <td>9.4</td>
+                <td>7.8</td>
+                <td>7.2</td>
+                <td>7.2</td>
+                <td>6.4</td>
+                <td>6.6</td>
+            </tr>
+            <tr>
+                <th scope="row">5~9인</th>
+                <td>56.7</td>
+                <td>49.5</td>
+                <td>50.0</td>
+                <td>44.6</td>
+                <td>37.0</td>
+                <td>33.6</td>
+                <td>30.8</td>
+                <td>26.7</td>
+                <td>25.3</td>
+                <td>23.4</td>
+                <td>22.4</td>
+                <td>22.0</td>
+                <td>20.8</td>
+                <td>19.1</td>
+                <td>20.1</td>
+            </tr>
+            <tr>
+                <th scope="row">10~29인</th>
+                <td>64.2</td>
+                <td>58.9</td>
+                <td>59.2</td>
+                <td>55.7</td>
+                <td>46.2</td>
+                <td>44.0</td>
+                <td>42.3</td>
+                <td>37.3</td>
+                <td>36.9</td>
+                <td>36.7</td>
+                <td>33.1</td>
+                <td>32.4</td>
+                <td>32.8</td>
+                <td>31.5</td>
+                <td>31.4</td>
+            </tr>
+            <tr>
+                <th scope="row">30~99인</th>
+                <td>67.9</td>
+                <td>70.7</td>
+                <td>72.9</td>
+                <td>65.8</td>
+                <td>54.9</td>
+                <td>53.2</td>
+                <td>51.5</td>
+                <td>45.5</td>
+                <td>45.5</td>
+                <td>46.6</td>
+                <td>41.5</td>
+                <td>41.0</td>
+                <td>42.4</td>
+                <td>40.4</td>
+                <td>42.2</td>
+            </tr>
+            <tr>
+                <th scope="row">100～299인</th>
+                <td>75.0</td>
+                <td>72.0</td>
+                <td>74.5</td>
+                <td>69.9</td>
+                <td>67.3</td>
+                <td>64.1</td>
+                <td>62.5</td>
+                <td>59.6</td>
+                <td>59.1</td>
+                <td>58.2</td>
+                <td>53.7</td>
+                <td>54.3</td>
+                <td>53.8</td>
+                <td>53.2</td>
+                <td>51.0</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">산업별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">산업별 호봉급 운영현황에 대한 표로 구분(호봉급 - 전체, 광업, 제조업, 전기·가스·증기 및 공기 조절 공급업, 수도·하수 및 폐기물처리·원료 재생업, 건설업, 도매 및 소매업, 운수 및 창고업, 숙박 및 음식점업, 정보통신업, 금융 및 보험업, 부동산업, 전문·과학 및 기술 서비스업, 사업시설관리·사업지원 및 임대서비스업, 교육서비스업, 보건업 및 사회복지 서비스업, 예술·스포츠 및 여가 관련 서비스업, 협회 및 단체·수리 및 기타 개인 서비스업), ’10.9, ’11.6, ’12.6, ’13.6, ’14.6, ’15.6, ’16.6, ’17.6, ’18.6, ’19.6, ’20.6, ’21.6, ’22.6, ’23.6, ’24.6에 대한 총계를 퍼센트 단위로 나타냈다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col style="width: 22%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="18">호봉급</th>
+                <th scope="row">전체</th>
+                <!-- <td>43.5</td> -->
+                <td>46.3</td>
+                <td>39.9</td>
+                <td>38.8</td>
+                <td>36.3</td>
+                <td>27.1</td>
+                <td>24.5</td>
+                <td>21.7</td>
+                <td>19.5</td>
+                <td>17.7</td>
+                <td>16.1</td>
+                <td>14.4</td>
+                <td>13.7</td>
+                <td>13.7</td>
+                <td>13.7</td>
+                <td>12.8</td>
+            </tr>
+            <tr>
+                <th scope="row">광업</th>
+                <!-- <td>42.2</td> -->
+                <td>51.2</td>
+                <td>49.8</td>
+                <td>42.5</td>
+                <td>40.9</td>
+                <td>34.8</td>
+                <td>31.9</td>
+                <td>19.0</td>
+                <td>19.3</td>
+                <td>20.0</td>
+                <td>21.9</td>
+                <td>12.2</td>
+                <td>13.7</td>
+                <td>10.4</td>
+                <td>19.9</td>
+                <td>17.3</td>
+            </tr>
+            <tr>
+                <th scope="row">제조업</th>
+                <!-- <td>43.1</td> -->
+                <td>45.1</td>
+                <td>40.9</td>
+                <td>44.1</td>
+                <td>42.5</td>
+                <td>25.4</td>
+                <td>22.7</td>
+                <td>21.1</td>
+                <td>16.6</td>
+                <td>15.5</td>
+                <td>14.2</td>
+                <td>13.6</td>
+                <td>13.3</td>
+                <td>13.3</td>
+                <td>11.4</td>
+                <td>12.0</td>
+            </tr>
+            <tr>
+                <th scope="row">전기, 가스, 증기 및 공기 조절 공급업</th>
+                <!-- <td>70.6</td> -->
+                <td>76.8</td>
+                <td>68.8</td>
+                <td>71.4</td>
+                <td>79.7</td>
+                <td>80.1</td>
+                <td>78.3</td>
+                <td>79.2</td>
+                <td>66.4</td>
+                <td>53.3</td>
+                <td>48.7</td>
+                <td>43.3</td>
+                <td>36.7</td>
+                <td>31.9</td>
+                <td>24.7</td>
+                <td>28.8</td>
+            </tr>
+            <tr>
+                <th scope="row">수도, 하수 및 폐기물 처리, 원료 재생업</th>
+                <!-- <td>-</td> -->
+                <td>-</td>
+                <td>46.5</td>
+                <td>51.9</td>
+                <td>45.7</td>
+                <td>26.1</td>
+                <td>29.2</td>
+                <td>25.8</td>
+                <td>16.3</td>
+                <td>15.2</td>
+                <td>14.4</td>
+                <td>12.2</td>
+                <td>10.7</td>
+                <td>11.9</td>
+                <td>14.2</td>
+                <td>13.6</td>
+            </tr>
+            <tr>
+                <th scope="row">건설업</th>
+                <!-- <td>52.3</td> -->
+                <td>42.9</td>
+                <td>45.9</td>
+                <td>41.2</td>
+                <td>37.5</td>
+                <td>22.0</td>
+                <td>20.3</td>
+                <td>17.9</td>
+                <td>16.1</td>
+                <td>14.6</td>
+                <td>12.9</td>
+                <td>12.0</td>
+                <td>11.5</td>
+                <td>9.9</td>
+                <td>8.6</td>
+                <td>9.1</td>
+            </tr>
+            <tr>
+                <th scope="row">도매 및 소매업</th>
+                <!-- <td>38.3</td> -->
+                <td>47.4</td>
+                <td>35.0</td>
+                <td>35.5</td>
+                <td>33.0</td>
+                <td>26.1</td>
+                <td>23.9</td>
+                <td>20.1</td>
+                <td>15.2</td>
+                <td>13.9</td>
+                <td>12.4</td>
+                <td>11.1</td>
+                <td>10.2</td>
+                <td>10.2</td>
+                <td>9.8</td>
+                <td>9.2</td>
+            </tr>
+            <tr>
+                <th scope="row">운수 및 창고업</th>
+                <!-- <td>45.6</td> -->
+                <td>54.3</td>
+                <td>48.0</td>
+                <td>51.3</td>
+                <td>47.6</td>
+                <td>34.2</td>
+                <td>33.2</td>
+                <td>32.3</td>
+                <td>25.7</td>
+                <td>24.8</td>
+                <td>24.6</td>
+                <td>23.7</td>
+                <td>23.7</td>
+                <td>23.9</td>
+                <td>22.0</td>
+                <td>21.5</td>
+            </tr>
+            <tr>
+                <th scope="row">숙박 및 음식점업</th>
+                <!-- <td>33.5</td> -->
+                <td>31.9</td>
+                <td>29.4</td>
+                <td>21.4</td>
+                <td>15.7</td>
+                <td>14.3</td>
+                <td>13.4</td>
+                <td>9.6</td>
+                <td>10.7</td>
+                <td>7.4</td>
+                <td>6.2</td>
+                <td>4.2</td>
+                <td>3.6</td>
+                <td>3.9</td>
+                <td>3.4</td>
+                <td>2.4</td>
+            </tr>
+            <tr>
+                <th scope="row">정보통신업</th>
+                <!-- <td>52.3</td> -->
+                <td>50.2</td>
+                <td>46.2</td>
+                <td>47.5</td>
+                <td>44.7</td>
+                <td>29.7</td>
+                <td>24.5</td>
+                <td>20.9</td>
+                <td>23.1</td>
+                <td>19.9</td>
+                <td>16.0</td>
+                <td>11.7</td>
+                <td>12.4</td>
+                <td>10.1</td>
+                <td>14.0</td>
+                <td>14.6</td>
+            </tr>
+            <tr>
+                <th scope="row">금융 및 보험업</th>
+                <!-- <td>78.9</td> -->
+                <td>78.1</td>
+                <td>66.0</td>
+                <td>65.1</td>
+                <td>63.7</td>
+                <td>68.8</td>
+                <td>70.8</td>
+                <td>70.1</td>
+                <td>69.6</td>
+                <td>68.1</td>
+                <td>67.5</td>
+                <td>66.3</td>
+                <td>68.6</td>
+                <td>69.5</td>
+                <td>65.4</td>
+                <td>64.9</td>
+            </tr>
+            <tr>
+                <th scope="row">부동산업</th>
+                <!-- <td>27.4</td> -->
+                <td>29.4</td>
+                <td>29.9</td>
+                <td>30.3</td>
+                <td>23.7</td>
+                <td>17.0</td>
+                <td>14.2</td>
+                <td>11.1</td>
+                <td>9.7</td>
+                <td>6.1</td>
+                <td>6.7</td>
+                <td>4.8</td>
+                <td>5.1</td>
+                <td>4.3</td>
+                <td>4.0</td>
+                <td>3.4</td>
+            </tr>
+            <tr>
+                <th scope="row">전문, 과학 및 기술 서비스업</th>
+                <!-- <td>-</td> -->
+                <td>-</td>
+                <td>47.9</td>
+                <td>46.1</td>
+                <td>43.6</td>
+                <td>30.1</td>
+                <td>25.4</td>
+                <td>24.6</td>
+                <td>18.4</td>
+                <td>18.4</td>
+                <td>18.5</td>
+                <td>17.1</td>
+                <td>16.1</td>
+                <td>16.0</td>
+                <td>14.4</td>
+                <td>15.2</td>
+            </tr>
+            <tr>
+                <th scope="row">사업시설 관리, 사업 지원 및 임대 서비스업</th>
+                <!-- <td>48.1</td> -->
+                <td>55.8</td>
+                <td>39.0</td>
+                <td>41.9</td>
+                <td>39.9</td>
+                <td>28.3</td>
+                <td>27.9</td>
+                <td>26.5</td>
+                <td>23.6</td>
+                <td>20.5</td>
+                <td>20.6</td>
+                <td>16.1</td>
+                <td>15.2</td>
+                <td>13.5</td>
+                <td>11.0</td>
+                <td>11.9</td>
+            </tr>
+            <tr>
+                <th scope="row">교육 서비스업</th>
+                <!-- <td>50.1</td> -->
+                <td>54.2</td>
+                <td>44.3</td>
+                <td>43.8</td>
+                <td>46.3</td>
+                <td>28.7</td>
+                <td>25.6</td>
+                <td>24.3</td>
+                <td>26.9</td>
+                <td>28.6</td>
+                <td>24.6</td>
+                <td>19.5</td>
+                <td>19.0</td>
+                <td>17.6</td>
+                <td>15.3</td>
+                <td>15.4</td>
+            </tr>
+            <tr>
+                <th scope="row">보건업 및 사회복지 서비스업</th>
+                <!-- <td>57.1</td> -->
+                <td>57.6</td>
+                <td>49.6</td>
+                <td>47.9</td>
+                <td>46.9</td>
+                <td>44.6</td>
+                <td>41.1</td>
+                <td>36.2</td>
+                <td>38.1</td>
+                <td>34.7</td>
+                <td>30.4</td>
+                <td>26.9</td>
+                <td>27.3</td>
+                <td>26.8</td>
+                <td>29.1</td>
+                <td>31.4</td>
+            </tr>
+            <tr>
+                <th scope="row">예술, 스포츠 및 여가 관련 서비스업</th>
+                <!-- <td>48.4</td> -->
+                <td>50.2</td>
+                <td>39.2</td>
+                <td>36.7</td>
+                <td>28.8</td>
+                <td>27.1</td>
+                <td>24.3</td>
+                <td>19.6</td>
+                <td>12.6</td>
+                <td>12.5</td>
+                <td>10.7</td>
+                <td>9.7</td>
+                <td>9.7</td>
+                <td>10.4</td>
+                <td>11.4</td>
+                <td>11.6</td>
+            </tr>
+            <tr>
+                <th scope="row">협회 및 단체, 수리 및 기타 개인 서비스업</th>
+                <!-- <td>43.5</td> -->
+                <td>44.9</td>
+                <td>36.7</td>
+                <td>32.5</td>
+                <td>32.1</td>
+                <td>69.2</td>
+                <td>15.9</td>
+                <td>14.8</td>
+                <td>16.6</td>
+                <td>15.0</td>
+                <td>14.6</td>
+                <td>13.6</td>
+                <td>10.7</td>
+                <td>10.2</td>
+                <td>8.2</td>
+                <td>8.3</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="box-solid white">
+    <p>사업체노동력 부가조사 산업분류는 ’09년~’10년은 제8차 한국표준산업분류(2000년), ‘11년~’19년은 제9차 한국표준산업분류(2008년), ‘20년 이후는 제10차 한국표준산업분류(2017년)를 따름</p>
+</div>
+                   </div>
+                <div id="wageSytmStcsAnslIndc">
+                       
 
 
-<script id="wgsyImprInqrDtalFormData_tmpl" type="text/x-jsrender">
-	<tr>
-		<th scope="row">문의 제목 <span class="required"><i class="blind">필수입력</i></span></th>
-		<td colspan="3">
-			<div class="input-group">
-				<input type="text" name="sjnm" id="sjnm" value="" class="inp" maxlength="60" />
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">작성자 <span class="required"><i class="blind">필수입력</i></span></th>
-		<td>
-			<div class="input-group">
-				<input type="text" name="wrtrPnm" id="wrtrPnm" value="" class="inp w100" maxlength="10" />
-			</div>
-		</td>
-		<th scope="row">업종 구분 <span class="required"><i class="blind">필수입력</i></span></th>
-		<td id="tdTyinSecdSelect">
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">답변 받을 메일주소 <span class="required"><i class="blind">필수입력</i></span></th>
-		<td colspan="3">
-			<div class="input-group">
-				<div class="input">
-					<input type="text" name="wrtrEmad1" id="wrtrEmad1" class="inp engNumDashDot" value="" title="이메일 첫 번째 입력" maxlength="33">
-					<span class="mg">@</span>
-					<input type="text" name="wrtrEmad2" id="wrtrEmad2" class="inp" value="" title="이메일 두 번째 입력" maxlength="33" readonly="readonly">
-					<select class="inp" id="selWrtrEmad" onchange="chngSelEmad(this);">
-					</select>
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">내용 <span class="required"><i class="blind">필수입력</i></span></th>
-		<td colspan="3">
-			<textarea name="inqrCn" id="inqrCn" title="내용 입력" class="inp"></textarea>
-		</td>
-	</tr>
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+	});
+
 </script>
 
-<!-- 웹필터 -->
-<script> var wfBypassCheck = false;</script>
-<input type='hidden' id='keisWebfilterDomain' value='webfilter.ilmoa.go.kr'/>
-<script type='text/javascript' src='/statics/webfilter/js/jquery.ui.touch-punch.min.js'></script>
-<link rel='stylesheet' href='/statics/webfilter/css/wf_popup_layer.css' type='text/css'>
-<script type='text/javascript' src='/statics/webfilter/js/jquery.ui.touch-punch.min.js'></script>
-<script type='text/javascript' src='/statics/webfilter/js/webfilter.js' defer='defer' charset='UTF-8'></script>
+<div class="summary-wage-system">
+    <div class="summary-header">
+        <h3 class="title-ico">연봉제 도입 현황(상용 100인 이상 사업체)</h3>
+        <div class="desc">
+            <p>연봉제는 근로자 '개인'의 능력, 성과 등을 평가하여 그 개인의 임금 전부 또는 일부분(기본급, 상여금, 성과급 등)을 연 단위로 결정하는 임금체계입니다.</p>
+            <span class="right-txt"></span>
+        </div>
+    </div>
+</div>
+<div class="graph-box flicking">
+    <!-- 그래프 영역-->
+    <div class="graph" id="wageSytmStcsAnslIndcGraph" style="width: 98%; height: 300px; border: 0px dashed gray;"></div>
+</div>
+<ul class="basic definition-list">
+    <li>상용 100인 이상 사업체 대상</li>
+    <li>호봉급, 직능급, 직무급, 기타 중 복수 응답 가능</li>
+</ul>
+<p class="wrn-txt gray">출처 : 고용노동부 사업체노동력조사 부가조사</p>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">규모별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">규모별 연봉제(급) 운영현황에 대한 표로 구분(연봉제(급) - 전체, 1000인 이상, 300인 이상, 300인 미만, 100인 이상, 100인 미만, 1~4인, 5~9인, 10~29인, 30~99인, 100~299인), ’10.9, ’11.6, ’12.6, ’13.6, ’14.6, ’15.6, ’16.6, ’17.6, ’18.6, ’19.6, ’20.6, ’21.6, ’22.6, ’23.6, ’24.6에 대한 총계를 퍼센트 단위로 나타냈다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col style="width: 13%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="11">연봉제(급)</th>
+                <th scope="row">전체</th>
+                <td>33.4</td>
+                <td>30.2</td>
+                <td>33.4</td>
+                <td>33.4</td>
+                <td>31.4</td>
+                <td>32.8</td>
+                <td>31.2</td>
+                <td>29.9</td>
+                <td>30.9</td>
+                <td>28.7</td>
+                <td>26.2</td>
+                <td>25.6</td>
+                <td>25.7</td>
+                <td>22.3</td>
+                <td>22.3</td>
+            </tr>
+            <tr>
+                <th scope="row">1000인 이상</th>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>84.6</td>
+                <td>84.8</td>
+                <td>85.4</td>
+                <td>85.6</td>
+                <td>85.9</td>
+                <td>85.0</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 이상</th>
+                <td>69.6</td>
+                <td>72.5</td>
+                <td>75.3</td>
+                <td>75.5</td>
+                <td>78.8</td>
+                <td>80.1</td>
+                <td>81.0</td>
+                <td>78.6</td>
+                <td>81.6</td>
+                <td>82.8</td>
+                <td>83.2</td>
+                <td>84.0</td>
+                <td>84.2</td>
+                <td>83.5</td>
+                <td>84.0</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 미만</th>
+                <td>33.4</td>
+                <td>30.1</td>
+                <td>33.3</td>
+                <td>33.3</td>
+                <td>31.3</td>
+                <td>32.7</td>
+                <td>31.1</td>
+                <td>29.8</td>
+                <td>30.8</td>
+                <td>28.6</td>
+                <td>26.1</td>
+                <td>25.5</td>
+                <td>25.6</td>
+                <td>22.1</td>
+                <td>22.2</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 이상</th>
+                <td>62.7</td>
+                <td>64.8</td>
+                <td>66.7</td>
+                <td>66.2</td>
+                <td>72.2</td>
+                <td>74.5</td>
+                <td>75.3</td>
+                <td>74.7</td>
+                <td>76.9</td>
+                <td>77.3</td>
+                <td>77.3</td>
+                <td>79.7</td>
+                <td>79.8</td>
+                <td>77.8</td>
+                <td>78.5</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 미만</th>
+                <td>33.2</td>
+                <td>29.8</td>
+                <td>33.1</td>
+                <td>33.1</td>
+                <td>31.0</td>
+                <td>32.4</td>
+                <td>30.8</td>
+                <td>29.5</td>
+                <td>30.5</td>
+                <td>28.3</td>
+                <td>25.8</td>
+                <td>25.2</td>
+                <td>25.2</td>
+                <td>21.8</td>
+                <td>21.8</td>
+            </tr>
+            <tr>
+                <th scope="row">1~4인</th>
+                <td>27.5</td>
+                <td>20.8</td>
+                <td>24.1</td>
+                <td>24.8</td>
+                <td>21.5</td>
+                <td>22.1</td>
+                <td>20.6</td>
+                <td>19.9</td>
+                <td>21.3</td>
+                <td>19.4</td>
+                <td>16.1</td>
+                <td>15.3</td>
+                <td>15.0</td>
+                <td>12.7</td>
+                <td>13.0</td>
+            </tr>
+            <tr>
+                <th scope="row">5~9인</th>
+                <td>43.0</td>
+                <td>43.2</td>
+                <td>47.7</td>
+                <td>44.9</td>
+                <td>45.0</td>
+                <td>48.8</td>
+                <td>47.0</td>
+                <td>45.5</td>
+                <td>43.3</td>
+                <td>39.4</td>
+                <td>39.2</td>
+                <td>40.3</td>
+                <td>40.8</td>
+                <td>34.1</td>
+                <td>35.0</td>
+            </tr>
+            <tr>
+                <th scope="row">10~29인</th>
+                <td>50.4</td>
+                <td>55.3</td>
+                <td>56.3</td>
+                <td>56.5</td>
+                <td>59.3</td>
+                <td>60.7</td>
+                <td>59.1</td>
+                <td>54.8</td>
+                <td>57.9</td>
+                <td>56.7</td>
+                <td>54.9</td>
+                <td>54.8</td>
+                <td>55.4</td>
+                <td>49.4</td>
+                <td>49.1</td>
+            </tr>
+            <tr>
+                <th scope="row">30~99인</th>
+                <td>55.6</td>
+                <td>63.0</td>
+                <td>65.0</td>
+                <td>64.7</td>
+                <td>66.9</td>
+                <td>69.1</td>
+                <td>69.0</td>
+                <td>64.9</td>
+                <td>67.0</td>
+                <td>68.6</td>
+                <td>66.7</td>
+                <td>65.5</td>
+                <td>65.9</td>
+                <td>62.0</td>
+                <td>62.7</td>
+            </tr>
+            <tr>
+                <th scope="row">100～299인</th>
+                <td>61.0</td>
+                <td>62.9</td>
+                <td>64.5</td>
+                <td>63.8</td>
+                <td>70.5</td>
+                <td>73.1</td>
+                <td>73.9</td>
+                <td>73.7</td>
+                <td>75.7</td>
+                <td>75.8</td>
+                <td>75.7</td>
+                <td>78.5</td>
+                <td>78.6</td>
+                <td>76.1</td>
+                <td>76.9</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">산업별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+        <caption class="blind">산업별 연봉제 운영현황에 대한 표로 2010년부터 2023년까지 매년 6월 전체/ 전기,가스,증기 및 공기조절공급업, 수도,하수,폐기물 처리, 원료재생업/ 사업시설관리 및 사업지원 및 입대서비스업/ 예술,스포츠 및 여가관련 서비스업/ 협회 및 단체, 수리 및 기타 개인 서비스업에 대한 총계를 퍼센트 단위로 나타냈다.</caption>
+        <colgroup>
+            <col>
+            <col style="width: 22%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="18">연봉제</th>
+                <th scope="row">전체</th>
+                <td>33.4</td>
+                <td>30.2</td>
+                <td>33.4</td>
+                <td>33.4</td>
+                <td>31.4</td>
+                <td>32.8</td>
+                <td>31.2</td>
+                <td>29.9</td>
+                <td>30.9</td>
+                <td>28.7</td>
+                <td>26.2</td>
+                <td>25.6</td>
+                <td>25.7</td>
+                <td>22.3</td>
+                <td>22.3</td>
+            </tr>
+            <tr>
+                <th scope="row">광업</th>
+                <td>33.0</td>
+                <td>32.9</td>
+                <td>38.1</td>
+                <td>38.4</td>
+                <td>38.2</td>
+                <td>42.1</td>
+                <td>38.0</td>
+                <td>38.4</td>
+                <td>39.7</td>
+                <td>29.9</td>
+                <td>19.4</td>
+                <td>12.7</td>
+                <td>15.3</td>
+                <td>27.3</td>
+                <td>25.9</td>
+            </tr>
+            <tr>
+                <th scope="row">제조업</th>
+                <td>33.0</td>
+                <td>35.5</td>
+                <td>37.1</td>
+                <td>37.4</td>
+                <td>34.7</td>
+                <td>36.2</td>
+                <td>34.0</td>
+                <td>33.7</td>
+                <td>36.6</td>
+                <td>33.9</td>
+                <td>32.2</td>
+                <td>31.1</td>
+                <td>30.0</td>
+                <td>25.9</td>
+                <td>26.3</td>
+            </tr>
+            <tr>
+                <th scope="row">전기, 가스, 증기 및 공기 조절 공급업</th>
+                <td>70.7</td>
+                <td>64.5</td>
+                <td>72.1</td>
+                <td>71.5</td>
+                <td>85.0</td>
+                <td>87.7</td>
+                <td>89.4</td>
+                <td>81.4</td>
+                <td>79.7</td>
+                <td>74.6</td>
+                <td>62.5</td>
+                <td>67.5</td>
+                <td>65.3</td>
+                <td>58.1</td>
+                <td>61.8</td>
+            </tr>
+            <tr>
+                <th scope="row">수도, 하수 및 폐기물 처리, 원료 재생업</th>
+                <td>-</td>
+                <td>35.1</td>
+                <td>33.9</td>
+                <td>36.9</td>
+                <td>32.4</td>
+                <td>35.0</td>
+                <td>32.6</td>
+                <td>22.5</td>
+                <td>24.2</td>
+                <td>23.9</td>
+                <td>28.5</td>
+                <td>26.2</td>
+                <td>24.2</td>
+                <td>19.0</td>
+                <td>21.7</td>
+            </tr>
+            <tr>
+                <th scope="row">건설업</th>
+                <td>34.2</td>
+                <td>36.4</td>
+                <td>39.1</td>
+                <td>40.9</td>
+                <td>38.5</td>
+                <td>41.6</td>
+                <td>39.4</td>
+                <td>37.6</td>
+                <td>38.3</td>
+                <td>34.6</td>
+                <td>30.2</td>
+                <td>30.1</td>
+                <td>29.4</td>
+                <td>22.4</td>
+                <td>23.5</td>
+            </tr>
+            <tr>
+                <th scope="row">도매 및 소매업</th>
+                <td>31.6</td>
+                <td>27.3</td>
+                <td>30.6</td>
+                <td>31.8</td>
+                <td>29.6</td>
+                <td>30.5</td>
+                <td>29.1</td>
+                <td>28.9</td>
+                <td>29.3</td>
+                <td>27.7</td>
+                <td>26.1</td>
+                <td>25.6</td>
+                <td>25.4</td>
+                <td>21.5</td>
+                <td>22.6</td>
+            </tr>
+            <tr>
+                <th scope="row">운수 및 창고업</th>
+                <td>40.9</td>
+                <td>44.1</td>
+                <td>45.3</td>
+                <td>43.6</td>
+                <td>39.5</td>
+                <td>39.8</td>
+                <td>39.8</td>
+                <td>34.6</td>
+                <td>37.1</td>
+                <td>37.7</td>
+                <td>37.6</td>
+                <td>37.5</td>
+                <td>38.8</td>
+                <td>35.5</td>
+                <td>33.8</td>
+            </tr>
+            <tr>
+                <th scope="row">숙박 및 음식점업</th>
+                <td>24.4</td>
+                <td>10.0</td>
+                <td>11.2</td>
+                <td>11.8</td>
+                <td>15.5</td>
+                <td>16.1</td>
+                <td>15.2</td>
+                <td>14.2</td>
+                <td>17.3</td>
+                <td>13.8</td>
+                <td>10.4</td>
+                <td>9.4</td>
+                <td>8.3</td>
+                <td>9.0</td>
+                <td>7.7</td>
+            </tr>
+            <tr>
+                <th scope="row">정보통신업</th>
+                <td>35.4</td>
+                <td>66.2</td>
+                <td>66.1</td>
+                <td>63.7</td>
+                <td>67.6</td>
+                <td>70.5</td>
+                <td>64.0</td>
+                <td>58.2</td>
+                <td>69.2</td>
+                <td>65.4</td>
+                <td>58.4</td>
+                <td>58.9</td>
+                <td>60.7</td>
+                <td>53.6</td>
+                <td>51.6</td>
+            </tr>
+            <tr>
+                <th scope="row">금융 및 보험업</th>
+                <td>46.1</td>
+                <td>58.3</td>
+                <td>62.1</td>
+                <td>60.9</td>
+                <td>61.5</td>
+                <td>69.1</td>
+                <td>70.3</td>
+                <td>64.4</td>
+                <td>64.3</td>
+                <td>64.4</td>
+                <td>63.1</td>
+                <td>63.8</td>
+                <td>65.6</td>
+                <td>64.9</td>
+                <td>64.7</td>
+            </tr>
+            <tr>
+                <th scope="row">부동산업</th>
+                <td>23.7</td>
+                <td>29.5</td>
+                <td>31.9</td>
+                <td>28.0</td>
+                <td>20.6</td>
+                <td>20.3</td>
+                <td>18.8</td>
+                <td>20.4</td>
+                <td>18.6</td>
+                <td>16.8</td>
+                <td>8.9</td>
+                <td>6.9</td>
+                <td>6.1</td>
+                <td>8.9</td>
+                <td>7.0</td>
+            </tr>
+            <tr>
+                <th scope="row">전문, 과학 및 기술 서비스업</th>
+                <td>-</td>
+                <td>51.9</td>
+                <td>56.5</td>
+                <td>59.3</td>
+                <td>51.4</td>
+                <td>57.3</td>
+                <td>55.2</td>
+                <td>50.7</td>
+                <td>54.3</td>
+                <td>53.1</td>
+                <td>47.9</td>
+                <td>48.1</td>
+                <td>49.7</td>
+                <td>43.6</td>
+                <td>43.3</td>
+            </tr>
+            <tr>
+                <th scope="row">사업시설 관리, 사업 지원 및 임대 서비스업</th>
+                <td>56.7</td>
+                <td>34.3</td>
+                <td>40.6</td>
+                <td>42.1</td>
+                <td>36.2</td>
+                <td>41.8</td>
+                <td>39.9</td>
+                <td>37.0</td>
+                <td>38.6</td>
+                <td>34.9</td>
+                <td>30.1</td>
+                <td>30.9</td>
+                <td>26.1</td>
+                <td>28.4</td>
+                <td>27.9</td>
+            </tr>
+            <tr>
+                <th scope="row">교육 서비스업</th>
+                <td>32.9</td>
+                <td>33.2</td>
+                <td>34.8</td>
+                <td>29.4</td>
+                <td>32.9</td>
+                <td>28.6</td>
+                <td>27.6</td>
+                <td>27.5</td>
+                <td>28.0</td>
+                <td>30.1</td>
+                <td>27.9</td>
+                <td>28.3</td>
+                <td>26.0</td>
+                <td>18.4</td>
+                <td>17.3</td>
+            </tr>
+            <tr>
+                <th scope="row">보건업 및 사회복지 서비스업</th>
+                <td>42.4</td>
+                <td>28.4</td>
+                <td>32.4</td>
+                <td>35.3</td>
+                <td>31.0</td>
+                <td>32.8</td>
+                <td>30.2</td>
+                <td>29.2</td>
+                <td>25.8</td>
+                <td>22.3</td>
+                <td>21.7</td>
+                <td>21.2</td>
+                <td>21.8</td>
+                <td>14.6</td>
+                <td>14.4</td>
+            </tr>
+            <tr>
+                <th scope="row">예술, 스포츠 및 여가 관련 서비스업</th>
+                <td>33.2</td>
+                <td>27.8</td>
+                <td>30.8</td>
+                <td>24.4</td>
+                <td>22.6</td>
+                <td>27.7</td>
+                <td>25.0</td>
+                <td>18.7</td>
+                <td>19.4</td>
+                <td>17.1</td>
+                <td>16.5</td>
+                <td>16.1</td>
+                <td>15.4</td>
+                <td>16.6</td>
+                <td>16.9</td>
+            </tr>
+            <tr>
+                <th scope="row">협회 및 단체, 수리 및 기타 개인 서비스업</th>
+                <td>29.4</td>
+                <td>19.8</td>
+                <td>27.3</td>
+                <td>25.5</td>
+                <td>20.5</td>
+                <td>21.1</td>
+                <td>18.8</td>
+                <td>17.3</td>
+                <td>18.3</td>
+                <td>16.9</td>
+                <td>14.6</td>
+                <td>15.3</td>
+                <td>14.7</td>
+                <td>9.3</td>
+                <td>9.7</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="box-solid white">
+    <p>사업체노동력 부가조사 산업분류는 ’09년~’10년은 제8차 한국표준산업분류(2000년), ‘11년~’19년은 제9차 한국표준산업분류(2008년), ‘20년 이후는 제10차 한국표준산업분류(2017년)를 따름</p>
+</div>
+                </div>
+                <div id="wageSytmStcsRstIndc">
+                       
 
-<!-- //웹필터 -->
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+	});
+
+</script>
+
+<div class="summary-wage-system">
+    <div class="summary-header">
+        <h3 class="title-ico">성과배분제 도입 현황(상용 100인 이상 사업체)</h3>
+        <div class="desc">
+            <p>성과배분제는 '기업 전체 또는 부서 단위'로 정해놓은 경영목표를 달성·상회하거나 생산 비용이 절감된 경우 근로자들에게 현금, 주식, 복지 기금 등의 형태로 배분하는 '집단적' 성과급 제도입니다. ('개인별' 성과 평가를 통한 배분이 아님)</p>
+        </div>
+    </div>
+</div>
+<div class="graph-box flicking">
+    <!-- 그래프 영역-->
+    <div class="graph" id="wageSytmStcsRstIndcGraph" style="width: 98%; height: 300px; border: 0px dashed gray;"></div>
+</div>
+<ul class="basic definition-list">
+    <li>상용 100인 이상 사업체 대상</li>
+    <li>호봉급, 직능급, 직무급, 기타 중 복수 응답 가능</li>
+</ul>
+<p class="wrn-txt gray">출처 : 고용노동부 사업체노동력조사 부가조사</p>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">규모별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+        <caption class="blind">규모별 성과배분제 운영현황에 대한 표로 2010년부터 2023년까지 300인 미만, 300인 이상, 300~500인 미만, 500~1,000인 미만, 1,000인 이상에 대한 총계를 퍼센트 단위로 나타냈다.</caption>
+        <colgroup>
+            <col>
+            <col style="width: 13%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="11">성과<br>배분제</th>
+                <th scope="row">전체</th>
+                <td>11.0</td>
+                <td>10.9</td>
+                <td>11.9</td>
+                <td>11.5</td>
+                <td>9.7</td>
+                <td>10.8</td>
+                <td>9.9</td>
+                <td>7.9</td>
+                <td>7.5</td>
+                <td>6.6</td>
+                <td>6.3</td>
+                <td>6.0</td>
+                <td>6.4</td>
+                <td>6.6</td>
+                <td>6.5</td>
+            </tr>
+            <tr>
+                <th scope="row">1000인 이상</th>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>52.7</td>
+                <td>49.4</td>
+                <td>50.7</td>
+                <td>51.7</td>
+                <td>47.2</td>
+                <td>45.6</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 이상</th>
+                <td>48.2</td>
+                <td>48.2</td>
+                <td>49.6</td>
+                <td>46.8</td>
+                <td>47.2</td>
+                <td>52.6</td>
+                <td>50.1</td>
+                <td>45.2</td>
+                <td>44.2</td>
+                <td>43.5</td>
+                <td>42.1</td>
+                <td>43.9</td>
+                <td>45.1</td>
+                <td>44.4</td>
+                <td>44.2</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 미만</th>
+                <td>10.9</td>
+                <td>10.9</td>
+                <td>11.8</td>
+                <td>11.4</td>
+                <td>9.6</td>
+                <td>10.8</td>
+                <td>9.9</td>
+                <td>7.8</td>
+                <td>7.4</td>
+                <td>6.5</td>
+                <td>6.2</td>
+                <td>5.9</td>
+                <td>6.4</td>
+                <td>6.6</td>
+                <td>6.4</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 이상</th>
+                <td>37.7</td>
+                <td>39.0</td>
+                <td>39.9</td>
+                <td>38.4</td>
+                <td>36.3</td>
+                <td>41.7</td>
+                <td>39.9</td>
+                <td>34.8</td>
+                <td>34.9</td>
+                <td>35.3</td>
+                <td>34.8</td>
+                <td>36.3</td>
+                <td>36.9</td>
+                <td>39.2</td>
+                <td>39.0</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 미만</th>
+                <td>10.8</td>
+                <td>10.7</td>
+                <td>11.6</td>
+                <td>11.2</td>
+                <td>9.4</td>
+                <td>10.6</td>
+                <td>9.7</td>
+                <td>7.6</td>
+                <td>7.3</td>
+                <td>6.4</td>
+                <td>6.0</td>
+                <td>5.8</td>
+                <td>6.2</td>
+                <td>6.4</td>
+                <td>6.2</td>
+            </tr>
+            <tr>
+                <th scope="row">1~4인</th>
+                <td>8.1</td>
+                <td>7.4</td>
+                <td>7.9</td>
+                <td>7.8</td>
+                <td>5.6</td>
+                <td>6.1</td>
+                <td>5.7</td>
+                <td>3.9</td>
+                <td>4.0</td>
+                <td>3.0</td>
+                <td>2.6</td>
+                <td>2.5</td>
+                <td>2.6</td>
+                <td>2.8</td>
+                <td>2.7</td>
+            </tr>
+            <tr>
+                <th scope="row">5~9인</th>
+                <td>14.8</td>
+                <td>13.5</td>
+                <td>15.8</td>
+                <td>14.3</td>
+                <td>13.8</td>
+                <td>15.1</td>
+                <td>13.9</td>
+                <td>12.9</td>
+                <td>11.2</td>
+                <td>10.2</td>
+                <td>10.3</td>
+                <td>9.6</td>
+                <td>11.3</td>
+                <td>10.6</td>
+                <td>10.9</td>
+            </tr>
+            <tr>
+                <th scope="row">10~29인</th>
+                <td>18.6</td>
+                <td>20.7</td>
+                <td>22.3</td>
+                <td>22.4</td>
+                <td>21.8</td>
+                <td>25.1</td>
+                <td>22.9</td>
+                <td>17.7</td>
+                <td>16.6</td>
+                <td>16.4</td>
+                <td>16.3</td>
+                <td>16.2</td>
+                <td>16.2</td>
+                <td>17.7</td>
+                <td>17.2</td>
+            </tr>
+            <tr>
+                <th scope="row">30~99인</th>
+                <td>26.8</td>
+                <td>29.8</td>
+                <td>29.5</td>
+                <td>29.1</td>
+                <td>28.3</td>
+                <td>31.9</td>
+                <td>29.7</td>
+                <td>25.4</td>
+                <td>24.9</td>
+                <td>25.5</td>
+                <td>21.4</td>
+                <td>22.4</td>
+                <td>23.2</td>
+                <td>23.6</td>
+                <td>24.3</td>
+            </tr>
+            <tr>
+                <th scope="row">100～299인</th>
+                <td>35.1</td>
+                <td>36.7</td>
+                <td>37.4</td>
+                <td>36.2</td>
+                <td>33.6</td>
+                <td>38.9</td>
+                <td>37.3</td>
+                <td>32.1</td>
+                <td>32.5</td>
+                <td>33.0</td>
+                <td>32.8</td>
+                <td>34.2</td>
+                <td>34.6</td>
+                <td>37.7</td>
+                <td>37.4</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">산업별</p>
+        <span class="right-txt">(단위 : %)</span>
+    </div>
+    <table class="table-list flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">산업별 성과배분제 운영현황에 대한 표로 구분(성과배분제 - 전체, 광업, 제조업, 전기·가스·증기 및 공기 조절 공급업, 수도·하수 및 폐기물처리·원료 재생업, 건설업, 도매 및 소매업, 운수 및 창고업, 숙박 및 음식점업, 정보통신업, 금융 및 보험업, 부동산업, 전문·과학 및 기술 서비스업, 사업시설관리·사업지원 및 임대서비스업, 교육서비스업, 보건업 및 사회복지 서비스업, 예술·스포츠 및 여가 관련 서비스업, 협회 및 단체·수리 및 기타 개인 서비스업), ’10.9, ’11.6, ’12.6, ’13.6, ’14.6, ’15.6, ’16.6, ’17.6, ’18.6, ’19.6, ’20.6, ’21.6, ’22.6, ’23.6, ’24.6에 대한 총계를 퍼센트 단위로 나타냈다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col style="width: 22%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">구&nbsp;분</th>
+                <th scope="col">’10.9</th>
+                <th scope="col">’11.6</th>
+                <th scope="col">’12.6</th>
+                <th scope="col">’13.6</th>
+                <th scope="col">’14.6</th>
+                <th scope="col">’15.6</th>
+                <th scope="col">’16.6</th>
+                <th scope="col">’17.6</th>
+                <th scope="col">’18.6</th>
+                <th scope="col">’19.6</th>
+                <th scope="col">’20.6</th>
+                <th scope="col">’21.6</th>
+                <th scope="col">’22.6</th>
+                <th scope="col">’23.6</th>
+                <th scope="col">’24.6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="18">성과<br>배분제</th>
+                <th scope="row">전체</th>
+                <td>11.0</td>
+                <td>10.9</td>
+                <td>11.9</td>
+                <td>11.5</td>
+                <td>9.7</td>
+                <td>10.8</td>
+                <td>9.9</td>
+                <td>7.9</td>
+                <td>7.5</td>
+                <td>6.6</td>
+                <td>6.3</td>
+                <td>6.0</td>
+                <td>6.4</td>
+                <td>6.6</td>
+                <td>6.5</td>
+            </tr>
+            <tr>
+                <th scope="row">광업</th>
+                <td>8.7</td>
+                <td>8.1</td>
+                <td>15.5</td>
+                <td>15.7</td>
+                <td>8.8</td>
+                <td>9.7</td>
+                <td>12.1</td>
+                <td>9.6</td>
+                <td>9.5</td>
+                <td>10.3</td>
+                <td>6.6</td>
+                <td>7.5</td>
+                <td>8.2</td>
+                <td>5.8</td>
+                <td>4.4</td>
+            </tr>
+            <tr>
+                <th scope="row">제조업</th>
+                <td>7.6</td>
+                <td>11.4</td>
+                <td>11.9</td>
+                <td>12.1</td>
+                <td>10.3</td>
+                <td>10.6</td>
+                <td>9.3</td>
+                <td>6.6</td>
+                <td>6.4</td>
+                <td>6.1</td>
+                <td>5.3</td>
+                <td>5.0</td>
+                <td>5.6</td>
+                <td>5.4</td>
+                <td>5.8</td>
+            </tr>
+            <tr>
+                <th scope="row">전기, 가스, 증기 및 공기 조절 공급업</th>
+                <td>45.9</td>
+                <td>41.0</td>
+                <td>44.8</td>
+                <td>45.6</td>
+                <td>61.5</td>
+                <td>66.7</td>
+                <td>72.9</td>
+                <td>59.8</td>
+                <td>58.3</td>
+                <td>57.3</td>
+                <td>42.0</td>
+                <td>41.9</td>
+                <td>38.6</td>
+                <td>39.6</td>
+                <td>46.8</td>
+            </tr>
+            <tr>
+                <th scope="row">수도, 하수 및 폐기물 처리, 원료 재생업</th>
+                <td>-</td>
+                <td>9.6</td>
+                <td>9.3</td>
+                <td>10.4</td>
+                <td>8.4</td>
+                <td>8.9</td>
+                <td>8.0</td>
+                <td>7.4</td>
+                <td>7.3</td>
+                <td>7.3</td>
+                <td>7.6</td>
+                <td>8.8</td>
+                <td>7.6</td>
+                <td>7.7</td>
+                <td>7.3</td>
+            </tr>
+            <tr>
+                <th scope="row">건설업</th>
+                <td>4.6</td>
+                <td>7.7</td>
+                <td>9.1</td>
+                <td>9.2</td>
+                <td>9.2</td>
+                <td>8.4</td>
+                <td>6.4</td>
+                <td>6.2</td>
+                <td>5.6</td>
+                <td>4.1</td>
+                <td>4.3</td>
+                <td>4.3</td>
+                <td>3.8</td>
+                <td>4.2</td>
+                <td>4.3</td>
+            </tr>
+            <tr>
+                <th scope="row">도매 및 소매업</th>
+                <td>11.4</td>
+                <td>12.4</td>
+                <td>13.8</td>
+                <td>13.3</td>
+                <td>11.1</td>
+                <td>12.1</td>
+                <td>11.4</td>
+                <td>8.2</td>
+                <td>7.4</td>
+                <td>6.1</td>
+                <td>7.3</td>
+                <td>6.5</td>
+                <td>6.7</td>
+                <td>6.5</td>
+                <td>6.5</td>
+            </tr>
+            <tr>
+                <th scope="row">운수 및 창고업</th>
+                <td>16.0</td>
+                <td>19.9</td>
+                <td>19.3</td>
+                <td>18.3</td>
+                <td>14.5</td>
+                <td>17.1</td>
+                <td>14.8</td>
+                <td>10.9</td>
+                <td>12.2</td>
+                <td>12.7</td>
+                <td>13.2</td>
+                <td>13.3</td>
+                <td>14.0</td>
+                <td>14.6</td>
+                <td>14.2</td>
+            </tr>
+            <tr>
+                <th scope="row">숙박 및 음식점업</th>
+                <td>10.1</td>
+                <td>4.6</td>
+                <td>5.1</td>
+                <td>2.0</td>
+                <td>2.2</td>
+                <td>6.7</td>
+                <td>6.4</td>
+                <td>5.5</td>
+                <td>6.2</td>
+                <td>5.2</td>
+                <td>3.5</td>
+                <td>3.8</td>
+                <td>5.1</td>
+                <td>4.1</td>
+                <td>3.8</td>
+            </tr>
+            <tr>
+                <th scope="row">정보통신업</th>
+                <td>27.1</td>
+                <td>26.6</td>
+                <td>24.7</td>
+                <td>24.6</td>
+                <td>20.7</td>
+                <td>22.8</td>
+                <td>18.6</td>
+                <td>13.3</td>
+                <td>15.5</td>
+                <td>14.7</td>
+                <td>12.9</td>
+                <td>11.2</td>
+                <td>11.0</td>
+                <td>15.5</td>
+                <td>12.6</td>
+            </tr>
+            <tr>
+                <th scope="row">금융 및 보험업</th>
+                <td>54.3</td>
+                <td>46.2</td>
+                <td>49.6</td>
+                <td>48.5</td>
+                <td>47.5</td>
+                <td>56.1</td>
+                <td>55.4</td>
+                <td>50.8</td>
+                <td>51.3</td>
+                <td>51.5</td>
+                <td>46.8</td>
+                <td>49.7</td>
+                <td>51.4</td>
+                <td>48.7</td>
+                <td>49.0</td>
+            </tr>
+            <tr>
+                <th scope="row">부동산업</th>
+                <td>2.9</td>
+                <td>5.7</td>
+                <td>5.6</td>
+                <td>5.1</td>
+                <td>3.9</td>
+                <td>4.1</td>
+                <td>3.2</td>
+                <td>4.2</td>
+                <td>3.4</td>
+                <td>3.2</td>
+                <td>1.3</td>
+                <td>1.4</td>
+                <td>1.3</td>
+                <td>1.3</td>
+                <td>1.1</td>
+            </tr>
+            <tr>
+                <th scope="row">전문, 과학 및 기술 서비스업</th>
+                <td>-</td>
+                <td>13.6</td>
+                <td>15.9</td>
+                <td>17.0</td>
+                <td>10.3</td>
+                <td>12.5</td>
+                <td>10.9</td>
+                <td>11.4</td>
+                <td>9.4</td>
+                <td>7.6</td>
+                <td>6.8</td>
+                <td>6.8</td>
+                <td>7.2</td>
+                <td>7.4</td>
+                <td>7.5</td>
+            </tr>
+            <tr>
+                <th scope="row">사업시설 관리, 사업 지원 및 임대 서비스업</th>
+                <td>16.2</td>
+                <td>14.5</td>
+                <td>15.7</td>
+                <td>15.4</td>
+                <td>10.9</td>
+                <td>13.7</td>
+                <td>13.3</td>
+                <td>7.6</td>
+                <td>8.0</td>
+                <td>7.5</td>
+                <td>7.7</td>
+                <td>6.8</td>
+                <td>6.0</td>
+                <td>6.6</td>
+                <td>6.4</td>
+            </tr>
+            <tr>
+                <th scope="row">교육 서비스업</th>
+                <td>11.0</td>
+                <td>8.0</td>
+                <td>13.5</td>
+                <td>9.9</td>
+                <td>15.7</td>
+                <td>13.3</td>
+                <td>12.3</td>
+                <td>8.4</td>
+                <td>7.0</td>
+                <td>6.3</td>
+                <td>7.5</td>
+                <td>7.2</td>
+                <td>4.5</td>
+                <td>7.1</td>
+                <td>5.4</td>
+            </tr>
+            <tr>
+                <th scope="row">보건업 및 사회복지 서비스업</th>
+                <td>10.4</td>
+                <td>6.6</td>
+                <td>6.1</td>
+                <td>7.1</td>
+                <td>4.3</td>
+                <td>4.1</td>
+                <td>4.1</td>
+                <td>4.1</td>
+                <td>3.9</td>
+                <td>1.5</td>
+                <td>1.3</td>
+                <td>1.4</td>
+                <td>2.6</td>
+                <td>3.5</td>
+                <td>3.6</td>
+            </tr>
+            <tr>
+                <th scope="row">예술, 스포츠 및 여가 관련 서비스업</th>
+                <td>7.6</td>
+                <td>8.6</td>
+                <td>10.8</td>
+                <td>17.1</td>
+                <td>6.6</td>
+                <td>9.0</td>
+                <td>7.0</td>
+                <td>5.4</td>
+                <td>4.3</td>
+                <td>4.3</td>
+                <td>5.1</td>
+                <td>5.2</td>
+                <td>5.4</td>
+                <td>5.4</td>
+                <td>6.3</td>
+            </tr>
+            <tr>
+                <th scope="row">협회 및 단체, 수리 및 기타 개인 서비스업</th>
+                <td>7.2</td>
+                <td>5.8</td>
+                <td>5.4</td>
+                <td>6.4</td>
+                <td>3.5</td>
+                <td>3.9</td>
+                <td>3.5</td>
+                <td>1.7</td>
+                <td>1.4</td>
+                <td>2.0</td>
+                <td>1.3</td>
+                <td>1.0</td>
+                <td>1.7</td>
+                <td>2.5</td>
+                <td>2.5</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="box-solid white">
+    <p>사업체노동력 부가조사 산업분류는 ’09년~’10년은 제8차 한국표준산업분류(2000년), ‘11년~’19년은 제9차 한국표준산업분류(2008년), ‘20년 이후는 제10차 한국표준산업분류(2017년)를 따름</p>
+</div>
+                   </div>
+                   <div id="wageSytmStcsSytm">
+                       
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+	});
+
+</script>
+
+<div class="summary-wage-system">
+    <div class="summary-header">
+        <h3 class="title-ico">임금체계유형</h3>
+    </div>
+</div>
+<span class="line-solid"></span>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">총괄</p>
+        <span class="right-txt">(단위 :개, %)</span>
+    </div>
+    <table class="table-list line flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">임금체계 유형 총괄에 대한 표로 구분(’24.6, ’23.6,’22.6,’21.6, ’20.6,’19.6,’18.6,’17.6,’16.6,’15.6,’14.6,’13.6,’12.6,’11.6,’10.9,’09.12), 공통, 호봉급, 직능급, 기타기준, 무체계를 갯수와 비율로 나타냈다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col style="width: 6.5em;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width: 6.5em;">
+            <col>
+        </colgroup>
+        <thead>
+            <tr class="rowspan">
+                <th scope="row" rowspan="2">구분</th>
+                <th scope="col" colspan="2">공통</th>
+                <th scope="col" colspan="2">호봉급</th>
+                <th scope="col" colspan="2">직능급</th>
+                <th scope="col" colspan="2">직무급</th>
+                <th scope="col" colspan="2">기타기준</th>
+                <th scope="col" colspan="2">무체계</th>
+            </tr>
+            <tr class="rowspan">
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+                <th scope="col">개</th>
+                <th scope="col">비율</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">’24.6</th>
+                <td>1,789,174</td>
+                <td>100.0</td>
+                <td>228,647</td>
+                <td>12.8</td>
+                <td>165,380</td>
+                <td>9.2</td>
+                <td>147,662</td>
+                <td>8.3</td>
+                <td>245,181</td>
+                <td>13.7</td>
+                <td>1,144,465</td>
+                <td>64.0</td>
+            </tr>
+            <tr>
+                <th scope="row">’23.6</th>
+                <td>1,719,503</td>
+                <td>100.0</td>
+                <td>218,263</td>
+                <td>12.7</td>
+                <td>161,477</td>
+                <td>9.4</td>
+                <td>152,647</td>
+                <td>8.9</td>
+                <td>229,144</td>
+                <td>13.3</td>
+                <td>1,100,979</td>
+                <td>64.0</td>
+            </tr>
+            <tr>
+                <th scope="row">’22.6</th>
+                <td>1,563,172</td>
+                <td>100.0</td>
+                <td>213,590</td>
+                <td>13.7</td>
+                <td>214,712</td>
+                <td>13.7</td>
+                <td>168,376</td>
+                <td>10.8</td>
+                <td>164,003</td>
+                <td>10.5</td>
+                <td>954,773</td>
+                <td>61.1</td>
+            </tr>
+            <tr>
+                <th scope="row">’21.6</th>
+                <td>1,643,095</td>
+                <td>100.0</td>
+                <td>225,204</td>
+                <td>13.7</td>
+                <td>223,811</td>
+                <td>13.6</td>
+                <td>169,588</td>
+                <td>10.3</td>
+                <td>170,131</td>
+                <td>10.4</td>
+                <td>1,009,167</td>
+                <td>61.4</td>
+            </tr>
+            <tr>
+                <th scope="row">’20.6</th>
+                <td>1,597,893</td>
+                <td>100.0</td>
+                <td>230,521</td>
+                <td>14.4</td>
+                <td>225.250</td>
+                <td>14.1</td>
+                <td>169,673</td>
+                <td>10.6</td>
+                <td>159,201</td>
+                <td>10.0</td>
+                <td>959,083</td>
+                <td>60.0</td>
+            </tr>
+            <tr>
+                <th scope="row">’19.6</th>
+                <td>1,565,473</td>
+                <td>100.0</td>
+                <td>252,761</td>
+                <td>16.1</td>
+                <td>275,184</td>
+                <td>17.6</td>
+                <td>186,842</td>
+                <td>11.9</td>
+                <td>134,878</td>
+                <td>8.6</td>
+                <td>875,619</td>
+                <td>55.9</td>
+            </tr>
+            <tr>
+                <th scope="row">’18.6</th>
+                <td>1,518,204</td>
+                <td>100.0</td>
+                <td>268,428</td>
+                <td>17.7</td>
+                <td>286,464</td>
+                <td>18.9</td>
+                <td>194,186</td>
+                <td>12.8 </td>
+                <td>126,598</td>
+                <td>8.3</td>
+                <td>806,760</td>
+                <td>53.1</td>
+            </tr>
+            <tr>
+                <th scope="row">’17.6</th>
+                <td>1,477,993</td>
+                <td>100.0</td>
+                <td>287,794</td>
+                <td>19.5</td>
+                <td>291,702</td>
+                <td>19.7</td>
+                <td>159,849</td>
+                <td>10.8</td>
+                <td>117,199</td>
+                <td>7.9</td>
+                <td>772,354</td>
+                <td>52.3</td>
+            </tr>
+            <tr>
+                <th scope="row">’16.6</th>
+                <td>1,423,813</td>
+                <td>100.0</td>
+                <td>309,516</td>
+                <td>21.7</td>
+                <td>327,403</td>
+                <td>23.0</td>
+                <td>174,083</td>
+                <td>12.2</td>
+                <td>102,113</td>
+                <td>7.2</td>
+                <td>711,779</td>
+                <td>50.0</td>
+            </tr>
+            <tr>
+                <th scope="row">’15.6</th>
+                <td>1,322,709</td>
+                <td>100.0</td>
+                <td>324,304</td>
+                <td>24.5</td>
+                <td>316,375</td>
+                <td>23.9</td>
+                <td>177,658</td>
+                <td>13.4</td>
+                <td>89,100</td>
+                <td>6.7</td>
+                <td>616,849</td>
+                <td>46.6</td>
+            </tr>
+            <tr>
+                <th scope="row">’14.6</th>
+                <td>1,255,745</td>
+                <td>100.0</td>
+                <td>339,882</td>
+                <td>27.1</td>
+                <td>292,309</td>
+                <td>23.3</td>
+                <td>153,134</td>
+                <td>12.2</td>
+                <td>52,749</td>
+                <td>4.2</td>
+                <td>608,663</td>
+                <td>48.5</td>
+            </tr>
+            <tr>
+                <th scope="row">’13.6</th>
+                <td>1,209,162</td>
+                <td>100.0</td>
+                <td>439,277</td>
+                <td>36.3</td>
+                <td>363,017</td>
+                <td>30.0</td>
+                <td>292,340</td>
+                <td>24.2</td>
+                <td>635,591</td>
+                <td>52.6</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">’12.6</th>
+                <td>1,106,864</td>
+                <td>100.0</td>
+                <td>429,671</td>
+                <td>38.8</td>
+                <td>377,274</td>
+                <td>34.1</td>
+                <td>325,834</td>
+                <td>29.4</td>
+                <td>564,817</td>
+                <td>51.0</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">’11.6</th>
+                <td>1,079,505</td>
+                <td>100.0</td>
+                <td>430,543</td>
+                <td>39.9</td>
+                <td>412,013</td>
+                <td>38.2</td>
+                <td>354,259</td>
+                <td>32.8</td>
+                <td>555,157</td>
+                <td>51.4</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">’10.9</th>
+                <td>1,085,613</td>
+                <td>100.0</td>
+                <td>502,928</td>
+                <td>46.3</td>
+                <td>456,329</td>
+                <td>42.0</td>
+                <td>454,794</td>
+                <td>41.9</td>
+                <td>621,563</td>
+                <td>57.3</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">’09.12</th>
+                <td>1,085,617</td>
+                <td>100.0</td>
+                <td>472,078</td>
+                <td>43.5</td>
+                <td>387,519</td>
+                <td>35.7</td>
+                <td>373,363</td>
+                <td>34.4</td>
+                <td>630,753</td>
+                <td>58.1</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">규모별</p>
+        <span class="right-txt">(단위 : 개, %)</span>
+    </div>
+    <table class="table-list line flicking">
+		<!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">2024년 6월 기준 규모별 임금체계 유형에 대한 표로 전체/ 1~4인/ 5~9인/ 10~29인/ 30~99인 / 100~~299인 / 300인 이상 / 100인 미만 / 100인 이상 / 300인 미만 / 300인 이상 / 1,000인 이상에 따른 대상사업체수, 임금체계 유형 유·무, 호봉급, 직능급, 직무급, 기타기에 대한 내용을 담고 있다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr class="rowspan">
+                <th scope="row" rowspan="3">구분</th>
+                <th scope="row" rowspan="3">대상 사업체 수</th>
+                <th scope="col" colspan="6">2024년 6월</th>
+            </tr>
+            <tr class="rowspan">
+                <th scope="row" rowspan="2"></th>
+                <th scope="col" colspan="4" class="bor-ln">임금체계 유형 있음</th>
+                <th scope="row" rowspan="2">무체계</th>
+            </tr>
+            <tr class="rowspan">
+                <th scope="col">호봉급</th>
+                <th scope="col">직능급</th>
+                <th scope="col">직무급</th>
+                <th scope="col">기타 기준</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">전체</th>
+                <td>1,789,174</td>
+                <td>36.0</td>
+                <td>12.8</td>
+                <td>9.2</td>
+                <td>8.3</td>
+                <td>13.7</td>
+                <td>64.0</td>
+            </tr>
+            <tr>
+                <th scope="row">1~4인</th>
+                <td>1,251,532</td>
+                <td>22.6</td>
+                <td>6.6</td>
+                <td>5.5</td>
+                <td>4.2</td>
+                <td>9.2</td>
+                <td>77.4</td>
+            </tr>
+            <tr>
+                <th scope="row">5~9인</th>
+                <td>278,690</td>
+                <td>56.5</td>
+                <td>20.1</td>
+                <td>14.6</td>
+                <td>13.2</td>
+                <td>20.9</td>
+                <td>43.5</td>
+            </tr>
+            <tr>
+                <th scope="row">10~29인</th>
+                <td>191,923</td>
+                <td>74.7</td>
+                <td>31.4</td>
+                <td>20.1</td>
+                <td>20.2</td>
+                <td>25.9</td>
+                <td>25.3</td>
+            </tr>
+            <tr>
+                <th scope="row">30~99인</th>
+                <td>52,980</td>
+                <td>89.1</td>
+                <td>42.2</td>
+                <td>25.3</td>
+                <td>27.4</td>
+                <td>31.5</td>
+                <td>10.9</td>
+            </tr>
+            <tr>
+                <th scope="row">100~299인</th>
+                <td>10,887</td>
+                <td>96.2</td>
+                <td>51.0</td>
+                <td>25.6</td>
+                <td>31.7</td>
+                <td>39.7</td>
+                <td>3.8</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 이상</th>
+                <td>3,162</td>
+                <td>95.6</td>
+                <td>58.0</td>
+                <td>22.6</td>
+                <td>32.4</td>
+                <td>40.5</td>
+                <td>4.4</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 미만</th>
+                <td>1,775,125</td>
+                <td>35.6</td>
+                <td>12.5</td>
+                <td>9.1</td>
+                <td>8.1</td>
+                <td>13.5</td>
+                <td>64.4</td>
+            </tr>
+            <tr>
+                <th scope="row">100인 이상</th>
+                <td>14,049</td>
+                <td>96.1</td>
+                <td>52.6</td>
+                <td>24.9</td>
+                <td>31.9</td>
+                <td>39.9</td>
+                <td>3.9</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 미만</th>
+                <td>1,786,012</td>
+                <td>35.9</td>
+                <td>12.5</td>
+                <td>9.1</td>
+                <td>8.1</td>
+                <td>13.5</td>
+                <td>64.4</td>
+            </tr>
+            <tr>
+                <th scope="row">300인 이상</th>
+                <td>3,162</td>
+                <td>95.6</td>
+                <td>58.0</td>
+                <td>22.6</td>
+                <td>32.4</td>
+                <td>40.5</td>
+                <td>4.4</td>
+            </tr>
+            <tr>
+                <th scope="row">1,000인 이상</th>
+                <td>624</td>
+                <td>95.5</td>
+                <td>63.0</td>
+                <td>19.8</td>
+                <td>29.9</td>
+                <td>43.2</td>
+                <td>4.5</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="status-box">
+    <div class="status-header">
+        <p class="title">산업별</p>
+        <span class="right-txt">(단위 : 개, %)</span>
+    </div>
+    <table class="table-list line flicking">
+        <!-- 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <caption class="blind">2024년 6월 기준 산업별 임금체계 유형에 대한 표로 구분, 전산업, 광업, 제조업, 전기·가스·증기 및 공기 조절 공급업, 수도·하수 및 폐기물처리·원료 재생업, 건설업, 도매 및 소매업, 운수 및 창고업, 숙박 및 음식점업, 정보통신업, 금융 및 보험업, 부동산업, 전문·과학 및 기술 서비스업, 사업시설관리·사업지원 및 임대서비스업, 교육 서비스업, 보건업 및 사회복지 서비스업, 예술·스포츠 및 여가 관련 서비스업, 협회 및 단체·수리 및 기타 개인서비스업에 따른 대상사업체수, 임금체계 유형 유·무, 호봉급, 직능급, 직무급, 기타기에 대한 내용을 담고 있다.</caption>
+		<!-- // 251013 웹 접근성 품질개선 - 캡션 수정 (ej) -->
+        <colgroup>
+            <col style="width: 25%;">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr class="rowspan">
+                <th scope="row" rowspan="3">구분</th>
+                <th scope="row" rowspan="3">대상사업체수</th>
+                <th scope="col" colspan="6">2024년 6월</th>
+            </tr>
+            <tr class="rowspan">
+                <th scope="row" rowspan="2"></th>
+                <th scope="col" colspan="4" class="bor-ln">임금체계 유형 있음</th>
+                <th scope="row" rowspan="2">무체계</th>
+            </tr>
+            <tr class="rowspan">
+                <th scope="col">호봉급</th>
+                <th scope="col">직능급</th>
+                <th scope="col">직무급</th>
+                <th scope="col">기타기준</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="left">전산업</th>
+                <td>1,789,174</td>
+                <td>36.0</td>
+                <td>12.8</td>
+                <td>9.2</td>
+                <td>8.3</td>
+                <td>13.7</td>
+                <td>64.0</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">광업</th>
+                <td>966</td>
+                <td>40.8</td>
+                <td>17.3</td>
+                <td>19.8</td>
+                <td>12.1</td>
+                <td>5.6</td>
+                <td>59.2</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">제조업</th>
+                <td>292,287</td>
+                <td>39.6</td>
+                <td>12.0</td>
+                <td>11.7</td>
+                <td>9.2</td>
+                <td>14.2</td>
+                <td>60.4</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">전기, 가스, 증기 및 공기 조절 공급업</th>
+                <td>1,799</td>
+                <td>65.9</td>
+                <td>28.8</td>
+                <td>27.6</td>
+                <td>33.4</td>
+                <td>18.5</td>
+                <td>34.1</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">수도, 하수 및 폐기물 처리, 원료 재생업</th>
+                <td>8,877</td>
+                <td>38.7</td>
+                <td>13.6</td>
+                <td>11.1</td>
+                <td>14.1</td>
+                <td>11.0</td>
+                <td>61.3</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">건설업</th>
+                <td>112,242</td>
+                <td>39.0</td>
+                <td>9.1</td>
+                <td>16.6</td>
+                <td>9.4</td>
+                <td>11.7</td>
+                <td>61.0</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">도매 및 소매업</th>
+                <td>388,351</td>
+                <td>28.8</td>
+                <td>9.2</td>
+                <td>6.3</td>
+                <td>6.4</td>
+                <td>13.3</td>
+                <td>71.2</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">운수 및 창고업</th>
+                <td>43,230</td>
+                <td>47.4</td>
+                <td>21.5</td>
+                <td>9.6</td>
+                <td>13.2</td>
+                <td>17.8</td>
+                <td>52.6</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">숙박 및 음식점업</th>
+                <td>217,364</td>
+                <td>18.7</td>
+                <td>2.4</td>
+                <td>5.0</td>
+                <td>2.9</td>
+                <td>11.0</td>
+                <td>81.3</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">정보통신업</th>
+                <td>53,105</td>
+                <td>56.9</td>
+                <td>14.6</td>
+                <td>11.9</td>
+                <td>13.3</td>
+                <td>27.2</td>
+                <td>43.1</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">금융 및 보험업</th>
+                <td>39,803</td>
+                <td>84.4</td>
+                <td>64.9</td>
+                <td>12.8</td>
+                <td>25.2</td>
+                <td>25.3</td>
+                <td>15.6</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">부동산업</th>
+                <td>90,537</td>
+                <td>26.5</td>
+                <td>3.4</td>
+                <td>5.9</td>
+                <td>6.8</td>
+                <td>13.1</td>
+                <td>73.5</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">전문, 과학 및 기술 서비스업</th>
+                <td>109,699</td>
+                <td>53.0</td>
+                <td>15.2</td>
+                <td>15.8</td>
+                <td>15.2</td>
+                <td>19.6</td>
+                <td>47.0</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">사업시설 관리, 사업 지원 및 임대 서비스업</th>
+                <td>51,525</td>
+                <td>42.2</td>
+                <td>11.9</td>
+                <td>8.6</td>
+                <td>11.0</td>
+                <td>18.0</td>
+                <td>57.8</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">교육 서비스업</th>
+                <td>73,064</td>
+                <td>34.8</td>
+                <td>15.4</td>
+                <td>9.4</td>
+                <td>6.6</td>
+                <td>11.9</td>
+                <td>65.2</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">보건업 및 사회복지 서비스업</th>
+                <td>147,293</td>
+                <td>51.4</td>
+                <td>31.4</td>
+                <td>10.3</td>
+                <td>7.7</td>
+                <td>11.6</td>
+                <td>48.6</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">예술, 스포츠 및 여가 관련 서비스업</th>
+                <td>30,366</td>
+                <td>29.2</td>
+                <td>11.6</td>
+                <td>7.1</td>
+                <td>6.4</td>
+                <td>13.4</td>
+                <td>70.8</td>
+            </tr>
+            <tr>
+                <th scope="row" class="left">협회 및 단체, 수리 및 기타 개인 서비스업</th>
+                <td>128,665</td>
+                <td>22.9</td>
+                <td>8.3</td>
+                <td>6.6</td>
+                <td>6.1</td>
+                <td>7.1</td>
+                <td>77.1</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="wrn-txt gray">자료 : 고용노동부 사업체노동력조사 부가조사(매년 6월 마지막 영업일 기준 조사)</p>
+</div>
+<div class="box-solid white">
+    <p>사업체노동력 부가조사 산업분류는 ’09년~’10년은 제8차 한국표준산업분류(2000년), ‘11년~’19년은 제9차 한국표준산업분류(2008년), ‘20년 이후는 제10차 한국표준산업분류(2017년)를 따름</p>
+</div>
+                   </div>
+               </div>
+        </div>
+    </div>
+</div>
 				</div>
 			</div>
 
@@ -7465,7 +10066,7 @@
 
 
 <form name="menu_dtal_form" id="menu_dtal_form" method="post" action="/pt/cmmn/menu/retrieveMenuDtalData.do">
-	<input type="hidden" id="menuId_dtal" value="PT11030000">
+	<input type="hidden" id="menuId_dtal" value="PT07030000">
 </form>
 
 <script id="menu_dc_cn_data_tmpl" type="text/x-jsrender">
