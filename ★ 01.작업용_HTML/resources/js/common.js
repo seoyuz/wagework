@@ -557,14 +557,66 @@ document.addEventListener('DOMContentLoaded', () => {
         outerFlickingWrap.appendChild(target);
         scroller.appendChild(target);
 
+        /* 251014 웹 접근성 품질개선 - table 모바일 초점이동 (ej) */
         touch.addEventListener('click', () => {
-            touch.style.display = 'none';
+            touch.setAttribute('aria-hidden', 'true');
+            touch.style.visibility = 'hidden';
+
+            // 초점을 테이블 첫 번째 셀 등으로 이동
+            const firstCell = touch.closest('.f_wrapper')?.querySelector('table td, table th');
+            if (firstCell) firstCell.focus();
         });
+        /* // 251014 웹 접근성 품질개선 - table 모바일 초점이동 (ej) */
     }
 
 });
 
 
+
+/* 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */  
+document.addEventListener('DOMContentLoaded', function() {
+    // input.inp, textarea.inp 옆에 지우기 버튼 동적 추가
+    document.querySelectorAll('input.inp, textarea.inp').forEach(function(inp) {
+        // 이미 버튼이 있으면 중복 추가 방지
+        if (!inp.parentNode.querySelector('.form-control-clear')) {
+            var clearBtn = document.createElement('button');
+            clearBtn.type = 'button';
+            clearBtn.className = 'form-control-clear hidden';
+            clearBtn.textContent = '지우기';
+            // input 바로 뒤에 삽입
+            inp.parentNode.insertBefore(clearBtn, inp.nextSibling);
+
+            // 버튼 클릭 시 입력값 삭제 및 포커스
+            clearBtn.addEventListener('click', function() {
+                inp.value = '';
+                clearBtn.classList.add('hidden');
+                inp.focus();
+                // 필요시 input 이벤트도 발생
+                var event = new Event('input', { bubbles: true });
+                inp.dispatchEvent(event);
+            });
+        }
+    });
+
+    // 입력값 있을 때만 버튼 노출
+    function toggleClearButton(e) {
+        var inp = e.target;
+        var clearBtn = inp.parentNode.querySelector('.form-control-clear');
+        if (!clearBtn) return;
+        if (inp.value) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+    }
+
+    document.querySelectorAll('input.inp, textarea.inp').forEach(function(inp) {
+        inp.addEventListener('input', toggleClearButton);
+        // 초기 상태 반영
+        toggleClearButton({ target: inp });
+    });
+});
+/* // 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */  
 
 
 
@@ -677,6 +729,7 @@ $(document).ready(function(){
         }
     });
     /* // 251013 웹 접근성 품질개선 - 팝업 포커스 수정 (ej) */
+
 
     $(window).resize(function () {
 
