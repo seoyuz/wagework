@@ -1,0 +1,7952 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>직급별 임금정보 | 임금직업포털-워크피디아</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		
+
+
+<link href="/resources/css/jquery-ui.theme.min.css" rel="stylesheet">
+<link href="/resources/css/swiper.min.css" rel="stylesheet">
+<link href="/resources/css/common.css" rel="stylesheet">
+<link href="/resources/css/layout.css" rel="stylesheet">
+
+<!-- 공통 스크립트 파일 포함 -->
+<script type="text/javascript" src="/resources/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="/resources/js/swiper.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.blockUI.js"></script>
+<!-- //공통 스크립트 파일 포함 -->
+
+<!-- JS Render -->
+<script src="/lib/jsrender/jsrender.min-4da15ef486187e396bc2ee12d2013620.js"></script>
+<!-- //JS Render -->
+
+<!-- WOS Util -->
+<script type="text/javascript" src="/resources/js/util/autoNumeric.min-e3d83ed64c07d5da64bdfa360d9a158d.js"></script>
+<script type="text/javascript" src="/resources/js/util/pagination-db3c5ce2e972960f2a3b72ddb5f51c28.js"></script>
+<script type="text/javascript" src="/resources/js/util/validate-365a4b28fbf78f91bb5f58d4d790a2b5.js"></script>
+<script type="text/javascript" src="/resources/js/util/common_util-03836e38db8cf5c94e68dade43b610be.js"></script>
+
+<!-- WOS Common -->
+<script type="text/javascript" src="/resources/js/common.js"></script>
+
+<!-- 추가적인 스크립트 -->
+
+<script type="text/javascript">
+
+    /* Document Ready Function */
+    /* 251010 웹 접근성 품질개선 - 조건 선택 시 열고닫힘 텍스트 추가 (ej) */
+	document.addEventListener('DOMContentLoaded', function() {
+		// 페이지 로드 시 상태에 따라 title 초기화
+		document.querySelectorAll('.accordion-btn').forEach(function(btn) {
+			var accordion = btn.closest('.accordion');
+			if (accordion && accordion.classList.contains('active')) {
+				btn.setAttribute('title', '조건 열림');
+			} else {
+				btn.setAttribute('title', '조건 닫힘');
+			}
+		});
+
+		// 클릭 시 상태에 따라 title 변경
+		document.addEventListener('click', function(e) {
+			if (e.target.classList.contains('accordion-btn')) {
+				var btn = e.target;
+				var accordion = btn.closest('.accordion');
+				setTimeout(function() {
+					if (accordion && accordion.classList.contains('active')) {
+						btn.setAttribute('title', '조건 열림');
+					} else {
+						btn.setAttribute('title', '조건 닫힘');
+					}
+				}, 10);
+			}
+		});
+	});
+    /* // 251010 웹 접근성 품질개선 - 조건 선택 시 열고닫힘 텍스트 추가 (ej) */
+
+
+    const gfn_click_menu = (topPageId, pageId, url) => {
+        if (!Check.empty(url)) {
+            if (Check.empty(topPageId)) {
+                topPageId = "PT07000000";
+            }
+
+            // Intz.
+            const obj_move_form = document.querySelector("form[name='cmmn_move_form']");
+            while(obj_move_form.firstChild) {
+                obj_move_form.removeChild(obj_move_form.firstChild)
+            }
+
+            // Add Parameter
+            if (url.indexOf("?") > -1) {
+                let arrParams = url.split("?");
+                url = arrParams[0];
+
+                let srchParams = new URLSearchParams(arrParams[1]);
+                for (let param of srchParams) {
+                    const obj_input_name = document.querySelector("form[name='cmmn_move_form'] input[name='" + param[0] + "']");
+                    if (Check.empty(obj_input_name)) {
+                        const obj_input = document.createElement("input");
+                        obj_input.type = "hidden";
+                        obj_input.name = param[0];
+                        obj_input.value = param[1];
+                        document.getElementById("cmmn_move_form").prepend(obj_input);
+                    }
+                }
+            }
+
+            // Create Input - topPageId
+            const obj_top_page_id = document.createElement("input");
+            obj_top_page_id.type = "hidden";
+            obj_top_page_id.name = "topPageId";
+            obj_top_page_id.value = topPageId;
+            document.getElementById("cmmn_move_form").appendChild(obj_top_page_id);
+
+            // Create Input - pageId
+            const obj_page_id = document.createElement("input");
+            obj_page_id.type = "hidden";
+            obj_page_id.name = "pageId";
+            obj_page_id.value = pageId;
+            document.getElementById("cmmn_move_form").appendChild(obj_page_id);
+
+            obj_move_form.method = "get";
+            obj_move_form.action = encodeURI(url);
+            obj_move_form.submit();
+        }
+    };
+
+</script>
+
+		<script src="/resources/js/contents.js"></script>
+
+		<link href="/resources/css/sub.css" rel="stylesheet">
+		<link href="/resources/css/contents.css" rel="stylesheet">
+	<script type="text/javascript" async="" src="https://ssl.pstatic.net/melona/libs/gfp-nac-module/synchronizer.js"></script></head>
+	<body class="pc" style="">
+		<div class="skip-to-content">
+			<a href="#container">본문내용 바로가기</a>
+			<a href="#depth1_9">메인메뉴 바로가기</a>
+		</div>
+
+		<div class="wrap sub">
+			<!-- Header -->
+			
+
+
+
+
+
+
+
+<form name="cmmn_move_form" id="cmmn_move_form">
+	<input type="hidden" name="topPageId" id="top_page_id" value="">
+	<input type="hidden" name="pageId" id="page_id" value="">
+</form>
+
+<div class="header-banner">
+	<div class="inner">
+		<span class="text">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+		<ul class="banner-link-box">
+			<li><a href="javascript:gfn_click_menu('PT02000000', 'PT02010000', '/pt/a/d/retrieveOccpSrch.do');" class="link dictionary">한국직업사전</a></li>
+
+			<li><a href="javascript:gfn_click_menu('PT04000000', 'PT04000000', '/pt/a/e/retrieveVidoArchiveList.do');" class="link archive">영상아카이브</a></li>
+		</ul>
+	</div>
+</div>
+
+<header class="header">
+	<div class="dim"></div>
+	<div class="inner">
+		<h1 class="logo-box"><a href="/pt/index.do" class="logo"><i class="blind">임금직업포털 워크피디아</i></a></h1>
+		<!-- gnb -->
+		<nav class="header-gnb">
+			<ul class="depth1">
+				
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+										임금정보
+									</a>
+
+									
+										<ul class="depth2" aria-hidden="ture">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+																	맞춤형 임금정보
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')">
+																	직급별 임금정보
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT07000000', 'PT07030000', '/pt/c/b/retrieveWageSytmStcs.do')">
+																	임금체계 통계
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																
+																	
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									<a href="javascript:gfn_click_menu('PT06000000', 'PT06010100', '/pt/b/a/retrieveOccpSrchByJobCare.do')">
+										직업정보
+									</a>
+
+									
+										<ul class="depth2" aria-hidden="ture">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																	
+																		
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																		
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT06000000', 'PT06010100', '/pt/b/a/retrieveOccpSrchByJobCare.do')">
+																	직업내비게이션
+																</a>
+
+																
+																	<ul class="depth3">
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06010100', '/pt/b/a/retrieveOccpSrchByJobCare.do')">
+																							직업 검색
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06010200', '/pt/b/a/retrieveCtgrSrch.do')">
+																							분류별 검색
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06010300', '/pt/b/a/retrieveOccpRcmnCnd.do')">
+																							직업 추천
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06010400', '/pt/b/a/retrieveOccpRcmnJty.do')">
+																							직능수준 검색
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	</ul>
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																	
+																		
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																		
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT06000000', 'PT06020100', '/pt/b/b/retrieveOccpFndnList.do')">
+																	미래직업세계
+																</a>
+
+																
+																	<ul class="depth3">
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06020100', '/pt/b/b/retrieveOccpFndnList.do')">
+																							미래직업 찾기
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT06000000', 'PT06020200', '/pt/b/b/retrieveCardNewsList.do')">
+																							카드뉴스
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	</ul>
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT06000000', 'PT06030000', '/pt/b/d/retrievePrfsIntrvList.do')">
+																	직업인 인터뷰
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT06000000', 'PT06040000', '/pt/b/c/retrieveWbznSubMain.do')">
+																	웹진
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
+										임금체계 개선
+									</a>
+
+									
+										<ul class="depth2" aria-hidden="ture">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
+																	임금체계 개선 소개
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT11000000', 'PT11020000', '/pt/f/b/retrieveWgsyImprElrn.do')">
+																	임금체계 개선 이러닝
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT11000000', 'PT11030000', '/pt/f/c/retrieveWgsyImprInqrAgreForm.do')">
+																	임금체계 개선 헬프데스크
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																
+																	
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									<a href="javascript:gfn_click_menu('PT08000000', 'PT08010100', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000001')">
+										자료실
+									</a>
+
+									
+										<ul class="depth2" aria-hidden="ture">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																	
+																		
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																						
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																				
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																				
+																			
+																		
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT08000000', 'PT08010100', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000001')">
+																	임금자료
+																</a>
+
+																
+																	<ul class="depth3">
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT08000000', 'PT08010100', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000001')">
+																							임금정보 자료
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																				
+																					<li class="depth3-item">
+																						<a href="javascript:gfn_click_menu('PT08000000', 'PT08010200', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000002')">
+																							임금체계 자료
+																						</a>
+																					</li>
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	</ul>
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT08000000', 'PT08020000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000003')">
+																	직업자료
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										
+									
+
+									<a href="javascript:gfn_click_menu('PT09000000', 'PT09010000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000004')">
+										알림마당
+									</a>
+
+									
+										<ul class="depth2" aria-hidden="ture">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT09000000', 'PT09010000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000004')">
+																	공지사항
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT09000000', 'PT09020000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000005')">
+																	보도자료
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+													
+														
+															<li class="depth2-item">
+
+																
+																
+																
+
+																
+																	
+																		
+																		
+																	
+																	
+																
+
+																<a href="javascript:gfn_click_menu('PT09000000', 'PT09030000', '/pt/d/a/retrieveSystIntr.do')">
+																	시스템 소개
+																</a>
+
+																
+															</li>
+														
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+				
+			</ul>
+		</nav>
+		<!-- //gnb -->
+
+		<button type="button" class="header-search-btn modal-btn" data-popup="untySrchPop" onclick="gfn_initUntySrchPop();">통합검색</button>
+		<a href="javascript:gfn_click_menu('PT10000000', 'PT10000000', '/pt/e/a/retrieveSiteMap.do')" class="header-sitemap-btn">전체메뉴</a>
+	</div>
+
+	<!-- mobile -->
+	<div class="mobile-gnb-wrap">
+		<ul class="banner-link-box">
+			<li><a href="javascript:gfn_click_menu('PT02000000', 'PT02010000', '/pt/a/d/retrieveOccpSrch.do');" class="link dictionary">한국직업사전</a></li>
+
+			<li><a href="javascript:gfn_click_menu('PT04000000', 'PT04000000', '/pt/a/e/retrieveVidoArchiveList.do');" class="link archive">영상아카이브</a></li>
+		</ul>
+		<nav class="mobile-gnb">
+			<ul class="depth1">
+				
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									
+										
+											<a href="javascript:void(0);" class="dropdown">
+												임금정보
+											</a>
+										
+										
+									
+
+									
+										<ul class="depth2">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+																		맞춤형 임금정보
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')">
+																		직급별 임금정보
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT07000000', 'PT07030000', '/pt/c/b/retrieveWageSytmStcs.do')">
+																		임금체계 통계
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																
+																	
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+														
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									
+										
+											<a href="javascript:void(0);" class="dropdown">
+												직업정보
+											</a>
+										
+										
+									
+
+									
+										<ul class="depth2">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																
+																	
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																						
+																						
+																						
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+
+															
+																
+																	<a href="javascript:void(0);">
+																		<span>직업내비게이션</span>
+																		<i class="icon"></i>
+																	</a>
+																
+																
+															
+
+															
+																<ul class="depth3">
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06010100', '/pt/b/a/retrieveOccpSrchByJobCare.do')">
+																						직업 검색
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06010200', '/pt/b/a/retrieveCtgrSrch.do')">
+																						분류별 검색
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06010300', '/pt/b/a/retrieveOccpRcmnCnd.do')">
+																						직업 추천
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06010400', '/pt/b/a/retrieveOccpRcmnJty.do')">
+																						직능수준 검색
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																</ul>
+															
+														</li>
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																
+																	
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																						
+																						
+																						
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+
+															
+																
+																	<a href="javascript:void(0);">
+																		<span>미래직업세계</span>
+																		<i class="icon"></i>
+																	</a>
+																
+																
+															
+
+															
+																<ul class="depth3">
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06020100', '/pt/b/b/retrieveOccpFndnList.do')">
+																						미래직업 찾기
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT06000000', 'PT06020200', '/pt/b/b/retrieveCardNewsList.do')">
+																						카드뉴스
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																</ul>
+															
+														</li>
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT06000000', 'PT06030000', '/pt/b/d/retrievePrfsIntrvList.do')">
+																		직업인 인터뷰
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT06000000', 'PT06040000', '/pt/b/c/retrieveWbznSubMain.do')">
+																		웹진
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									
+										
+											<a href="javascript:void(0);" class="dropdown">
+												임금체계 개선
+											</a>
+										
+										
+									
+
+									
+										<ul class="depth2">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
+																		임금체계 개선 소개
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT11000000', 'PT11020000', '/pt/f/b/retrieveWgsyImprElrn.do')">
+																		임금체계 개선 이러닝
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT11000000', 'PT11030000', '/pt/f/c/retrieveWgsyImprInqrAgreForm.do')">
+																		임금체계 개선 헬프데스크
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																
+																	
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																				
+																					
+																						
+																							
+																							
+																							
+																						
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+														
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										
+									
+
+									
+										
+											<a href="javascript:void(0);" class="dropdown">
+												자료실
+											</a>
+										
+										
+									
+
+									
+										<ul class="depth2">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																
+																	
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																					
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																			
+																		
+																			
+																				
+																					
+																						
+																						
+																						
+																					
+																				
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																			
+																		
+																	
+																
+															
+
+															
+																
+																	<a href="javascript:void(0);">
+																		<span>임금자료</span>
+																		<i class="icon"></i>
+																	</a>
+																
+																
+															
+
+															
+																<ul class="depth3">
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT08000000', 'PT08010100', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000001')">
+																						임금정보 자료
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																			
+																				<li class="depth3-item">
+																					<a href="javascript:gfn_click_menu('PT08000000', 'PT08010200', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000002')">
+																						임금체계 자료
+																					</a>
+																				</li>
+																			
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																		
+																	
+																</ul>
+															
+														</li>
+													
+												
+											
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT08000000', 'PT08020000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000003')">
+																		직업자료
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								<li class="depth1-item">
+
+									
+									
+									
+
+									
+										
+										
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														
+															
+																
+																	
+																	
+																	
+																
+																
+															
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+													
+														
+													
+												
+											
+												
+											
+										
+									
+
+									
+										
+											<a href="javascript:void(0);" class="dropdown">
+												알림마당
+											</a>
+										
+										
+									
+
+									
+										<ul class="depth2">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+											
+												
+													
+												
+											
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT09000000', 'PT09010000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000004')">
+																		공지사항
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT09000000', 'PT09020000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000005')">
+																		보도자료
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+													
+														<li class="depth2-item">
+
+															
+															
+															
+
+															
+																
+																	
+																	
+																
+																
+															
+
+															
+																
+																
+																	<a href="javascript:gfn_click_menu('PT09000000', 'PT09030000', '/pt/d/a/retrieveSystIntr.do')">
+																		시스템 소개
+																	</a>
+																
+															
+
+															
+														</li>
+													
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+				
+			</ul>
+		</nav>
+	</div>
+	<div class="mobile-btn-box">
+		<button type="button" class="mobile-btn"><span>전체메뉴</span></button>
+	</div>
+	<!-- //mobile -->
+</header>
+
+<!-- 통합검색 -->
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+		$("#untySrchForm").on("submit", function(event){
+			event.preventDefault();
+		});
+
+		// Enter Event
+		$("#searchWord").on("keydown", function(key) {
+			if (key.keyCode == 13) {
+				gfn_untySrch();
+			}
+		});
+	});
+
+
+	/* 통합 검색 초기화 */
+	const gfn_initUntySrchPop = () => {
+		document.querySelector("#searchWord").value = "";
+	};
+
+	/* 통합 검색  */
+	const gfn_untySrch = () => {
+
+		const objUntyKeyword = document.querySelector("#searchWord");
+		if (Check.empty($.trim(objUntyKeyword.value))) {
+			alert("검색어를 입력해주세요.");
+			objUntyKeyword.focus();
+			return;
+		}
+
+		const submitForm = window.document.untySrchForm;
+		submitForm.method = "get";
+		submitForm.submit();
+	};
+
+	/* 팝업닫기 */
+	const closePop_adrPop = () => {
+		document.getElementById("btnClose_untySrchPop").click();
+	};
+
+</script>
+
+<div id="untySrchPop" class="modal-wrap unity-search-wrap" tabindex="-1">
+	<div class="f_wrapper">
+		<div class="modal-head">
+			<h2>통합검색</h2>
+		</div>
+
+		<div class="modal-cont-wrap">
+			<form name="untySrchForm" id="untySrchForm" action="/pt/a/b/retrieveUntySrch.do">
+				<input type="hidden" name="pageId" value="PT01000000">
+				<input type="hidden" name="topPageId" value="PT01000000">
+				<div class="modal-cont">
+					<div class="inner">
+						<div class="input-group">
+							<input type="text" name="searchWord" id="searchWord" class="inp" maxlength="50" placeholder="검색어를 입력하세요" title="통합검색 - 검색어 입력" value="">
+							<button type="button" class="btn solid2" onclick="gfn_untySrch();">
+								<span>검색</span><i class="icon search-w"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<button type="button" class="modal-close" id="btnClose_untySrchPop">닫기</button>
+	</div>
+</div>
+<!-- //통합검색-->
+			<!-- //Header -->
+
+			<div id="container">
+				<!-- Header -->
+				
+
+
+
+<div class="breadcrumb-wrap">
+	<div class="inner">
+		<ul class="breadcrumb">
+			<li class="item home">
+				<a href="/pt/index.do">홈</a>
+			</li>
+
+			
+				
+				
+					
+						<li class="item">
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+									
+										<a href="javascript:void(0);" class="bread-depth1 child">
+											임금정보
+										</a>
+										
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									
+								
+							
+
+							<ul class="bread-depth2">
+								
+									
+								
+									
+								
+									
+										
+									
+								
+									
+										
+									
+								
+									
+								
+									
+								
+									
+										
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+												
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+																
+																	
+																		
+																			
+																			
+																			
+																		
+																		
+																	
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+													임금정보
+												</a>
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+												
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+																
+																	
+																		
+																		
+																			
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																						
+																							
+																								
+																									
+																									
+																									
+																								
+																							
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																			
+																		
+																	
+																
+															
+														
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+														
+													
+														
+															
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT06000000', 'PT06010100', '/pt/b/a/retrieveOccpSrchByJobCare.do')">
+													직업정보
+												</a>
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+												
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+																
+																	
+																		
+																			
+																			
+																			
+																		
+																		
+																	
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT11000000', 'PT11010000', '/pt/f/a/retrieveWgsyImprItcn.do')">
+													임금체계 개선
+												</a>
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+												
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+																
+																	
+																		
+																		
+																			
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																						
+																							
+																						
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																						
+																							
+																								
+																									
+																									
+																									
+																								
+																							
+																						
+																					
+																				
+																					
+																						
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																					
+																				
+																			
+																		
+																	
+																
+															
+														
+													
+														
+													
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT08000000', 'PT08010100', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000001')">
+													자료실
+												</a>
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+												
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+													
+														
+															
+														
+													
+														
+													
+														
+															
+																
+																	
+																		
+																			
+																			
+																			
+																		
+																		
+																	
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+															
+																
+															
+														
+													
+														
+													
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT09000000', 'PT09010000', '/pt/z/a/retrieveBoardList.do?bbsId=BBSMSTR_000000000004')">
+													알림마당
+												</a>
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										
+									
+								
+							</ul>
+						</li>
+					
+
+					
+
+					
+						<li class="item">
+							
+								
+									
+								
+							
+								
+									
+										
+										<a href="javascript:void(0);" class="bread-depth1 child">
+											직급별 임금정보
+										</a>
+									
+								
+							
+								
+									
+								
+							
+							<ul class="bread-depth2">
+								
+									
+										
+											
+											
+											
+
+											
+												
+													
+													
+												
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07010000', '/pt/c/a/retrieveCstmWageSrch.do')">
+													맞춤형 임금정보
+												</a>
+											</li>
+										
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+													
+													
+												
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')">
+													직급별 임금정보
+												</a>
+											</li>
+										
+									
+								
+									
+										
+											
+											
+											
+
+											
+												
+													
+													
+												
+												
+											
+
+											<li>
+												<a href="javascript:gfn_click_menu('PT07000000', 'PT07030000', '/pt/c/b/retrieveWageSytmStcs.do')">
+													임금체계 통계
+												</a>
+											</li>
+										
+									
+								
+							</ul>
+						</li>
+					
+
+					
+				
+			
+		</ul>
+	</div>
+</div>
+				<!-- //Header -->
+
+				<div class="contents">
+					
+
+					
+						
+						
+						
+						
+						
+						
+						
+							
+						
+						
+						
+						
+						
+						
+					
+
+					<div class="sub-visual wage-information">
+						<div class="inner">
+							<div class="txt-box">
+								<p class="sub-title">직급별 임금정보</p>
+								<p class="sub-title-text" id="menu_dc_cn_data">
+	'고용형태별 근로실태조사'와 '사업체노동력조사'를 연계 분석한 결과를 직급별로 검색할 수 있습니다.
+</p>
+								<script type="text/javascript">
+									/* 공통 초기화 기능 */
+									$(document).ready(function() {
+										// 레이어 팝업 상세 조회
+										let param = {
+											menuId: document.querySelector("#menuId_dtal").value
+										};
+
+										const objFrm = $("#menu_dtal_form");
+										objFrm.method = "post";
+
+										Submit.ajax(objFrm, param, (_result) => {
+											if (_result.success) {
+												if (_result.data) {
+													let htmlOutput = $.templates("#menu_dc_cn_data_tmpl").render(_result.data);
+													document.querySelector("#menu_dc_cn_data").innerHTML = htmlOutput;
+												}
+											}
+										}, "json");
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+
+					
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* 검색조건 */
+	let initRlvtJbgpCd 	 	= ""
+	let initCoClsfCd 		= ""
+	let initSrchClsfCd 		= ""
+	let initEntrSclCd 		= ""
+	let initStdIndLrclCd	= ""
+	let initStdIndMlsfCd	= ""
+	let initAccrSecd		= ""
+	let initAgeSecd			= ""
+	let initSxdsSecd	 	= ""
+	let initCnwkPrdCd		= ""
+	let initCycCd	 	 	= ""
+	let initUseYn		 	= ""
+	let gubunUseYn		 	= ""
+	let initEntrSclCdAll 	= ""
+	let initStdIndLrclCdAll = ""
+	let initAccrSecdAll 	= ""
+	let initAgeSecdAll 		= ""
+	let initSxdsSecdAll 	= ""
+	let initCnwkPrdCdAll 	= ""
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+		$("#stdIndMlsfCd").hide();
+
+		CmmnCd.makeCmmnCdRadio($("#rlvtJbgpCdListSelect"), "rlvtJbgpCd", "WAG_JBGP", "WAG_JBGP", "", "input--rdo"); //직군별
+		CmmnCd.makeCmmnCdOption($("#srchClsfCd"), "WAG_CLSF","WAG_CLSF","WAG_CLSF",true,"선택");
+
+		/*	$("#coClsfCd").change(() => {
+			const coClsfCdVal = $("#coClsfCd").val();
+
+		 	if(coClsfCdVal) {
+				const num = parseInt(coClsfCdVal, 10);
+				let options = "";
+
+				for(let i = 1; i <= num; i++){
+					options += '<option value="' + i + '">' + i + '단계</option>';
+				}
+
+				$("#srchClsfCd").html(options);
+				$("#srchClsfCd").show()
+				$("#srchClsfCd").val($("#srchClsfCd option:first").val());
+
+			} else {
+				$("#srchClsfCd").hide();
+			}
+ 		});	*/
+
+		$('#stdIndLrclCd').on('change', function(){
+			const stdIndLrclCdVal = $(this).val();
+
+			if(!stdIndLrclCdVal){
+				$("#stdIndMlsfCd").hide();
+			}else{
+				fn_stdIndLrclCd(2, stdIndLrclCdVal);
+			}
+		});
+
+		let maxLength = 10;
+
+		$("#searchKeyword").on("input", function (){
+			let value = $(this).val();
+
+			value = value.replace(/[^0-9]/g, "");
+
+			if (value.length > maxLength) {
+				$(this).val(value.substring(0, maxLength));
+			}
+			$(this).val(value);
+		});
+
+		$("#searchKeyword").on("keydown", function (e) {
+			let key = e.key;
+			if(!/^[0-9]$/.test(key) && key !== "Backspace" && key !== "Delete"){
+				e.preventDefault();
+			}
+			if($(this).val().length >= maxLength && key !== "Backspace" && key !== "Delete"){
+				e.preventDefault();
+			}
+		});
+
+		if(gubunUseYn == "Y"){
+			if(initUseYn == "Y"){
+				$("#addInfoYn").prop("checked", true);
+			} else if(initUseYn == "N"){
+				$("#addInfoYn").prop("checked", false);
+			}
+		}else {
+				$("#addInfoYn").prop("checked", true);
+		}
+		if(initRlvtJbgpCd){
+			$("input[name='rlvtJbgpCd'][value='" + initRlvtJbgpCd + "']").prop("checked", true).trigger("change");
+		}
+		if(initSrchClsfCd){
+			$("#srchClsfCd").val(initSrchClsfCd);
+
+		}
+		if(initEntrSclCd){
+			setTimeout(() => {
+				$(".accordion-btn").eq(2).get(0)?.click();
+				$("input[name='entrSclCd'][value='" + initEntrSclCd + "']").prop("checked", true).trigger("change");
+			}, 1);
+		}
+		if(initStdIndLrclCd){
+	 		setTimeout(() => {
+				$(".accordion-btn").eq(3).get(0)?.click();
+				setTimeout(() => {
+					if(!initStdIndMlsfCd){
+						fnSend(initStdIndLrclCd, "#", 1);
+					}else if(initStdIndMlsfCd){
+						fnSend(initStdIndMlsfCd, initStdIndLrclCd, 2);
+					}
+				}, 1);
+			}, 1);
+		}
+		if(initAccrSecd){
+	 		setTimeout(() => {
+				$(".accordion-btn").eq(4).get(0)?.click();
+				$("input[name='accrSecd'][value='" + initAccrSecd + "']").prop("checked", true).trigger("change");
+			}, 1);
+		}
+		if(initAgeSecd){
+	 		setTimeout(() => {
+				$(".accordion-btn").eq(5).get(0)?.click();
+				$("input[name='ageSecd'][value='" + initAgeSecd + "']").prop("checked", true).trigger("change");
+			}, 1);
+		}
+		if(initSxdsSecd){
+	 		setTimeout(() => {
+				$(".accordion-btn").eq(6).get(0)?.click();
+				$("input[name='sxdsSecd'][value='" + initSxdsSecd + "']").prop("checked", true).trigger("change");
+			}, 1);
+		}
+		if(initCnwkPrdCd){
+	 		setTimeout(() => {
+				$(".accordion-btn").eq(7).get(0)?.click();
+				$("input[name='cnwkPrdCd'][value='" + initCnwkPrdCd + "']").prop("checked", true).trigger("change");
+			}, 1);
+		}
+		if(initEntrSclCdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(2).get(0)?.click();
+			}, 1);
+		}
+		if(initStdIndLrclCdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(3).get(0)?.click();
+			}, 1);
+		}
+		if(initAccrSecdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(4).get(0)?.click();
+			}, 1);
+		}
+		if(initAgeSecdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(5).get(0)?.click();
+			}, 1);
+		}
+		if(initSxdsSecdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(6).get(0)?.click();
+			}, 1);
+		}
+		if(initCnwkPrdCdAll == "Y"){
+			setTimeout(() => {
+				$(".accordion-btn").eq(7).get(0)?.click();
+			}, 1);
+		}
+	});
+
+	//검색조건 활성화
+	const fn_serchCondition = (cType) => {
+
+		if(cType == 1){
+			CmmnCd.makeCmmnCdRadio($("#entrSclCdListSelect"), "entrSclCd", "WAG_BSCA_C", "WAG_BSCA_C","","input--rdo", "", "Y"); //사업체 규모별
+		}else if(cType == 2){
+			CmmnCd.makeCmmnCdRadio($("#accrSecdListSelect"), "accrSecd", "WAG_ACCR", "WAG_ACCR","","input--rdo", "", "Y"); //학력별
+		}else if(cType == 3){
+			CmmnCd.makeCmmnCdRadio($("#ageSecdListSelect"), "ageSecd", "WAG_BYAG", "WAG_BYAG","","input--rdo", "", "Y"); //연령별
+		}else if(cType == 4){
+			CmmnCd.makeCmmnCdRadio($("#sxdsSecdListSelect"), "sxdsSecd", "WAG_SXDS", "WAG_SXDS","","input--rdo", "", "Y"); //성별
+		}else if(cType == 5){
+			CmmnCd.makeCmmnCdRadio($("#cnwkPrdCdListSelect"), "cnwkPrdCd", "WAG_CWYR", "WAG_CWYR","","input--rdo", "", "Y"); //근속년수별
+		}
+	};
+
+	//산업분류보기 팝업
+	const popOpen = () => {
+
+		initCstmWageIndPop();
+	};
+
+	const fn_stdIndLrclCd = (pStrfLvlSn,pOccpClCd) => {
+
+		$("#pStrfLvlSn").val(pStrfLvlSn);
+		$("#pOccpClCd").val(pOccpClCd);
+
+		srchstdIndLrclCdList();
+	};
+
+	//한국표준산업분류 조회
+	const srchstdIndLrclCdList = () => {
+
+		let url ="/pt/a/d/retrieveCatgSrchStdIndListData.do"
+		let param = {
+				strfLvlSn: $("#pStrfLvlSn").val()
+			  , upprCdId: $("#pOccpClCd").val()
+			  , viewFlag: $("#pViewFlag").val()
+		}
+
+		const objFrm = $("#clsfWageForm");
+		objFrm.attr("method", "post");
+		Submit.ajax(objFrm, param, stdIndLrclCdSrchCallBack, "json", url, '', false);
+	};
+
+	//한국표준산업분류 CallBack
+	const stdIndLrclCdSrchCallBack = (_result) =>{
+
+		if (_result.success) {
+			let resultList = _result.data.resultList;
+			resultList.unshift({occpClCd:"", occpCfnm:"전체"})
+
+			let depth = $("#pStrfLvlSn").val();
+
+			if(depth == 1) {
+				const stdFilterResultList = resultList.filter(item => !/^T|U/.test(item.occpClCd) && item.occpClCd !== "A" && item.occpClCd !== "O");
+				//직업분류 1차
+				let template = $.templates("#depth_tmpl");
+				let htmlOutput = template.render(stdFilterResultList);
+
+				$("#stdIndLrclCd").html(htmlOutput);
+				$("#stdIndMlsfCd").hide();
+			} else if(depth == 2){
+				//직업분류 2차
+				let template = $.templates("#depth_tmpl");
+				let htmlOutput = template.render(resultList);
+
+				$("#stdIndMlsfCd").html(htmlOutput);
+				$("#stdIndMlsfCd").show();
+
+				let srchStdIndLrclCd = $("#srchStdIndLrclCd").val()
+				if(srchStdIndLrclCd){
+					$("#stdIndMlsfCd").val(srchStdIndLrclCd);
+				}
+			}
+		}
+	};
+
+	/* Validation */
+	const validation = () => {
+
+		if(!$("input[name='rlvtJbgpCd']:checked").val()){
+			alert("직군별 정보를 선택해 주세요.")
+			$("#rlvtJbgpCd1").focus();
+			return false;
+		}
+
+		if (Check.trimEmpty($("#srchClsfCd"), "직급별 정보를 선택해 주세요.")) {
+			return false;
+		}
+
+		return true;
+	};
+
+	//직급별 임금정보 검색
+	const srchClsfWageRslt = () => {
+
+		let addInfoYn = $('#addInfoYn');
+		let searchUseYn = $('#searchUseYn');
+		$('#searchUseYn').val($('#addInfoYn').prop('checked') ? 'Y' : 'N');
+
+		let chkCnt = $('.accordion.active').filter((_, el) => {
+			let chkVal = $(el).find("input[type='radio']:checked, select");
+			return chkVal.length > 0 && chkVal.val();
+		}).length;
+		$("#srchCu").val(chkCnt);
+
+		if(chkCnt == 3){
+			$('#searchUseYn').val('N');
+		}
+
+		// Validation
+		if (!validation()) {
+			return false;
+		}
+
+		if($(".accordion-btn").eq(2).parent().parent().hasClass("accordion active") && $("input[name='entrSclCd']").first().prop("checked")){
+			$("#initEntrSclCdAll").val("Y");
+		}else{
+			$("#initEntrSclCdAll").val("");
+		}
+		if($(".accordion-btn").eq(3).parent().parent().hasClass("accordion active") && $("#stdIndLrclCd").val() === ""){
+			$("#initStdIndLrclCdAll").val("Y");
+		}else{
+			$("#initStdIndLrclCdAll").val("");
+		}
+		if($(".accordion-btn").eq(4).parent().parent().hasClass("accordion active") && $("input[name='accrSecd']").first().prop("checked")){
+			$("#initAccrSecdAll").val("Y");
+		}else{
+			$("#initAccrSecdAll").val("");
+		}
+		if($(".accordion-btn").eq(5).parent().parent().hasClass("accordion active") && $("input[name='ageSecd']").first().prop("checked")){
+			$("#initAgeSecdAll").val("Y");
+		}else{
+			$("#initAgeSecdAll").val("");
+		}
+		if($(".accordion-btn").eq(6).parent().parent().hasClass("accordion active") && $("input[name='sxdsSecd']").first().prop("checked")){
+			$("#initSxdsSecdAll").val("Y");
+		}else{
+			$("#initSxdsSecdAll").val("");
+		}
+		if($(".accordion-btn").eq(7).parent().parent().hasClass("accordion active") && $("input[name='cnwkPrdCd']").first().prop("checked")){
+			$("#initCnwkPrdCdAll").val("Y");
+		}else{
+			$("#initCnwkPrdCdAll").val("");
+		}
+
+		const objFrm = $("#clsfWageForm");
+		objFrm.attr("method", "post");
+		let data = objFrm.serializeArray();
+		Submit.ajax(objFrm, data, srchClsfWageRsltCallBack, "json", "/pt/c/a/retrieveClsfWageRsltData.do", '', false);
+	};
+
+	const srchClsfWageRsltCallBack = (result) => {
+
+		let data = result.data;
+
+		if(data.resultList != null){
+			if($(".accordion-btn").eq(2).parent().parent().hasClass("accordion active") && $("input[name='entrSclCd']").first().prop("checked")){
+				$("#initEntrSclCdAll").val("Y");
+			}else{
+				$("#initEntrSclCdAll").val("");
+			}
+			if($(".accordion-btn").eq(3).parent().parent().hasClass("accordion active") && $("#stdIndLrclCd").val() === ""){
+				$("#initStdIndLrclCdAll").val("Y");
+			}else{
+				$("#initStdIndLrclCdAll").val("");
+			}
+			if($(".accordion-btn").eq(4).parent().parent().hasClass("accordion active") && $("input[name='accrSecd']").first().prop("checked")){
+				$("#initAccrSecdAll").val("Y");
+			}else{
+				$("#initAccrSecdAll").val("");
+			}
+			if($(".accordion-btn").eq(5).parent().parent().hasClass("accordion active") && $("input[name='ageSecd']").first().prop("checked")){
+				$("#initAgeSecdAll").val("Y");
+			}else{
+				$("#initAgeSecdAll").val("");
+			}
+			if($(".accordion-btn").eq(6).parent().parent().hasClass("accordion active") && $("input[name='sxdsSecd']").first().prop("checked")){
+				$("#initSxdsSecdAll").val("Y");
+			}else{
+				$("#initSxdsSecdAll").val("");
+			}
+			if($(".accordion-btn").eq(7).parent().parent().hasClass("accordion active") && $("input[name='cnwkPrdCd']").first().prop("checked")){
+				$("#initCnwkPrdCdAll").val("Y");
+			}else{
+				$("#initCnwkPrdCdAll").val("");
+			}
+
+			const submitForm = document.clsfWageForm;
+			submitForm.method = "get";
+			submitForm.action = "/pt/c/a/retrieveClsfWageRslt.do";
+			submitForm.submit();
+		}else{
+			alert("검색조건에 맞는 임금정보가 없습니다.\n검색조건을 보다 상세히 선택하거나, 다른 조건으로 검색하시기 바랍니다.");
+		}
+	}
+
+	const fnSend = (occpClCd,upprCdId,strfLvlSn) => {
+
+		if(strfLvlSn == 1){
+			$("#srchStdIndLrclCd").val('');
+			$("#stdIndLrclCd").val(occpClCd).trigger("change");
+		}else if(strfLvlSn == 2){
+			$("#srchStdIndLrclCd").val(occpClCd);
+			$("#stdIndLrclCd").val(upprCdId).trigger("change");
+		}
+
+		var popup = $('#cstmWageIndPop').closest('.modal-wrap');
+        popup.removeClass('open').fadeOut().attr("tabindex", "-1");
+	}
+</script>
+
+<form name="clsfWageForm" id="clsfWageForm" method="post">
+	<input type="hidden" name="topPageId" id="topPageId" value="PT07000000">
+	<input type="hidden" name="pageId" id="pageId" value="PT07020000">
+	<input type="hidden" name="srchCu" id="srchCu">
+	<input type="hidden" name="searchUseYn" id="searchUseYn">
+	<input type="hidden" name="pStrfLvlSn" id="pStrfLvlSn">
+	<input type="hidden" name="pOccpClCd" id="pOccpClCd">
+	<input type="hidden" name="pViewFlag" id="pViewFlag" value="O">
+	<input type="hidden" name="srchStdIndLrclCd" id="srchStdIndLrclCd">
+	<input type="hidden" name="initEntrSclCdAll" id="initEntrSclCdAll">
+	<input type="hidden" name="initStdIndLrclCdAll" id="initStdIndLrclCdAll">
+	<input type="hidden" name="initAccrSecdAll" id="initAccrSecdAll">
+	<input type="hidden" name="initAgeSecdAll" id="initAgeSecdAll">
+	<input type="hidden" name="initSxdsSecdAll" id="initSxdsSecdAll">
+	<input type="hidden" name="initCnwkPrdCdAll" id="initCnwkPrdCdAll">
+	<div class="sub-content">
+	    <div class="inner">
+	        <div class="search-criteria">
+	            <div class="criteria-info">
+	                <p class="title-ico">검색조건</p>
+	                <div class="clear">
+		                <ul class="basic type4 inline-block mar10">
+		                    <li>검색조건은 최대 3개까지 선택이 가능합니다.</li>
+		                    <li>직군별, 직급별 검색조건은 필수 선택사항이고 추가로 1개의 검색조건을 선택할 수 있습니다.</li>
+		                </ul>
+	                    <button type="button" class="modal-btn btn square line2 fr mat15" data-popup="cstmWageUseGdPop"><i class="icon guide"></i><span>사용가이드</span></button>
+	                </div>
+	                <span class="input--chk line-top">
+	                    <input type="checkbox" id="addInfoYn">
+	                    <label for="addInfoYn" title="선택됨">임금 추가정보 함께 확인</label>
+	                </span>
+	            </div>
+	            <div class="accordion-wrap">
+	            	<div class="accordion active">
+                        <div class="accordion-header">
+                            <p class="title">직군별</p>
+                            <input type="hidden" class="acoordion-limit">
+                            <button type="button" class="accordion-btn" style="display: none;"></button>
+                        </div>
+                        <div class="accordion-content">
+                        	<ul class="radio__wrap--vert" id="rlvtJbgpCdListSelect">
+	
+		
+			<span class="radio input--rdo">
+				<input type="radio" name="rlvtJbgpCd" id="rlvtJbgpCd1" value="1" title="사무관리직">
+				<label for="rlvtJbgpCd1">사무관리직</label>
+			</span>
+		
+			<span class="radio input--rdo">
+				<input type="radio" name="rlvtJbgpCd" id="rlvtJbgpCd2" value="2" title="연구개발직">
+				<label for="rlvtJbgpCd2">연구개발직</label>
+			</span>
+		
+			<span class="radio input--rdo">
+				<input type="radio" name="rlvtJbgpCd" id="rlvtJbgpCd3" value="3" title="영업판매직">
+				<label for="rlvtJbgpCd3">영업판매직</label>
+			</span>
+		
+			<span class="radio input--rdo">
+				<input type="radio" name="rlvtJbgpCd" id="rlvtJbgpCd4" value="4" title="생산기능직">
+				<label for="rlvtJbgpCd4">생산기능직</label>
+			</span>
+		
+	
+</ul>
+                            <p class="wrn-txt gray">직군을 선택해주세요.</p>
+                        </div>
+                    </div>
+                    <div class="accordion active">
+                        <div class="accordion-header">
+                            <p class="title">직급별</p>
+                            <input type="hidden" class="acoordion-limit">
+                            <button type="button" class="accordion-btn" style="display: none;"></button>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="input-group">
+                                <select name="srchClsfCd" id="srchClsfCd" class="inp" title="직급별">
+	<option value="">선택</option>
+
+	<option value="1">1단계</option>
+
+	<option value="2">2단계</option>
+
+	<option value="3">3단계</option>
+
+	<option value="4">4단계</option>
+</select>
+                            </div>
+                            <ul class="basic">
+                                <li>직급별 임금정보를 검색할 직급 단계입니다. 아래의 예시를 참조하여 선택해주세요.</li>
+                            </ul>
+                            <p class="wrn-txt gray">(예시) 4단계(실무 지원자 - 실무 담당자 - 실무 전문가 - 팀.부서관리자)</p>
+                        </div>
+                    </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">사업체 규모별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(1)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <ul class="radio__wrap--horiz check" id="entrSclCdListSelect"></ul>
+	                        <p class="wrn-txt gray">사업체규모를 선택해주세요.</p>
+	                    </div>
+	                </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">산업별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_stdIndLrclCd(1)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <div class="input-group">
+	                            <select class="inp" id="stdIndLrclCd" name="stdIndLrclCd" title="산업별 - 1단계"></select>
+	                            <select class="inp" id="stdIndMlsfCd" name="stdIndMlsfCd" title="산업별 - 2단계" style="display: none;"></select>
+	                        </div>
+	                        <div>
+	                        	<button type="button" class="modal-btn btn line2 square" data-popup="cstmWageIndPop" onclick="popOpen();">산업분류보기</button>
+	                        	<p class="wrn-txt gray">산업 분류를 선택해주세요.</p>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">학력별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(2)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <ul class="radio__wrap--horiz check" id="accrSecdListSelect"></ul>
+	                        <p class="wrn-txt gray">학력을 선택해주세요.</p>
+	                    </div>
+	                </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">연령별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(3)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <div class="radio-dual">
+	                            <ul class="radio__wrap--horiz check" id="ageSecdListSelect"></ul>
+	                        </div>
+	                        <p class="wrn-txt gray">연령을 선택해주세요.</p>
+	                    </div>
+	                </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">성별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(4)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <ul class="radio__wrap--horiz check" id="sxdsSecdListSelect"></ul>
+	                        <p class="wrn-txt gray">성별을 선택해주세요.</p>
+	                    </div>
+	                </div>
+	                <div class="accordion">
+	                    <div class="accordion-header">
+	                        <p class="title">근속년수별</p>
+	                        <input type="hidden" class="acoordion-limit">
+	                        <button type="button" class="accordion-btn" onclick="fn_serchCondition(5)">검색조건 선택</button>
+	                    </div>
+	                    <div class="accordion-content">
+	                        <div class="radio-dual">
+	                            <ul class="radio__wrap--horiz check" id="cnwkPrdCdListSelect"></ul>
+	                        </div>
+	                        <p class="wrn-txt gray">근속년수를 선택해주세요.</p>
+	                    </div>
+	                </div>
+	                <div class="button-box long">
+                    	<a href="javascript:gfn_click_menu('PT07000000', 'PT07020000', '/pt/c/a/retrieveClsfWageSrch.do')" class="btn line"><span>검색조건 초기화</span><i class="icon reset"></i></a>
+                    	<a href="#" class="btn solid2" onclick="srchClsfWageRslt()">진단하기</a>
+                    </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</form>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+		$('#cstmWageIndPopPrint').click(function(){
+			const html = $("html");
+			const cstmWageIndPrintContents= $("#cstmWageIndPopPrintData").html();
+			const printDiv = $("<div class='print-div'></div>")
+
+			html.append(printDiv);
+			printDiv.html(cstmWageIndPrintContents);
+
+			$("body").hide();
+			window.print();
+			$("body").show();
+			printDiv.hide();
+		});
+	});
+
+	const initCstmWageIndPop = () => {
+		$.blockUI();
+
+		Submit.ajax('', '', cstmWageIndCallBack, "json", "/pt/c/a/retrieveWageIndListData.do");
+
+	};
+
+	const cstmWageIndCallBack = (result) => {
+		$.unblockUI();
+
+		if (result.success) {
+			let resultList = result.data;
+
+			let filterResultList = resultList.filter(item => item.occpClCd !== "A" && !item.upprCdId.startsWith("A") && item.occpClCd !== "O" && !item.upprCdId.startsWith("O"));
+
+			let listTemplate = $.templates("#cstmWageIndPop_tmpl");
+			let listHtmlOutput = listTemplate.render(filterResultList);
+			$("#cstmWageIndPopData").html(listHtmlOutput);
+
+		} else {
+			if (result.message === undefined && !result.success) {
+				alert("세션이 만료되었습니다.");
+				location.href = "/login";
+			} else {
+				// ajax 통신 오류
+				alert(result.message);
+			}
+		}
+	};
+
+</script>
+
+<div id="cstmWageIndPop" class="modal-wrap">
+    <div class="f_wrapper">
+        <div class="modal-head">
+            <h2>한국표준산업분류 제10차</h2>
+        </div>
+        <div class="modal-cont-wrap">
+            <div class="modal-cont">
+                <div class="button-box right">
+                    <button type="button" class="btn line2 square print" id="cstmWageIndPopPrint">화면인쇄</button>
+                </div>
+                <div class="industry-classification" id="cstmWageIndPopPrintData">
+                    <div class="div-table" id="cstmWageIndPopData">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="modal-close">닫기
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
+
+<script id="cstmWageIndPop_tmpl" type="text/x-jsrender">
+		{{if strfLvlSn == "1"}}
+			<div class="div-table-tr thead">
+                <div class="div-table-td num">
+                	<p>{{:occpClCd}}</p>
+                </div>
+                <div class="div-table-td">
+					<a href="javascript:void(0);" onclick="javascript:fnSend('{{:occpClCd}}', '{{:upprCdId}}', {{:strfLvlSn}});">{{:occpCfnm}}</a>
+            	</div>
+            </div>
+		{{else}}
+			<div class="div-table-tr">
+				<div class="div-table-td num">
+					<p>{{:occpClCd}}</p>
+				</div>
+				<div class="div-table-td">
+					<a href="javascript:void(0);" onclick="javascript:fnSend('{{:occpClCd}}', '{{:upprCdId}}', {{:strfLvlSn}});">{{:occpCfnm}}</a>
+				</div>
+			</div>
+		{{/if}}
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* Document Ready Function */
+	$(document).ready(function() {
+
+		$('#cstmWageUseGdPopPrint').click(function(){
+			const html = $("html");
+			const cstmWageUseGdPrintContents= $("#cstmWageUseGdPopPrintData").html();
+			const printDiv = $("<div class='print-div'></div>")
+
+			html.append(printDiv);
+			printDiv.html(cstmWageUseGdPrintContents);
+
+			$("body").hide();
+			window.print();
+			$("body").show();
+			printDiv.hide();
+		});
+	});
+
+</script>
+
+<div id="cstmWageUseGdPop" class="modal-wrap use-guide-wrap">
+    <div class="f_wrapper">
+        <div class="modal-head">
+            <h2>사용가이드</h2>
+        </div>
+        <div class="modal-cont-wrap">
+            <div class="modal-cont">
+                <div class="button-box right">
+                    <button type="button" class="btn line2 square print" id="cstmWageUseGdPopPrint">화면인쇄</button>
+                </div>
+                <div class="box-solid" id="cstmWageUseGdPopPrintData">
+                    <div class="use-guide">
+                        <div class="use-guide-header">
+                            <p class="wrn-txt black mat0">본 임금정보는 고용형태별 근로실태조사와 사업체노동력조사를 연계 및 분석한 결과로, 임금수준은 2024년을 기준으로 한 추정치이므로 이용에 주의 바람</p>
+                            <h3 class="title-ico mat20">검색시스템 ① 직급별 임금정보</h3>
+                        </div>
+                        <ul class="use-guide-list">
+                            <li>1. 고용노동부의 ‘고용형태별 근로실태조사’의 최근 3개년도 자료를 기반으로 ‘사업체노동력조사’를 연계·분석하여, 이용자들이 임금수준을 직군별, 직급별, 사업체규모별, 산업별 등 8개 검색조건 통해 평균, 분위별(하위 p25, 중위, 상위 p25)로 추정 제공함
+                                <ul class="basic">
+                                    <li>‘고용형태별 근로실태조사’는 직업, 고용계약 기간, 임금항목별 등 상세한 통계를 포함하고 있으나,
+                                    조사년도 다음 해에(4~5월) 공표되는 관계로 시의성이 낮음에 따라, 매 월 발표하는
+                                    「사업체노동력조사」의 산업 중분류별 임금 증감률과 연계하여 매 년 당해 연도의 임금수준
+                                    추정값을 도출함.</li>
+                                    <li>임금수준은 연간 임금이며, 정액급여(기본급+통상적수당+기타수당)와 특별급여(고정상여금+변동
+                                    상여금+성과급 등)를 합산한 금액임<br>
+                                    ※ 초과급여(연장근로수당, 휴일근로수당 등)는 변동성이 크기 때문에 제외하였음.</li>
+                                    <li>상용근로자 100인 이상인 사업체의 전일제(Full-Time) 상용근로자의 임금수준이며, 산업분류 중 ‘농업·임업 및
+                                    어업, 공공행정·국방 및 사회보장 행정, 가구내 고용활동 및 달리 분류되지 않은 자기소비생산활동, 국제 및
+                                    외국기관’은 임금정보 분석에 적합하지 않아 제외하였음.</li>
+                                    <li>직급 정보는 ‘고용형태별근로실태조사’의 시범조사 항목이며, 등기이사 등 법적 대표 및 임원・보직자는 분석대상에서 제외하였음.</li>
+                                </ul>
+                            </li>
+                            <li>2. 검색을 위한 조건 선택은 최대 3개까지만 가능하며, 반드시 직군과 직업을 먼저 선택한 후 추가로 1개 변수를 선택할 수 있음.
+                                <br>(예) ‘직군별+직급별+산업별 / 직군별+직급별+사업체규모별’ 등
+                            </li>
+                            <li>3. ‘고용형태별근로실태조사’ 조사결과에서 표본근로자 수가 60명 이상인 경우에만 임금정보를 제공하며, 검색을 위한 조건 선택 시 선택창이 안 나오는 경우는 이 기준에 부합하지 않거나 해당 정보가 없는 경우임</li>
+                            <li>4. 제공되는 임금수준은 추정치이므로 이용 시 주의해야 함.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="modal-close">닫기
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
+
+
+<script id="depth_tmpl" type="text/x-jsrender">
+	<option value="{{:occpClCd}}">{{:occpCfnm}}</option>
+</script>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer class="footer">
+				
+
+
+
+
+
+	<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+		if(!wcs_add) var wcs_add = {};
+		wcs_add["wa"] = "a93d8aeda6234";
+		if (window.wcs) {
+			wcs_do();
+		}
+	</script>
+
+
+<div class="site-wrap">
+	<p class="swiper-title">관련기관</p>
+	<div class="swiper-container swiper-initialized swiper-horizontal swiper-pointer-events">
+		<div class="swiper-wrapper" id="swiper-wrapper-2a10d0cb510cd6210da" aria-live="polite" style="transform: translate3d(-1028px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="3 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="http://laborstat.moel.go.kr" title="고용노동통계 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide03-49146ab49ff1786d882a5e48182aa2fe.svg" alt="고용노동통계">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" role="group" aria-label="4 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://kosis.kr" title="KOSIS 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide04-0320b794876f2bd972280b44a998aab9.svg" alt="KOSIS">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" role="group" aria-label="5 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://www.alio.go.kr" title="ALIO 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide05-54c95f2208318f5651a41eddd5406e87.svg" alt="ALIO">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="5" role="group" aria-label="6 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://www.index.go.kr" title="e-나라지표 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide06-992ba7259e804461ba71c516e612b96d.svg" alt="e-나라지표">
+				</a>
+			</div>
+			<div class="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="1 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://work24.go.kr" title="고용24 새 창 열림" target="_blank" tabindex="0">
+					<img src="/resources/images/common/footer-slide01-749406fb4a46eb5c40e1386c44a0c5e8.svg" alt="고용24">
+				</a>
+			</div>
+			<div class="swiper-slide swiper-slide-visible swiper-slide-next" data-swiper-slide-index="1" role="group" aria-label="2 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://labor.moel.go.kr" title="고용노동부 노동포털 새 창 열림" target="_blank" tabindex="0">
+					<img src="/resources/images/common/footer-slide02-399adb4a54b14517a591a9ec2e0deb30.svg" alt="고용노동부 노동포털">
+				</a>
+			</div>
+			<div class="swiper-slide swiper-slide-visible" data-swiper-slide-index="2" role="group" aria-label="3 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="http://laborstat.moel.go.kr" title="고용노동통계 새 창 열림" target="_blank" tabindex="0">
+					<img src="/resources/images/common/footer-slide03-49146ab49ff1786d882a5e48182aa2fe.svg" alt="고용노동통계">
+				</a>
+			</div>
+			<div class="swiper-slide swiper-slide-visible" data-swiper-slide-index="3" role="group" aria-label="4 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://kosis.kr" title="KOSIS 새 창 열림" target="_blank" tabindex="0">
+					<img src="/resources/images/common/footer-slide04-0320b794876f2bd972280b44a998aab9.svg" alt="KOSIS">
+				</a>
+			</div>
+			<div class="swiper-slide" data-swiper-slide-index="4" role="group" aria-label="5 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://www.alio.go.kr" title="ALIO 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide05-54c95f2208318f5651a41eddd5406e87.svg" alt="ALIO">
+				</a>
+			</div>
+			<div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="5" role="group" aria-label="6 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://www.index.go.kr" title="e-나라지표 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide06-992ba7259e804461ba71c516e612b96d.svg" alt="e-나라지표">
+				</a>
+			</div>
+		<div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="1 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://work24.go.kr" title="고용24 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide01-749406fb4a46eb5c40e1386c44a0c5e8.svg" alt="고용24">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="2 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://labor.moel.go.kr" title="고용노동부 노동포털 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide02-399adb4a54b14517a591a9ec2e0deb30.svg" alt="고용노동부 노동포털">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="3 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="http://laborstat.moel.go.kr" title="고용노동통계 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide03-49146ab49ff1786d882a5e48182aa2fe.svg" alt="고용노동통계">
+				</a>
+			</div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" role="group" aria-label="4 / 6" style="width: 237px; margin-right: 20px;">
+				<a href="https://kosis.kr" title="KOSIS 새 창 열림" target="_blank" tabindex="-1">
+					<img src="/resources/images/common/footer-slide04-0320b794876f2bd972280b44a998aab9.svg" alt="KOSIS">
+				</a>
+			</div></div>
+		<div class="swiper-controller">
+			<div class="swiper-button prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-2a10d0cb510cd6210da"><i class="blind">이전으로</i></div>
+			<div class="swiper-button next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-2a10d0cb510cd6210da"><i class="blind">다음으로</i></div>
+		</div>
+	<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</div>
+
+<div class="footer-info">
+	<div class="inner">
+		<div class="logo-box">
+			<a href="/pt/index.do"><img src="/resources/images/common/logo-a8eb38339c120da455eb6ff22798e037.svg" width="194" alt="임금직업포털-워크피디아"></a>
+		</div>
+		<ul class="info-desc">
+			<li><p>(27740) 충청북도 음성군 맹동면 태정로 6, 한국고용정보원</p></li>
+			<li><p><em>홈페이지 전산 이용 문의 1577-7114</em> (유료, 한국고용정보원 고객상담센터, 평일 09시~18시)</p></li>
+			<li><p><em>고용·노동 분야 제도 문의 국번없이 1350</em> (유료, 고용노동부 고객상담센터, 평일 09시~18시)</p></li>
+		</ul>
+		<div class="link-wrap">
+			<ul class="link-list">
+				<li class="link">
+					<a href="https://www.moel.go.kr" title="고용노동부 새 창 열림" target="_blank">
+						<img src="/resources/images/common/footer-link01-e5b545369eb9652f90b711fe87deeb1d.svg" alt="고용노동부">
+					</a>
+				</li>
+				<li class="link">
+					<a href="https://www.keis.or.kr" title="한국고용정보원 새 창 열림" target="_blank">
+						<img src="/resources/images/common/footer-link02-b9f407fa4c76b61fcec3ca01a5916fea.svg" alt="한국고용정보원">
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<div class="copyright">
+			<p>Copyright © 2025 Ministry of Employment and Labor, Korea Employment Information Service, All rights reserved.</p>
+		</div>
+	</div>
+</div>
+
+
+<form name="util_cmmn_cd_form" id="util_cmmn_cd_form" method="post" action="/pt/cmmn/retrieveCmmnCdListData.do"></form>
+
+<script id="util_cmmn_cd_select_tmpl" type="text/x-jsrender">
+	<select name="{{:iptName}}" id="{{:iptName}}" title="{{:title}}" class="inp {{:addClass}}" {{:function}}>
+		<option value="" >{{:optionNm}}</option>
+		{{for list}}
+			<option value="{{:cmmnCd}}" {{if cmmnCd == code}}selected="selected"{{/if}}>{{:cdnm}}</option>
+		{{/for}}
+	</select>
+</script>
+
+<script id="util_cmmn_cd_option_tmpl" type="text/x-jsrender" data-jsv-tmpl="jsvTmpl">
+	<option value="{{:cmmnCd}}" {{if cmmnCd == code}}selected="selected"{{/if}}>{{:cdnm}}</option>
+</script>
+
+<script id="util_cmmn_cd_li_tmpl" type="text/x-jsrender">
+	{{for list}}
+		<li><button name="{{:iptName}}" type="button" value="{{:cmmnCd}}"  {{if cmmnCd == code}}class="active"{{/if}} {{:function}} >{{:cdnm}}</button></li>
+	{{/for}}
+</script>
+
+<script id="util_cmmn_cd_radio_tmpl" type="text/x-jsrender" data-jsv-tmpl="jsvTmpl">
+	{{if srchYn}}
+		<li class="{{:addPlusClass}}">
+			<input type="radio" name="{{:inputName}}" id="{{:inputName}}_select_all" value="" checked />
+			<label for="{{:inputName}}_select_all">
+				<span class="rdo__checkbox"></span>
+				<span>전체</span>
+			</label>
+		</li>
+		{{for list}}
+			<li class="{{:addClass}}">
+				<input type="radio" name="{{:iptName}}" id="{{:iptName}}{{:cmmnCd}}" value="{{:cmmnCd}}" {{:function}} {{if cmmnCd == code}}checked="checked"{{/if}} />
+				<label for="{{:iptName}}{{:cmmnCd}}">
+					<span class="rdo__checkbox"></span>
+					<span>{{:cdnm}}</span>
+				</label>
+			</li>
+		{{/for}}
+	{{else}}
+		{{for list}}
+			<span class="radio {{:addClass}}">
+				<input type="radio" name="{{:iptName}}" id="{{:iptName}}{{:cmmnCd}}" value="{{:cmmnCd}}" title="{{:cdnm}}" {{:function}} {{if cmmnCd == code}}checked="checked"{{/if}} />
+				<label for="{{:iptName}}{{:cmmnCd}}">{{:cdnm}}</label>
+			</span>
+		{{/for}}
+	{{/if}}
+</script>
+
+<script id="util_cmmn_cd_check_tmpl" type="text/x-jsrender">
+	{{if srchYn}}
+		<span class="checkbox {{:addClass}}">
+			<input type="checkbox" id="{{:inputName}}_check_all" value="check_all" title="전체" onclick="CmmnCd.allCheck(this, '{{:inputName}}');" />
+			<label for="{{:inputName}}_check_all">전체</label>
+		</span>
+		{{for list}}
+			<span class="checkbox {{:addClass}}">
+				<input type="checkbox" name="{{:iptName}}" id="{{:iptName}}{{:cmmnCd}}" value="{{:cmmnCd}}" title="{{:cdnm}}" onclick="CmmnCd.allUncheck(this, '{{:iptName}}');" {{if cmmnCd == code}}checked="checked"{{/if}} />
+				<label for="{{:iptName}}{{:cmmnCd}}">{{:cdnm}}</label>
+			</span>
+		{{/for}}
+	{{else}}
+		{{for list}}
+			<span class="checkbox {{:addClass}}">
+				<input type="checkbox" name="{{:iptName}}" id="{{:iptName}}{{:cmmnCd}}" value="{{:cmmnCd}}" title="{{:cdnm}}" {{:function}} {{if cmmnCd == code}}checked="checked"{{/if}} />
+				<label for="{{:iptName}}{{:cmmnCd}}">{{:cdnm}}</label>
+			</span>
+		{{/for}}
+	{{/if}}
+</script>
+
+
+<form name="menu_dtal_form" id="menu_dtal_form" method="post" action="/pt/cmmn/menu/retrieveMenuDtalData.do">
+	<input type="hidden" id="menuId_dtal" value="PT07020000">
+</form>
+
+<script id="menu_dc_cn_data_tmpl" type="text/x-jsrender" data-jsv-tmpl="jsvTmpl">
+	{{:menuDcCn}}
+</script>
+
+
+<script id="recordCountPerPage_tmpl" type="text/x-jsrender">
+	<option value="{{:size}}">{{:size}}개씩 보기</option>
+</script>
+
+<script id="paginationInfo_tmpl" type="text/x-jsrender">
+	<p class="result-text">총 <span class="num">{{:totalRecordCount}}</span>건</p>
+</script>
+
+<script id="prve_pagination_tmpl" type="text/x-jsrender">
+	<li class="previous {{if currentPageNo === 1}}none{{/if}}">
+		<a href="javascript:{{:jsFunction}}({{:currentPageNo - 1}});" title="이전 페이지로 이동"><i class="icon"></i>이전</a>
+	</li>
+	<li class="first {{if currentPageNo === 1}}none{{/if}}">
+		<a href="javascript:{{:jsFunction}}(1);" title="처음 페이지로 이동">1</a>
+	</li>
+</script>
+
+<script id="pagination_tmpl" type="text/x-jsrender">
+    {{if currentPageNo == pageNo}}
+        <li>
+            <a href="javascript:void(0);" class="now" title="현재 페이지">{{:pageNo}}</a>
+        </li>
+    {{else}}
+        <li>
+            <a href="javascript:{{:jsFunction}}({{:pageNo}});" class="{{:active}}" title="{{:pageNo}}번째 페이지로 이동">{{:pageNo}}</a>
+        </li>
+    {{/if}}
+</script>
+
+<script id="next_pagination_tmpl" type="text/x-jsrender">
+	<li class="last {{if currentPageNo === totalPageCount}}none{{/if}}">
+		<a href="javascript:{{:jsFunction}}({{:totalPageCount}});"  title="마지막 페이지로 이동">{{:totalPageCount}}</a>
+	</li>
+	<li class="next {{if currentPageNo === totalPageCount}}none{{/if}}">
+		<a href="javascript:{{:jsFunction}}({{:currentPageNo + 1}});" title="다음 페이지로 이동">다음<i class="icon"></i></a>
+	</li>
+</script>
+
+<script id="openLayerData_tmpl" type="text/x-jsrender">
+	{{if ppupLinkTrgtUrla != null && ppupLinkTrgtUrla != ""}}
+		<a href="{{:ppupLinkTrgtUrla}}" target="_blank" title="{{:ppupLinkSjnm}}">
+			{{:allCn}}
+		</a>
+	{{else}}
+		{{:allCn}}
+	{{/if}}
+</script>
+			</footer>
+		</div>
+	
+<div id="whale-extension-shopping-lens"></div></body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></html>

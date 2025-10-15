@@ -52,29 +52,30 @@
 
     /* Document Ready Function */
     /* 251010 웹 접근성 품질개선 - 조건 선택 시 열고닫힘 텍스트 추가 (ej) */
-	$(document).ready(function() {
+	document.addEventListener('DOMContentLoaded', function() {
 		// 페이지 로드 시 상태에 따라 title 초기화
-		$('.accordion-btn').each(function() {
-			var $btn = $(this);
-			var $accordion = $btn.closest('.accordion');
-			if ($accordion.hasClass('active')) {	
-				$btn.attr('title', '조건 열림');
+		document.querySelectorAll('.accordion-btn').forEach(function(btn) {
+			var accordion = btn.closest('.accordion');
+			if (accordion && accordion.classList.contains('active')) {
+				btn.setAttribute('title', '조건 열림');
 			} else {
-				$btn.attr('title', '조건 닫힘');
+				btn.setAttribute('title', '조건 닫힘');
 			}
 		});
 
 		// 클릭 시 상태에 따라 title 변경
-		$(document).on('click', '.accordion-btn', function() {
-			var $btn = $(this);
-			var $accordion = $btn.closest('.accordion');
-			setTimeout(function() {
-				if ($accordion.hasClass('active')) {
-					$btn.attr('title', '조건 열림');
-				} else {
-					$btn.attr('title', '조건 닫힘');
-				}
-			}, 10);
+		document.addEventListener('click', function(e) {
+			if (e.target.classList.contains('accordion-btn')) {
+				var btn = e.target;
+				var accordion = btn.closest('.accordion');
+				setTimeout(function() {
+					if (accordion && accordion.classList.contains('active')) {
+						btn.setAttribute('title', '조건 열림');
+					} else {
+						btn.setAttribute('title', '조건 닫힘');
+					}
+				}, 10);
+			}
 		});
 	});
     /* // 251010 웹 접근성 품질개선 - 조건 선택 시 열고닫힘 텍스트 추가 (ej) */
