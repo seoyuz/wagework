@@ -2848,6 +2848,13 @@ h5 {
   font-weight: 600;
   vertical-align: top;
 }
+
+/* 251016 웹 접근성 품질개선 - <a>태그 구조 수정 (yz) */
+.archive-board .item a{
+  display: block;
+}
+/* // 251016 웹 접근성 품질개선 - <a>태그 구조 수정 (yz) */
+
 .archive-board .item .title {
   margin-bottom: 20px;
   font-size: 18px;
@@ -3895,7 +3902,8 @@ h5 {
   gap: 10px;
 }
 .tab-desc .tab-tag + .basic {
-  margin-top: 40px;
+  margin-top: 0px;
+  margin-left: 10px;
 }
 .tab-desc .basic li {
   font-size: 17px;
@@ -6558,10 +6566,14 @@ textarea.inp {
 }
 input.inp.long, select.inp.long { width:280px} /* 250320 임의 추가 (ej) */
 
-/* 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
+/* 251017 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
 input.inp, textarea.inp { padding-right: 40px;}
-.table-box.type2 .inp.engNumDashDot + .form-control-clear { margin-left: -30px; transform: translateX(-10px);} /* 임금체계 헬프데스크 - 이메일 첫번째 */
-/* // 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
+.table-box.type2 .inp.engNumDashDot + .form-control-clear { 
+  margin-left: -25px;
+  transform: translateX(-10px);
+  margin-top: 0;
+} /* 임금체계 헬프데스크 - 이메일 첫번째 */
+/* // 251017 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
 
 select.inp { padding-right:35px;}    /* 250319 (ej) */
 .inp.auto { width:auto; }/* 250320 (ej) */
@@ -7142,7 +7154,12 @@ select:disabled {
 .wage-desc { font-size: 20px; margin-top: 5px; padding-left: 30px; line-height: 150%;}
 .elearning-ico-box { margin: 40px 0 60px; display: flex; flex-wrap: wrap; gap:20px;    justify-content: space-between;}
 .elearning-ico-box .item { text-align: center; width:calc(25% - 15px); border-radius: 20px; border: 1px solid #ddd; background-color: #fafffc; display: inline-block; background-repeat: no-repeat; background-position: center 30px;}
-.elearning-ico-box .item .middle { display: block; padding-top: 30px; padding-right:30px; padding-left: 30px;}
+
+/* 251016 웹 접근성 품질개선 - <a>태그 수정 (yz) */
+.elearning-ico-box .item .middle { display: block; padding: 30px;}
+.elearning-ico-box .item .middle a{ display: block;}
+/* // 251016 웹 접근성 품질개선 - <a>태그 수정 (yz) */
+
 .elearning-ico-box .item .video { display: block; padding-right:30px; padding-left: 30px; padding-bottom: 24px;}
 .elearning-ico-box .item .tit { font-size: 22px; font-weight: 500; line-height: 150%;     margin: 114px 0 0; display: inline-block; width: 100%;}
 .elearning-ico-box .item .more { font-size: 17px; position: relative; display: block; text-align: right; padding-right: 34px; margin-top: 20px; color: #555;}
@@ -7152,7 +7169,7 @@ select:disabled {
 .elearning-ico-box .item.item-elearning02 { background-image: url("../images/contents/ico_elearning02.png");}
 .elearning-ico-box .item.item-elearning03 { background-image: url("../images/contents/ico_elearning03.png");}
 .elearning-ico-box .item.item-elearning04, .elearning-ico-box .item:last-child { background-image: url("../images/contents/ico_elearning04.png");}
-.elearning-ico-box .item a:hover { background-color: #edfcf0; }
+/* .elearning-ico-box .item a:hover { background-color: #edfcf0; } */
 
 /* 250416 (ej) */
 .elearning-ico-box .item .ready { display:inline-block; font-weight:500; width:100%; border:1px solid #cad5ed; background:#eef3ff; border-radius:10px; color:#254197; display:inline-flex; align-items:center; justify-content:center; padding:8px; margin-top:20px; position:relative; font-size:17px; height:38px;}
