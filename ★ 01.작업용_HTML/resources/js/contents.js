@@ -80,6 +80,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	
+	/* 251017 웹 접근성 품질개선 - 탭메뉴 title 초기화 및 생성 (yz) */
+	function setTabTitles(selector) {
+		const tabs = document.querySelectorAll(selector);
+		if (!tabs) return;
+
+		tabs.forEach(btn => {
+			btn.setAttribute('title', btn.classList.contains('active') ? '선택됨' : '');
+		});
+
+		tabs.forEach(btn => {
+			btn.addEventListener('click', function () {
+				tabs.forEach(b => 
+					b.setAttribute('title', '')
+				);
+				this.setAttribute('title', '선택됨');
+			});
+		});
+	}
+
+	setTabTitles('.tab-menu button');
+	setTabTitles('.tab-desc button.tab-tag');
+	/* // 251017 웹 접근성 품질개선 - 탭메뉴 title 초기화 및 생성 (yz) */
 
 
     // 체크박스 title 속성  추가
@@ -229,9 +252,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	//아코디언
+	/* 251016 웹 접근성 품질개선 - 아코디언 코드 분리 (yz) */
 	const accordion = document.querySelectorAll('.accordion-wrap .accordion');
 	if(accordion) {
 		accordion.forEach((item) => {
+			const accordionBtn = item.querySelector('.accordion-btn');
+
+			accordionBtn.addEventListener('click', () => {
+				if(item.classList.contains('active')){
+					item.classList.remove('active');
+					accordionBtn.innerText = '펼치기';
+				} else{
+					item.classList.add('active');
+					accordionBtn.innerText ='닫기';
+				}
+			});
+		});
+	}
+
+	const scAcc = document.querySelectorAll('.search-criteria .accordion-wrap .accordion');
+	if(scAcc) {
+		scAcc.forEach((item) => {
 			const accordionBtn = item.querySelector('.accordion-btn');
 			const acoordionLimit = item.querySelector('.acoordion-limit');
 			const addInfo = document.getElementById("addInfoYn");
@@ -247,8 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					if(addInfo) {
 						addInfo.disabled = false;
 					}
-					item.classList.remove('active');
-					accordionBtn.innerText = '검색조건 선택';
+					accordionBtn.innerText = '검색조건 해제';
 				} else{
 					if(addInfo && acoordionLimit &&  activeCnt.length == 2){
 						addInfo.checked = false;
@@ -258,12 +298,12 @@ document.addEventListener('DOMContentLoaded', () => {
 						alert("검색조건은 3개까지 선택이 가능합니다.");
 						return false;
 					}
-					item.classList.add('active');
-					accordionBtn.innerText ='검색조건 해제';
+					accordionBtn.innerText ='검색조건 선택';
 				}
 			});
 		});
 	}
+	/* // 251016 웹 접근성 품질개선 - 아코디언 코드 분리 (yz) */
 
 
 	const wageWrap = document.querySelector('.box-solid .wage');
