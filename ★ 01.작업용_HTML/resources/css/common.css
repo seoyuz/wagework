@@ -2189,15 +2189,15 @@ ul.img-col3 li:last-child {
 .blockUI.blockMsg.blockPage { left:50% !important; top: 50% !important; transform: translate3d(-50%, -50%, 0) !important;}
 
 
-/* 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
-.form-control-clear { position: relative; pointer-events: auto; cursor: pointer; display: inline-block; width: 17px; min-width: 17px; height: 17px; background: #555; text-indent: -99999px; border-radius: 100px; box-sizing: border-box; padding: 0; margin-left: -30px;}
+/* 251017 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
+.form-control-clear { position: relative; pointer-events: auto; cursor: pointer; display: inline-block; width: 17px; min-width: 17px; height: 17px; background: #555; text-indent: -99999px; border-radius: 100px; box-sizing: border-box; padding: 0; margin-left: -37px; float: right; margin-top: 10px; margin-right: 10px;}
 /* .form-control-clear { z-index: 1; position: absolute; top: 50%; transform: translateY(-50%); } */
 .form-control-clear::before, .form-control-clear::after { content: ''; position: absolute; left: 50%; top: 50%; width: 9px; height: 1px; background: #fff; border-radius: 2px; transform-origin: center;}
 .form-control-clear::before {transform: translate(-50%, -50%) rotate(45deg);}
 .form-control-clear::after {transform: translate(-50%, -50%) rotate(-45deg);}
 .form-control-clear.hidden {display: none;}
-
-/* 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
+.secondary-category .form-control-clear {margin-top: 15px;}
+/* 251017 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
 
 
 
