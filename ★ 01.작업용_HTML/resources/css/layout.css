@@ -2367,7 +2367,7 @@ body.pc .header:hover .header__inner, .sub .header .header__inner {
 
 /* 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
 .unity-search-wrap .inp {padding-right: 145px;}
-.unity-search-wrap .form-control-clear { position: absolute; right: 145px; top: 50%; transform: translateY(-50%);}
+.unity-search-wrap .form-control-clear { position: absolute; right: 145px; top: 50%; transform: translateY(-50%); margin-top: 0;}
 /* // 251014 웹 접근성 품질개선 - input/textarea.inp 지우기 버튼 동적 생성 (ej) */
 
 

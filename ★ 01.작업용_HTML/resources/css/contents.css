@@ -6185,6 +6185,17 @@ ul.basic.job-list li a:hover {
 }
 .list-wrap .link-list p span.green {
   font-weight: 600;
+
+  /* 251020 웹 접근성 품질개선 - 검색결과 하이라이트 (ej) */
+  background-color: #fff67c; color: #000;
+  /* // 251020 웹 접근성 품질개선 - 검색결과 하이라이트 (ej) */
+}
+
+.list-wrap .link-list em > .green {
+
+  /* 251020 웹 접근성 품질개선 - 검색결과 하이라이트 (ej) */
+  background-color: #fff67c; color: #000;
+  /* // 251020 웹 접근성 품질개선 - 검색결과 하이라이트 (ej) */
 }
 .list-wrap .view-more {
   position: absolute;
