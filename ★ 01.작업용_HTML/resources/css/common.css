@@ -200,13 +200,13 @@ select.type3, .select.type3 {
 }
 
 
-::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
+/* ::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
 	{
 	display: block;
 	width: 20px;
 	height: 1px;
 	background: #ddd;
-}
+} */
 
 ::-webkit-scrollbar-track {
 	background: #ddd;
@@ -228,13 +228,13 @@ select.type3, .select.type3 {
 	height: 10px;
 }
 
-.f_scroller::-webkit-scrollbar-button:start:decrement, .f_scroller::-webkit-scrollbar-button:end:increment
+/* .f_scroller::-webkit-scrollbar-button:start:decrement, .f_scroller::-webkit-scrollbar-button:end:increment
 	{
 	display: block;
 	width: 20px;
 	height: 1px;
 	background: #eee;
-}
+} */
 
 .f_scroller::-webkit-scrollbar-track {
 	background: #eee;

@@ -6115,12 +6115,12 @@ ul.basic.job-list li a:hover {
 .editor figure.image.image-style-block-align-left {
   margin-left: 0;
   margin-right: auto;
-  max-width: clac(100% - 1.5em);
-}
+  max-width: calc(100% - 1.5em); /* 251021 웹 접근성 품질개선 - 웹 호환성 (ej) */
+} 
 .editor figure.image.image-style-block-align-right {
   margin-left: auto;
   margin-right: 0;
-  max-width: clac(100% - 1.5em);
+  max-width: calc(100% - 1.5em); /* 251021 웹 접근성 품질개선 - 웹 호환성 (ej) */
 }
 .editor h1, .editor h2, .editor h3, .editor h4, .editor h5, .editor h6 {
   line-height: 1.6;
@@ -7638,9 +7638,9 @@ select:disabled {
     height: 430px;
     background-color: white;
   }
-  .category-scroll-wrap .category-list::-webkit-scrollbar {
+  /* .category-scroll-wrap .category-list::-webkit-scrollbar {
     display: none;
-  }
+  } */
   .category-scroll-wrap .category-list ul li:last-child {
     border-bottom: 1px solid #EEEEEE;
   }
@@ -7685,9 +7685,9 @@ select:disabled {
     padding: 0;
     background-color: white;
   }
-  .category-scroll-wrap.mobile .category-list::-webkit-scrollbar {
+  /* .category-scroll-wrap.mobile .category-list::-webkit-scrollbar {
     display: none;
-  }
+  } */
   .category-scroll-wrap.mobile .category-list ul li + li {
     border-top: 1px solid #EEEEEE;
   }
@@ -8435,9 +8435,9 @@ select:disabled {
   .classification-wrap {
     overflow: auto;
   }
-  .classification-wrap::-webkit-scrollbar {
+  /* .classification-wrap::-webkit-scrollbar {
     display: none;
-  }
+  } */
   .classification-list {
     margin: 20px 0px 0;
     display:flex; /* 250318 (ej) */
@@ -9037,7 +9037,7 @@ select:disabled {
     margin-left: 0;
   }
   .box-solid.archiving-header .archiving-meta {
-    margin: 10p 0 0; /* 250314 (ej)*/
+    margin: 10px 0 0; /* 251021 웹 접근성 품질개선 - 웹 호환성 (ej) */
   }
   .box-solid.archiving-header .archiving-meta .btn {
     display: block;
